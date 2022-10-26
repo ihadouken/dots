@@ -1,0 +1,35 @@
+font_size: 20
+theme: neon
+tree_1:
+  search:
+    wiby: "https://www.wiby.me/"
+    marginalia: "https://search.marginalia.nu/"
+    sms:  "https://searchmysite.net/"
+    oldvista: "https://oldavista.com/"
+  general:
+    github: "https://www.github.com/"
+    leetcode: "https://www.leetcode.com"
+  people:
+    neovoid: "https://neovoid.tk/"
+    gtlsgamr: "https://hitarththummar.xyz/posts/archive.html"
+    bugswriter: "https://bugswriter.com/"
+
+tree_2:
+  documents:
+    archwiki: 
+      - "https://archlinux.org/"
+      - "arch wiki"
+    python:
+      - "https://docs.python.org"
+      - "python docs"
+    archive.org: "https://archive.org/"
+  entertainment:
+    xkcd: "https://xkcd.com/"
+    chess: "https://chess.com/"
+    odysee: "https://www.odysee.com/"
+    memes:  "https://www.reddit.com/r/memes/"
+    unixp0rn: "https://www.reddit.com/r/unixporn/"
+  social:
+    whatsapp: "https://web.whatsapp.com/"
+    instagram: "https://instagram.com/"
+    gmail: "https://mail.google.com/"

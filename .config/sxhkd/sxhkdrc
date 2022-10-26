@@ -1,0 +1,177 @@
+# System
+alt + ctrl + s
+	shutdown now && paplay '/usr/share/sounds/freedesktop/stereo/service-logout.oga'
+alt + ctrl + r
+	shutdown -r now && paplay '/usr/share/sounds/freedesktop/stereo/service-logout.oga'
+super + shift + l
+	slock
+
+# Windows
+super + i
+	invert-win-color.sh
+super + Escape
+	xkill
+
+# Rofi
+ctrl + space
+	rofi -show run -config ~/.cache/wal/colors-rofi-dark.rasi
+#alt + Tab
+	#rofi -show window -config ~/.cache/wal/colors-rofi-dark.rasi
+super + c
+	rofi -show calc -modi calc -no-show-match -no-sort -config ~/.cache/wal/colors-rofi-dark.rasi
+
+# Tray
+super + shift + b
+	rfkill toggle bluetooth
+super + shift + w
+	rfkill toggle wifi
+super + v
+	killall volumeicon && volumeicon -d default &
+
+# Fn Keys
+XF86MonBrightnessDown
+	xbacklight -dec 4
+XF86MonBrightnessUp
+	xbacklight -inc 4
+XF86ScreenSaver
+	sleep 1; xset dpms force off
+XF86TouchpadToggle
+	touchpad_toggle.sh
+XF86AudioMute
+	amixer set Master toggle && play '/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga'
+XF86AudioLowerVolume
+	amixer set Master 5%- unmute && play '/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga'
+XF86AudioRaiseVolume
+	amixer set Master 5%+ unmute && play '/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga'
+Print
+	dm-maim
+
+# dm-player
+super + shift + p
+	mpvctl.sh -p
+super + less
+	mpvctl.sh -b
+super + greater
+	mpvctl.sh -f
+super + colon
+	mpvctl.sh -r
+
+# Applications
+super + Return
+	$MYTERM
+alt + e
+	$MYTERM -t FM -e ranger	
+alt + v
+	$MYTERM -e nvim
+super + n
+	$MYTERM -t Mail -e neomutt
+super + alt + h
+	$MYTERM -t Htop -e htop
+super + b
+	qutebrowser --qt-flag ignore-gpu-blocklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4
+super + alt + c
+	qalculate-gtk
+
+# Miscellaneous
+super + shift + s
+	tts $(xsel)
+ctrl + shift + t
+	$MYTERM -t scratchpad
+shift + Print
+	screenshot.sh
+super + shift + v
+	camtoggle.sh
+ctrl + m
+	mictoggle.sh
+super + r
+	killall redshift || redshift &
+alt + c
+	clip -s 
+alt + p
+	clip -l
+
+# Dmenu
+super + shift + Return
+	dmenu_run -i -l 20 -fn Mononoki -g 3 -X 0 -Y 0 -W 680 -p 'Run: '
+	#dmenu_run -i -l 20 -fn Mononoki -g 3 -x 0 -y 0 -z 680 -p 'Run: '
+super + p; a
+	dm-sounds
+super + p; b
+	dm-bookman
+super + p; shift + b
+	dm-setbg
+super + p; c
+	rice_lightline.sh && dtos-colorscheme
+super + p; shift + c
+	dm-colorpicker
+super + p; d
+	dm-dict
+super + p; e
+	dm-edit
+super + p; shift + e
+	dm-emoji
+super + p; f
+	dm-mount -m
+super + p; shift + f
+	dm-mount -u
+super + p; h
+	dm-hub
+super + p; i
+	dm-wifi
+super + p; shift + i
+	dm-ip
+super + p; k
+	dm-kill
+super + p; l
+	dmenu -fn JetBrainsMono -p "Search:" | look $(cat /dev/stdin) | dmenu -i -l 20 -fn JetBrainsMono -p "Matches: " | tr -d '\n' | xclip -sel c
+super + p; m
+	dm-music
+super + p; shift + m
+	dm-man
+super + p; n
+	dm-note
+super + p; p
+	passmenu -i -fn 'Mononoki-nerd-font'
+#passmenu -i -fn 'Mononoki-14'
+super + p; q
+	dm-logout
+super + p; r
+	dm-radio
+super + p; shift + r
+	dm-reddit
+super + p; s
+	dm-websearch
+super + p; t
+	dm-translate
+super + p; u
+	upload
+super + p; v
+	dm-youtube
+super + p; w
+	dm-weather
+super + p; y
+	dm-yt-music
+super + p; shift + y
+	dm-yt-rss
+super + p; slash
+	dtos-help
+
+# Emacs
+super + e; d
+	$MYEMACS
+super + e; b
+	$MYEMACS --eval '(ibuffer)' 
+super + e; e
+	$MYEMACS --eval '(dired nil)'
+super + e; c
+	$MYEMACS --eval '(erc)'
+super + e; r
+	$MYEMACS --eval '(elfeed)'
+super + e; s
+	$MYEMACS --eval '(eshell)'
+super + e; t
+	$MYEMACS --eval '(+vterm/here nil)'
+super + e; w
+	$MYEMACS --eval '(doom/window-maximize-buffer(eww "google.com"))'
+super + e; m
+	$MYEMACS --eval '(emms)' --eval '(emms-play-directory-tree "~/Music/")'

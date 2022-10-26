@@ -1,0 +1,152 @@
+#!/bin/sh
+# Common aliases for POSIX complaint shells
+
+### XDG BASE DIR ###
+alias abook="abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile $XDG_DATA_HOME/abook/addressbook"
+alias gd="gdrive --config $HOME/.config/gdrive"
+alias info="pinfo --rcfile=$HOME/.config/pinforc"
+alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+
+# to enable auto-completion
+alias nohup='nohup '
+alias sudo='sudo '
+alias doas="doas -- "
+
+### why not decrease verbosity ? ###
+alias c='/bin/clear'
+alias ccat='/usr/bin/source-highlight-esc.sh'
+alias cp2cb='xclip -sel c'
+alias fm='. /usr/bin/ranger'
+alias lc='leetcode'
+alias nwre='sudo systemctl stop NetworkManager && sudo systemctl start NetworkManager'
+alias xev='(xev &) && sleep 10; killall xev'
+
+# quick access mounted drives
+alias drives='cd /run/media/hadouken && ls'
+alias mtp="cd $XDG_RUNTIME_DIR/gvfs && ls"
+
+# protonvpn
+alias novpn='doas protonvpn d'
+alias vpn='doas protonvpn -f c'
+
+# ps
+alias psa="ps auxf"
+alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias psmem='ps auxf | sort -nr -k 4'
+alias pscpu='ps auxf | sort -nr -k 3'
+
+# vim and emacs
+alias vim="nvim"
+alias emc="/usr/bin/emacs -nw"
+alias em="devour emacsclient -c -a 'emacs'"
+alias doomsync="~/.emacs.d/bin/doom sync"
+alias doomdoctor="~/.emacs.d/bin/doom doctor"
+alias doomupgrade="~/.emacs.d/bin/doom upgrade"
+alias doompurge="~/.emacs.d/bin/doom purge"
+
+# get error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+# termbin
+alias tb="nc termbin.com 9999 | tee -a $XDG_DATA_HOME/upload.sh/uploadhst"
+
+# the terminal rickroll
+alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+
+# pacman
+alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
+alias unlock='doas rm /var/lib/pacman/db.lck'    # remove pacman lock
+alias pacclean='sudo pacman -Rns $(pacman -Qtdq); yay -Sc --noconfirm'  # remove orphaned packages
+
+# ls
+alias ll="exa -alh --color=always --group-directories-first"
+alias la="exa -a --color=always --group-directories-first"
+alias l.="ls -a | grep -E "^\." | tr '\n' ' '"
+alias lx='exa -lahgH'
+
+### useful flags###
+# with basic utils
+alias mkdir='mkdir -pv'
+alias diff='diff --color=auto'
+alias shred='shred -uvzn3'
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+alias lynx='lynx -cfg=~/.lynx/lynx.cfg -lss=~/.lynx/lynx.lss -vikeys'
+# with other programs
+alias anime='ani-cli -q "best" -c'
+alias cat='bat -pp'
+alias def="sdcv -u \"Oxford Advanced Learner's Dictionary\""
+alias dl='aria2c -d "$HOME/Downloads" --seed-time=0 -x 3 --summary-interval=300'
+alias ftp='lftp -p 2121 192.168.1.82'
+#alias hk='oi -rq'
+alias tg='tg -WN'
+alias speed="speedtest-cli --no-upload --bytes --secure"
+alias tclk='tty-clock -Dbtc -C5 -d 59'
+alias typist='gtypist -e 4% -b -t -i -c 1,0 --banner-colours=0,1,0,0'
+
+
+### cool one liners ###
+alias clk='printf "\033[1;35m%s\n\033[0m" "$(date +"%l:%M %p")"'
+alias clr='/bin/clear; echo; seq 1 $(tput cols) | sort -R | spark | lolcat; echo'
+alias del='([[ ! -d /tmp/Trash ]] && \mkdir /tmp/Trash ); \mv -f -t /tmp/Trash'
+alias dtconky='wm=$(wmctrl -m | head -n 1 | cut -d" " -f 2) && ([[ "$wm" == "qtile" ]] && conky -c $HOME/.config/conky/qtile/doom-one-01.conkyrc || conky -c $HOME/.config/conky/xmonad/doom-one-01.conkyrc)'
+alias fopen='open "$(find / -type f 2> /dev/null | fzf)"'
+alias hbak="mv $HISTFILE $HOME/Backups/hbak/$(basename $HISTFILE)-$(date +%Y.%m.%d.%H-%M)"
+alias contacts='echo "dialog_list" | telegram-cli -C -D | tail +2 | head -n -2'
+alias dotfiles='/usr/bin/git --git-dir=$MY_SRC_DIR/dotfiles --work-tree=$HOME'
+
+### For integration with pywal ###
+alias zathura="$XDG_DATA_HOME/wal/zathura-wal"
+
+### For power-corp ###
+alias deploy="doas rm -fr /var/www/power-corp && doas mv $MY_SRC_DIR/power-corp /var/www/ && doas chown -R http:http /var/www/power-corp && doas systemctl start nginx && doas systemctl start power-corp && cd /var/log"
+alias pc="cd $MY_SRC_DIR/power-corp && source venv/bin/activate"
+alias dbase='mariadb -u PC-admin --password=OY8\"3asJrF POWER_CORP'
+
+### The titan alias to cleanup my history ###
+alias hclean="sed -i '/Q2/d; /nincat/d; /htop/d; /^ani/d; /^pidof/d; /^killall/d; /^clr/d; /^echo/d; /^mpv/d; /^systemctl/d; /^cppr/d; /^xprop/d; /^man/d; /^tldr/d; /^upload/d; /^a=/d; /^b=/d; /^c=/d; /^hlen/d; /^confbak/d; /^hbak/d; /^tclk$/d; /^score$/d; /^neofetch$/d; /^fm$/d; /^hclean$/d; /^fg/d; /^bg/d; /^nohup/d; /^disown/d; /^test/d; /^pls$/d; /^vim/d; /^ytfzf/d; /^arci/d; /^info/d; /^play/d; /^ansi/d; /^speedtest/d; /^alias/d; /^merge$/d; /^clk$/d; /^speedtest-cli/d; /^dm-/d; /^mplay/d; /^notify-send/d; /^kill/d; /^rnnoise/d; /^rmnoise/d; /^xcolor/d; /^colpicker/d; /^curl ifconfig.me$/d; /^ip addr$/d; /^ex /d; /^look/d; /^msg/d; /tmux/d; /^say/d; /^date$/d; /^mupdf/d; /^mkdir/d; /^rmdir/d; /^touch/d; /^diff/d; /^rmdir/d; /--help/d; /^python$/d; /^micro/d; /^checkupdates/d; /mk.jpg/d; /dpmk/d; /^xbacklight/d; /^bpython$/d; /^cppr/d; /^cr/d; /^colorscript/d; /^pgrep$/d; /^exit$/d; /^pwd$/d; /^tty-clock$/d; /^la$/d; /^lx$/d; /^ls$/d; /^$/d; /^cd/d; /^err/d; /^cat/d; /^tree/d; /^ll/d; /^up/d; /^lyrics/d; /^locate/d; /^lolcat/d; /^song/d; /^open/d; /^quiet/d; /^echo/d; /^\\ls/d; /^printf/d; /^icons$/d; /^tty$/d; /^conky/d; /^pkill/d; /^rfkill/d; /ping/d; /^re$/d; /^cat/d; /^bat/d; /^du -sh/d; /^umount/d; /^mount/d; /^blkid$/d; /^lsblk$/d; /^df$/d; /^free/d; /^less/d; /^hfind/d; /^dm-/d; /^whereis/d; /^olog/d; /^c$/d; /^8$/d; /^:q$/d; /^:w$/d; /^timer/d; /^clear/d; /^mlog/d; /^wc -l/d; /^mus/d; /^cleanup/d; /^grep/d; /^incognito/d; /^pacman -Q/d; /^emacs/d' $HISTFILE"
+
+### functions ###
+
+# navigation
+up () {
+  local d=""
+  local limit="$1"
+
+  # Default to limit of 1
+  if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
+    limit=1
+  fi
+
+  for ((i=1;i<=limit;i++)); do
+    d="../$d"
+  done
+
+  # perform cd. Show error if cd fails
+  if ! cd "$d"; then
+    echo "Couldn't go up $limit dirs.";
+  fi
+}
+
+# substitute a regex with another regex in previous command
+sub() {
+    local cmd="$(tail -n 1 $HOME/.bash_history | sed "s/$1/$2/g")"
+    [[ -n "cmd" ]] && echo $cmd && eval "$cmd"
+}
+
+# rename without giving full path twice when not in the indicated directory
+rn() {
+    local orig=$1
+    mv -v $1 ${orig%/*}/$2
+}
+
+# quickly backup/restore individual files
+bak() {
+    if [[ "$1" == -r ]]; then
+        shift 1
+        cp -i "$1" "${1/%.bak}"
+    else
+        cp -i "$1" "$1.bak"
+    fi
+}

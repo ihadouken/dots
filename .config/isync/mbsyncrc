@@ -1,0 +1,89 @@
+IMAPAccount sharmarahul41928-gmail
+Host imap.gmail.com
+User sharmarahul41928@gmail.com
+PassCmd "pass accounts.google.com/sharmarahul41928@gmail.com"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore sharmarahul41928-gmail-remote
+Account sharmarahul41928-gmail
+
+MaildirStore sharmarahul41928-gmail-local
+Subfolders Verbatim
+Path ~/Mail
+Inbox ~/Mail/Inbox
+
+Channel sharmarahul41928-gmail-inbox
+Master :sharmarahul41928-gmail-remote:
+Slave :sharmarahul41928-gmail-local:
+Patterns "INBOX"
+Create Both
+Expunge Both
+SyncState *
+
+Channel sharmarahul41928-gmail-trash
+Master :sharmarahul41928-gmail-remote:"[Gmail]/Bin"
+Slave :sharmarahul41928-gmail-local:"[sharmarahul41928].Bin"
+Create Both
+Expunge Both
+SyncState *
+
+Channel sharmarahul41928-gmail-sent
+Master :sharmarahul41928-gmail-remote:"[Gmail]/Sent Mail"
+Slave :sharmarahul41928-gmail-local:"[sharmarahul41928].Sent Mail"
+Create Both
+Expunge Both
+SyncState *
+
+Channel sharmarahul41928-gmail-all
+Master :sharmarahul41928-gmail-remote:"[Gmail]/All Mail"
+Slave :sharmarahul41928-gmail-local:"[sharmarahul41928].All Mail"
+Create Both
+Expunge Both
+SyncState *
+
+Channel sharmarahul41928-gmail-starred
+Master :sharmarahul41928-gmail-remote:"[Gmail]/Starred"
+Slave :sharmarahul41928-gmail-local:"[sharmarahul41928].Starred"
+Create Both
+Expunge Both
+SyncState *
+
+# GROUPS PUT TOGETHER CHANNELS, SO THAT WE CAN INVOKE
+# MBSYNC ON A GROUP TO SYNC ALL CHANNELS
+#
+# FOR INSTANCE: "mbsync gmail" GETS MAIL FROM
+# "gmail-inbox", "gmail-sent", and "gmail-trash"
+#
+Group sharmarahul41928-gmail
+Channel sharmarahul41928-gmail-inbox
+Channel sharmarahul41928-gmail-sent
+Channel sharmarahul41928-gmail-trash
+Channel sharmarahul41928-gmail-all
+Channel sharmarahul41928-gmail-starred
+
+IMAPStore sharmarahul41928@gmail.com-remote
+Host imap.gmail.com
+Port 993
+User sharmarahul41928@gmail.com
+PassCmd "pass sharmarahul41928@gmail.com"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore sharmarahul41928@gmail.com-local
+Subfolders Verbatim
+Path /home/hadouken/.local/share/mail/sharmarahul41928@gmail.com/
+Inbox /home/hadouken/.local/share/mail/sharmarahul41928@gmail.com/INBOX
+
+Channel sharmarahul41928@gmail.com
+Expunge Both
+Far :sharmarahul41928@gmail.com-remote:
+Near :sharmarahul41928@gmail.com-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+

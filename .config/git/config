@@ -1,0 +1,18 @@
+[user]
+	name = Rahul Sharma
+	email = rsharma842756@gmail.com
+[core]
+    editor = nvim
+[init]
+    defaultBranch = main
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+[credential]
+	helper = 
+	helper = /usr/share/git-credential-manager-core/git-credential-manager-core
+	credentialStore = gpg
+[credential "https://dev.azure.com"]
+	useHttpPath = true

@@ -1,0 +1,74 @@
+-- Xmobar (http://projects.haskell.org/xmobar/)
+-- This is one of the xmobar configurations for DTOS.
+-- This config is packaged in the DTOS repo as 'dtos-xmobar'
+-- Color scheme: Nord
+-- Dependencies: 
+   -- otf-font-awesome 
+   -- ttf-mononoki 
+   -- ttf-ubuntu-font-family
+   -- htop
+   -- emacs
+   -- pacman (Arch Linux)
+   -- trayer
+   -- 'dtos-local-bin' (from dtos-core-repo)
+
+Config { font            = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Mononoki:pixelsize=11:antialias=true:hinting=true"
+                           , "xft:Font Awesome 6 Free Solid:pixelsize=12"
+                           , "xft:Font Awesome 6 Brands:pixelsize=12"
+                           ]
+       , bgColor      = "#2E3440"
+       , fgColor      = "#D8DEE9"
+       -- Position TopSize and BottomSize take 3 arguments:
+       --   an alignment parameter (L/R/C) for Left, Right or Center.
+       --   an integer for the percentage width, so 100 would be 100%.
+       --   an integer for the minimum pixel height for xmobar, so 24 would force a height of at least 24 pixels.
+       --   NOTE: The height should be the same as the trayer (system tray) height.
+       , position       = TopSize L 100 24
+       , lowerOnStart = True
+       , hideOnStart  = False
+       , allDesktops  = True
+       , persistent   = True
+       , iconRoot     = ".config/xmobar/xpm/"  -- default: "."
+       , commands = [
+                        -- Echos a "penguin" icon in front of the kernel output.
+                      Run Com "echo" ["<fn=3>\xf17c</fn>"] "penguin" 0
+                        -- Get kernel version (script found in .local/bin/status-bar)
+                    , Run Com ".local/bin/status-bar/kernel" [] "kernel" 0
+                        -- Cpu usage in percent
+                    , Run Cpu ["-t", "<fn=2></fn>  <total>%","-H","50","--high","red"] 20
+                        -- Ram used number and percent
+                    , Run Memory ["-t", "<fn=2>\xf233</fn>  <used>M (<usedratio>%)"] 50
+                        -- Disk space free
+                    , Run DiskU [("/", "<fn=2>\xf0c7</fn>  <free> free")] [] 6000
+                        -- Echos an "up arrow" icon in front of the uptime output.
+                    , Run Com "echo" ["<fn=2>\xf0aa</fn>"] "uparrow" 0
+                        -- Uptime
+                    , Run Uptime ["-t", "<hours>h <minutes>m"] 360
+                        -- Echos a "bell" icon in front of the pacman updates.
+                    , Run Com "echo" ["<fn=2></fn>"] "bell" 0
+                        -- Check for pacman updates (script found in .local/bin/status-bar)
+                    , Run Com ".local/bin/status-bar/pacupdate" [] "pacupdate" 36000
+                        -- Echos a "battery" icon in front of the pacman updates.
+                    , Run Com "echo" ["<fn=2>\xf242</fn>"] "baticon" 0
+                        -- Icon for backlight indicator
+                    , Run Com "echo" ["<fn=2> </fn>"] "backlight_icon" 0
+                        -- Current brightness
+                    , Run Com ".local/bin/status-bar/backlight.sh" [] "brightness" 30
+                        -- Battery
+                    , Run BatteryP ["BAT0"] ["-t", "<acstatus><watts> (<left>%)"] 360
+                        -- Time and date
+                    , Run Date "<fn=2>\xf017</fn>  %l:%M %p" "date" 50
+                        -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
+                    , Run Com ".config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20
+                        -- Echos a "volume" icon in front of the speaker volume.
+                    , Run Com "echo" ["<fn=2>\xf028</fn>"] "volicon" 0
+                        -- Script to show current volume.
+                    , Run Com ".local/bin/status-bar/volume" [] "vol" 20
+                        -- Prints out the left side items such as workspaces, layout, etc.
+                    , Run UnsafeStdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "   </>   <fc=#666666>|</fc> %UnsafeStdinReader% }{ <box type=Bottom width=2 mb=2 color=#8FBCBB><fc=#8FBCBB>%penguin%  %kernel%</fc></box>    <box type=Bottom width=2 mb=2 color=#B48EAD><fc=#B48EAD><action=`alacritty -t Htop -e htop`>%cpu%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#81A1C1><fc=#81A1C1><action=`alacritty -t Htop -e htop`>%memory%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#EBCB8B><fc=#EBCB8B><action=`gparted`>%disku%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#B48EAD><fc=#B48EAD>%uparrow%  <action=`alacritty -t Mail -e neomutt`>%uptime%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#88C0D0><fc=#88C0D0>%bell%  <action=`alacritty -t Updater -e update`>%pacupdate%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#a9a1e1><fc=#a9a1e1><action=`pavucontrol`>%volicon%  %vol%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#BF616A><fc=#BF616A>%baticon%  <action=`alacritty -e batinfo`>%battery%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#d3869b><fc=#d3869b><action=`killall redshift || redshift &`>%backlight_icon%%brightness%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#A3BE8C><fc=#A3BE8C><action=`emacsclient -c -a 'emacs' --eval '(doom/window-maximize-buffer(dt/year-calendar))'`>%date%</action></fc></box> %trayerpad%"
+       }

@@ -1,0 +1,9 @@
+# vim: filetype=neomuttrc
+source /usr/share/mutt-wizard/mutt-wizard.muttrc
+source /home/hadouken/.config/mutt/accounts/sharmarahul41928@gmail.com.muttrc
+macro index,pager i1 '<sync-mailbox><enter-command>source /home/hadouken/.config/mutt/accounts/sharmarahul41928@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to sharmarahul41928@gmail.com"
+
+#set timeout=300
+#timeout-hook 'exec sync-mailbox'
+#startup-hook 'exec sync-mailbox'
+#shutdown-hook 'exec sync-mailbox'

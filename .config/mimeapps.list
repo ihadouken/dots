@@ -1,0 +1,35 @@
+[Default Applications]
+x-scheme-handler/tg=userapp-Telegram Desktop-DH7IH1.desktop
+inode/directory=ranger.desktop
+image/jpg=imv-folder.desktop
+image/webp=imv-folder.desktop
+x-scheme-handler/http=links.desktop
+x-scheme-handler/https=links.desktop
+x-scheme-handler/about=links.desktop
+x-scheme-handler/unknown=links.desktop
+x-www-browser=links.desktop
+image/xpm=imv-folder.desktop
+img/xpm=imv-folder.desktop
+x-scheme-handler/mailto=neomutt.desktop
+image/jpeg=imv-folder.desktop
+image/png=imv-folder.desktop
+image/gif=imv-folder.desktop
+text/html=org.qutebrowser.qutebrowser.desktop
+x-scheme-handler/discord-505520727521361941=discord-505520727521361941.desktop
+application/pdf=org.pwmt.zathura.desktop
+application/zip=userapp-ex-NFZLN1.desktop
+
+[Added Associations]
+x-scheme-handler/tg=userapp-Telegram Desktop-2409B1.desktop;userapp-Telegram Desktop-N2ACC1.desktop;userapp-Telegram Desktop-DH7IH1.desktop;
+application/x-executable=sublime_text.desktop;
+image/x-xpixmap=imv-folder.desktop;
+image/jpeg=imv-folder.desktop;
+image/png=imv-folder.desktop;
+image/gif=imv-folder.desktop;
+text/html=org.qutebrowser.qutebrowser.desktop;
+text/x-csrc=nvim.desktop;
+application/pdf=org.pwmt.zathura.desktop;
+application/zip=userapp-ex-NFZLN1.desktop;
+
+[Removed Associations]
+text/plain=nvim.desktop;
