@@ -93,6 +93,7 @@ o.title = true
 
 -- templates
 vim.cmd([[autocmd BufNewFile *.c 0r ~/Templates/c_code.c]])
+vim.cmd([[autocmd BufNewFile *.sh 0r ~/Templates/shell-script.sh]])
 
 -- other stuff
 g.python_highlight_all = 1

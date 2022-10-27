@@ -31,5 +31,4 @@ sway -> move gracefully / to persuade
 fleeting -> short lived
 truimph -> vicory / achievement
 deluge -> pouring in heavy amount
-
 amortized -> distributed payment over time

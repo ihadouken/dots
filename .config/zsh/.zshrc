@@ -41,4 +41,8 @@ if [ -f /etc/bash.command-not-found ]; then
 fi
 
 ### Helping my vocab ###
-cowsay "$(shuf -n 1 ~/.local/share/words.txt)"
+cowsay "$(shuf -n 1 "$HOME/Documents/words.txt")"
+echo
+
+### Show dotfiles repository status ###
+#/usr/bin/git --git-dir=$MY_SRC_DIR/dotfiles --work-tree=$HOME status -s
