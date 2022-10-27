@@ -16,7 +16,6 @@ alias doas="doas -- "
 ### why not decrease verbosity ? ###
 alias c='/bin/clear'
 alias ccat='/usr/bin/source-highlight-esc.sh'
-alias cp2cb='xclip -sel c'
 alias fm='. /usr/bin/ranger'
 alias lc='leetcode'
 alias nwre='sudo systemctl stop NetworkManager && sudo systemctl start NetworkManager'
@@ -98,6 +97,10 @@ alias dotfiles='/usr/bin/git --git-dir=$MY_SRC_DIR/dotfiles --work-tree=$HOME'
 
 ### For integration with pywal ###
 alias zathura="$XDG_DATA_HOME/wal/zathura-wal"
+
+### clipboard ###
+alias cp2cb='xclip -in -sel c'
+alias getcb='xclip -out -sel c'
 
 ### For power-corp ###
 alias deploy="doas rm -fr /var/www/power-corp && doas mv $MY_SRC_DIR/power-corp /var/www/ && doas chown -R http:http /var/www/power-corp && doas systemctl start nginx && doas systemctl start power-corp && cd /var/log"
