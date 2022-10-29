@@ -37,11 +37,12 @@ packer.startup(function(use)
 	use("folke/which-key.nvim") -- Which Key
 	use("nvim-lualine/lualine.nvim") -- A better statusline
 
-	-- File management --
-	use("vifm/vifm.vim")
+	-- Nerd Tree --
 	use("scrooloose/nerdtree")
 	use("tiagofumo/vim-nerdtree-syntax-highlight")
 	use("ryanoasis/vim-devicons")
+    use("Xuyuanp/nerdtree-git-plugin")
+    use("PhilRunninger/nerdtree-buffer-ops")
 
 	-- Tim Pope Plugins --
 	use("tpope/vim-surround")

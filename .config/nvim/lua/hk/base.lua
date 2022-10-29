@@ -95,6 +95,16 @@ o.title = true
 vim.cmd([[autocmd BufNewFile *.c 0r ~/Templates/c_code.c]])
 vim.cmd([[autocmd BufNewFile *.sh 0r ~/Templates/shell-script.sh]])
 
+
+-- NerdTree
+-- Exit Vim if NERDTree is the only window remaining in the only tab.
+vim.cmd([[autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif]])
+
+-- If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+vim.cmd([[autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif]])
+
+o.NERDTreeShowHidden = 1
+
 -- other stuff
 g.python_highlight_all = 1
 g.NERDCompactSexyComs = 1
