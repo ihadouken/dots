@@ -495,8 +495,7 @@ c.fonts.web.size.default = 16
 c.fonts.web.size.default_fixed = 16
 
 # Bindings to use dmenu rather than qutebrowser's builtin search.
-config.bind('o', 'spawn --userscript dmenu-open')
-config.bind('O', 'spawn --userscript dmenu-open --tab')
+config.bind('O', 'spawn --userscript dmenu-open')
 
 # Bindings for normal mode
 # START KEYS
