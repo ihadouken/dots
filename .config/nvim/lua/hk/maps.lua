@@ -24,7 +24,7 @@ map("n", "<leader>ht", "<CMD>Telescope colorscheme<CR>")
 map("c", "ww", "<CMD>SudaWrite<CR>")
 
 -- Goyo (focus mode)
-map("n", "<leader>f", "<CMD>Goyo<CR>")
+map("n", "<leader>g", "<CMD>Goyo<CR>")
 
 -- NerdTree
 map("n", "<leader>nn", "<CMD>NERDTreeVCS<CR>")
