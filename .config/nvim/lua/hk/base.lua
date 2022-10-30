@@ -2,12 +2,12 @@ local g = vim.g
 local o = vim.o
 local opt = vim.opt
 
---vim.cmd('syntax on')
---vim.api.nvim_command('filetype plugin indent on')
+vim.cmd('syntax on')
+vim.api.nvim_command('filetype plugin indent on')
 
 o.termguicolors = true
 o.t_Co = 256
-o.nocompatible = true
+g.nocompatible = true
 -- o.background = 'dark'
 
 -- Do not save when switching buffers
@@ -103,7 +103,7 @@ vim.cmd([[autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists
 -- If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 vim.cmd([[autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif]])
 
-o.NERDTreeShowHidden = 1
+g.NERDTreeShowHidden = 1
 
 -- other stuff
 g.python_highlight_all = 1

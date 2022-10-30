@@ -50,17 +50,21 @@ map("i", "<Right>", "<Nop>")
 map("n", "<Leader>tt", "<CMD>vnew term://bash<CR>")
 
 -- Split navigation (easy)
-map("n", "<C-h>", "<C-w>h")
-map("n", "<C-j>", "<C-w>j")
-map("n", "<C-k>", "<C-w>k")
-map("n", "<C-l>", "<C-w>l")
+map("n", "<C-h>"    , "<C-w>h")
+map("n", "<C-j>"    , "<C-w>j")
+map("n", "<C-k>"    , "<C-w>k")
+map("n", "<C-l>"    , "<C-w>l")
+map("n", "<Leader>w", "<C-w>")
 
 -- Splits resize (easy)
-map("n", "<C-S-k>", "vertical resize +3<CR>")
-map("n", "<C-S-j>", "vertical resize -3<CR>")
-map("n", "<C-S-l>", "resize +3<CR>")
-map("n", "<C-S-h>", "resize -3<CR>")
+map("n", "<M-l>", "<CMD>vertical resize +3<CR>")
+map("n", "<M-h>", "<CMD>vertical resize -3<CR>")
+map("n", "<M-j>", "<CMD>resize +3<CR>")
+map("n", "<M-k>", "<CMD>resize -3<CR>")
 
 -- Toggle vertical/horizontal split
 map("n", "<Leader>th", "<C-w>t<C-w>H")
 map("n", "<Leader>tk", "<C-w>t<C-w>K")
+
+-- Hot reload config
+map("n", "<Leader>hrr", "<CMD>lua ReloadConfig()<CR>")
