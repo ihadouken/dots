@@ -105,6 +105,9 @@ vim.cmd([[autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%')
 
 g.NERDTreeShowHidden = 1
 
+-- Vim wiki
+vim.cmd("let g:vimwiki_list = [{'path': '~/Documents/vimwiki/'}]")
+
 -- other stuff
 g.python_highlight_all = 1
 g.NERDCompactSexyComs = 1
