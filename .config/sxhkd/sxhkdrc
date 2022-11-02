@@ -29,6 +29,8 @@ super + v
 	killall volumeicon && volumeicon -d default &
 
 # Fn Keys
+XF86Sleep
+	systemctl suspend-then-hibernate
 XF86MonBrightnessDown
 	xbacklight -dec 4
 XF86MonBrightnessUp

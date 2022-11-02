@@ -33,3 +33,4 @@ application/zip=userapp-ex-NFZLN1.desktop;
 
 [Removed Associations]
 text/plain=nvim.desktop;
+text/x-python=nvim.desktop;
