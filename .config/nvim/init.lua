@@ -1,3 +1,4 @@
+require('impatient')     -- Faster Loading
 require("hk.base")       -- General Settings
 require("hk.highlights") -- Colourscheme and other highlights
 require("hk.maps")       -- Keymaps

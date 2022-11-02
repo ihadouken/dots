@@ -16,6 +16,9 @@ packer.startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
+    -- Fast load neovim
+    use 'lewis6991/impatient.nvim'
+
 	-- Dashboard is a nice start screen for nvim
 	use("glepnir/dashboard-nvim")
 
@@ -69,7 +72,12 @@ packer.startup(function(use)
     use("lambdalisue/suda.vim")                        -- 
 
     -- Advanced commenting/uncommenting --
-    use("preservim/nerdcommenter")
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 
     -- Intellisense
     use({

@@ -104,7 +104,7 @@ alias getcb='xclip -out -sel c'
 
 ### For power-corp ###
 alias pcdeploy="doas rm -fr /var/www/power-corp && doas mv $MY_SRC_DIR/power-corp /var/www/ && doas chown -R http:http /var/www/power-corp && doas systemctl start nginx && doas systemctl start power-corp && cd /var/log"
-alias pc="cd $MY_SRC_DIR/power-corp && source venv/bin/activate"
+alias pc="cd $HOME/projects/power-corp && source venv/bin/activate"
 alias pcrun="env CONFIG_FILE=config.py python main.py"
 alias dbase='mariadb -u PC-admin --password=OY8\"3asJrF POWER_CORP'
 
