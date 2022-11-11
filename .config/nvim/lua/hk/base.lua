@@ -2,7 +2,7 @@ local g = vim.g
 local o = vim.o
 local opt = vim.opt
 
-vim.cmd('syntax on')
+-- vim.cmd('syntax on')
 vim.api.nvim_command('filetype plugin indent on')
 
 o.termguicolors = true

@@ -47,7 +47,7 @@ map("i", "<Left>" , "<Nop>")
 map("i", "<Right>", "<Nop>")
 
 -- Open terminal inside vim
-map("n", "<Leader>tt", "<CMD>vnew term://bash<CR>")
+map("n", "<Leader>tt", "<CMD>vnew term://zsh<CR>")
 
 -- Split navigation (easy)
 map("n", "<C-h>"    , "<C-w>h")
@@ -68,3 +68,12 @@ map("n", "<Leader>tk", "<C-w>t<C-w>K")
 
 -- Hot reload config
 map("n", "<Leader>hrr", "<CMD>lua ReloadConfig()<CR>")
+
+-- For vim's terminal buffer
+map("t", "<ESC><ESC>", "<C-\\><C-n>")
+
+-- Coc
+map("n", "<Leader>ie", "<CMD>CocEnable<CR>")
+map("n", "<Leader>id", "<CMD>CocDisable<CR>")
+map("n", "<Leader>io", "<CMD>CocOutline<CR>")
+map("n", "<Leader>ic", "<CMD>CocCommand<CR>")

@@ -149,18 +149,10 @@ keys = [
              lazy.window.toggle_fullscreen(),
              desc='toggle fullscreen'
              ),
-         Key([mod, "shift"], "Left",
+         Key([mod, "control"], "Left",
              lazy.screen.prev_group(),
              desc='Move focused window to previous group'
              ),
-         # Key([mod, "shift"], "Right",
-             # lazy.screen.next_group(),
-             # desc='Move focused window to next group'
-             # ),
-         # Key([mod, "control"], "Left",
-             # lazy.screen.prev_group(),
-             # desc='Move to the previous group'
-             # ),
          Key([mod, "control"], "Right",
              lazy.screen.next_group(),
              desc='Move to the next group'

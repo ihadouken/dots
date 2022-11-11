@@ -511,6 +511,7 @@ config.bind('PY', 'spawn setsid -f alacritty -e lynx -cfg=~/.lynx/lynx.cfg -lss=
 config.bind('Pl', 'hint links spawn setsid -f alacritty -e links {hint-url}')
 config.bind('PL', 'spawn setsid -f alacritty -e links {url:pretty}')
 config.bind('Pm', 'spawn --detach mpv --profile=hadouken {url:pretty}')
+config.bind('e', 'set-cmd-text :open {url:pretty}')
 config.bind('t', 'set-cmd-text -s :open -t goog')
 config.bind('W', 'config-source')
 config.bind('pi', 'open -p')
