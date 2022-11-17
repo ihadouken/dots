@@ -6,13 +6,14 @@ tree_1:
     marginalia: "https://search.marginalia.nu/"
     sms:  "https://searchmysite.net/"
     oldvista: "https://oldavista.com/"
-  general:
+  program:
     github: "https://www.github.com/"
     leetcode: "https://www.leetcode.com"
   people:
     neovoid: "https://neovoid.tk/"
     gtlsgamr: "https://hitarththummar.xyz/posts/archive.html"
     bugswriter: "https://bugswriter.com/"
+    me: "https://hadouken.neocities.org/"
 
 tree_2:
   documents:
@@ -23,7 +24,7 @@ tree_2:
       - "https://docs.python.org"
       - "python docs"
     archive.org: "https://archive.org/"
-  entertainment:
+  chillin':
     xkcd: "https://xkcd.com/"
     chess: "https://chess.com/"
     odysee: "https://www.odysee.com/"

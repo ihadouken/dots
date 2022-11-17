@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import os
-import re
 import socket
 import subprocess
 from libqtile import qtile
@@ -10,7 +9,6 @@ from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from typing import List  # noqa: F401
-import extra
 
 mod = "mod4"              # Sets mod key to SUPER/WINDOWS
 alt = "mod1"
