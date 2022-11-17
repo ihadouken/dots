@@ -47,7 +47,7 @@ map("i", "<Left>" , "<Nop>")
 map("i", "<Right>", "<Nop>")
 
 -- Open terminal inside vim
-map("n", "<Leader>tt", "<CMD>vnew term://zsh<CR>")
+map("n", "<Leader>ot", "<CMD>vnew term://zsh<CR>")
 
 -- Split navigation (easy)
 map("n", "<C-h>"    , "<C-w>h")
@@ -63,8 +63,8 @@ map("n", "<M-j>", "<CMD>resize +3<CR>")
 map("n", "<M-k>", "<CMD>resize -3<CR>")
 
 -- Toggle vertical/horizontal split
-map("n", "<Leader>th", "<C-w>t<C-w>H")
-map("n", "<Leader>tk", "<C-w>t<C-w>K")
+map("n", "<Leader>sh", "<C-w>t<C-w>H")
+map("n", "<Leader>sv", "<C-w>t<C-w>K")
 
 -- Hot reload config
 map("n", "<Leader>hrr", "<CMD>lua ReloadConfig()<CR>")
@@ -77,3 +77,12 @@ map("n", "<Leader>ie", "<CMD>CocEnable<CR>")
 map("n", "<Leader>id", "<CMD>CocDisable<CR>")
 map("n", "<Leader>io", "<CMD>CocOutline<CR>")
 map("n", "<Leader>ic", "<CMD>CocCommand<CR>")
+
+-- Tabs
+map("n", "<Leader>tt", "<CMD>tabnew<CR>")
+map("n", "<Leader>tn", "<CMD>tabnext<CR>")
+map("n", "<Leader>tp", "<CMD>tabprevious<CR>")
+map("n", "<Leader>tc", "<CMD>tabclose<CR>")
+map("n", "<Leader>tl", "<CMD>tabs<CR>")
+map("n", "<Leader>t0", "<CMD>tabFirst<CR>")
+map("n", "<Leader>t$", "<CMD>tabLast<CR>")
