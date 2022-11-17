@@ -50,13 +50,13 @@ Print
 
 # dm-player
 super + shift + p
-	mpvctl.sh -p
+	mpvctl.sh -s "${XDG_CACHE_HOME}/mpv-ipc-socket" -p
 super + less
-	mpvctl.sh -b
+	mpvctl.sh -s "${XDG_CACHE_HOME}/mpv-ipc-socket" -b
 super + greater
-	mpvctl.sh -f
+	mpvctl.sh -s "${XDG_CACHE_HOME}/mpv-ipc-socket" -f
 super + colon
-	mpvctl.sh -r
+	mpvctl.sh -s "${XDG_CACHE_HOME}/mpv-ipc-socket" -r
 
 # Applications
 super + Return
@@ -76,7 +76,7 @@ super + alt + c
 
 # Miscellaneous
 super + shift + s
-	tts $(xsel)
+	echo "$(xsel)" | tts
 ctrl + shift + t
 	$MYTERM -t scratchpad
 shift + Print

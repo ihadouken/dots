@@ -20,6 +20,6 @@
 .config/xmonad/*.o
 .config/xmonad/*.errors
 
-# itself
+# self
 .local/src/dotfiles/
 !.local/src/dotfiles/info/exclude
