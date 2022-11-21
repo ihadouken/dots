@@ -65,8 +65,6 @@ alt + e
 	$MYTERM -t FM -e ranger	
 alt + v
 	$MYTERM -e nvim
-super + n
-	$MYTERM -t Mail -e neomutt
 super + alt + h
 	$MYTERM -t Htop -e htop
 super + b

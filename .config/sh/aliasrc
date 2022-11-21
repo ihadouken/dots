@@ -104,10 +104,12 @@ alias cp2cb='xclip -in -sel c'
 alias getcb='xclip -out -sel c'
 
 ### For power-corp ###
+alias pc="cd $HOME/projects/power-corp"
 alias pcdeploy="doas rm -fr /var/www/power-corp && doas mv $MY_SRC_DIR/power-corp /var/www/ && doas chown -R http:http /var/www/power-corp && doas systemctl start nginx && doas systemctl start power-corp && cd /var/log"
+alias pcdbase='mariadb -u PC-admin --password=OY8\"3asJrF POWER_CORP'
 alias pcenv="cd $HOME/projects/power-corp && source venv/bin/activate"
 alias pcrun="env CONFIG_FILE=config.py python main.py"
-alias pcdbase='mariadb -u PC-admin --password=OY8\"3asJrF POWER_CORP'
+alias pctask="task project:power-corp"
 
 ### The titan alias to cleanup my history ###
 alias hclean="sed -i '/Q2/d; /nincat/d; /htop/d; /^ani/d; /^pidof/d; /^killall/d; /^clr/d; /^echo/d; /^mpv/d; /^systemctl/d; /^cppr/d; /^xprop/d; /^man/d; /^tldr/d; /^upload/d; /^a=/d; /^b=/d; /^c=/d; /^hlen/d; /^confbak/d; /^hbak/d; /^tclk$/d; /^score$/d; /^neofetch$/d; /^fm$/d; /^hclean$/d; /^fg/d; /^bg/d; /^nohup/d; /^disown/d; /^test/d; /^pls$/d; /^vim/d; /^ytfzf/d; /^arci/d; /^info/d; /^play/d; /^ansi/d; /^speedtest/d; /^alias/d; /^merge$/d; /^clk$/d; /^speedtest-cli/d; /^dm-/d; /^mplay/d; /^notify-send/d; /^kill/d; /^rnnoise/d; /^rmnoise/d; /^xcolor/d; /^colpicker/d; /^curl ifconfig.me$/d; /^ip addr$/d; /^ex /d; /^look/d; /^msg/d; /tmux/d; /^say/d; /^date$/d; /^mupdf/d; /^mkdir/d; /^rmdir/d; /^touch/d; /^diff/d; /^rmdir/d; /--help/d; /^python$/d; /^micro/d; /^checkupdates/d; /mk.jpg/d; /dpmk/d; /^xbacklight/d; /^bpython$/d; /^cppr/d; /^cr/d; /^colorscript/d; /^pgrep$/d; /^exit$/d; /^pwd$/d; /^tty-clock$/d; /^la$/d; /^lx$/d; /^ls$/d; /^$/d; /^cd/d; /^err/d; /^cat/d; /^tree/d; /^ll/d; /^up/d; /^lyrics/d; /^locate/d; /^lolcat/d; /^song/d; /^open/d; /^quiet/d; /^echo/d; /^\\ls/d; /^printf/d; /^icons$/d; /^tty$/d; /^conky/d; /^pkill/d; /^rfkill/d; /ping/d; /^re$/d; /^cat/d; /^bat/d; /^du -sh/d; /^umount/d; /^mount/d; /^blkid$/d; /^lsblk$/d; /^df$/d; /^free/d; /^less/d; /^hfind/d; /^dm-/d; /^whereis/d; /^olog/d; /^c$/d; /^8$/d; /^:q$/d; /^:w$/d; /^timer/d; /^clear/d; /^mlog/d; /^wc -l/d; /^mus/d; /^cleanup/d; /^grep/d; /^incognito/d; /^pacman -Q/d; /^emacs/d' $HISTFILE"
