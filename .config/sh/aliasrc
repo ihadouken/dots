@@ -17,6 +17,7 @@ alias doas="doas -- "
 alias c='/bin/clear'
 alias ccat='/usr/bin/source-highlight-esc.sh'
 alias fm='. /usr/bin/ranger'
+alias ipy='ipython'
 alias lc='leetcode'
 alias nwre='sudo systemctl stop NetworkManager && sudo systemctl start NetworkManager'
 alias xev='(xev &) && sleep 10; killall xev'

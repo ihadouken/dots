@@ -213,7 +213,7 @@ case $rand_num in
 #       fortune | lolcat ;;
 #   3)
 #        neofetch;;
-esac        
+esac
 unset rand_num
 
 ### PYWAL ###
