@@ -1,7 +1,7 @@
 ### Oh My Zsh ###
 export ZSH="$MY_SRC_DIR/oh-my-zsh"
 ZSH_THEME="alanpeabody"
-#ZSH_THEME="gnzh"
+# ZSH_THEME="gnzh"
 plugins=(taskwarrior git vi-mode)
 source "$ZSH/oh-my-zsh.sh"
 
