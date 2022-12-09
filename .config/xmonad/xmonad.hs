@@ -130,7 +130,7 @@ myStartupHook = do
     --spawnOnce "picom"
     --spawnOnce "nm-applet"
     --spawnOnce "volumeicon"
-    spawn ("killall sxhkd && sleep 2 && sxhkd &")
+    spawn ("killall sxhkd && sleep 2 && sxhkd &") -- refresh current sxhkd
     --spawnOnce "~/.local/bin/startup.sh"
     --spawnOnce "xargs xwallpaper --stretch < ~/.cache/wall"
     --spawnOnce "~/.fehbg &"  -- set last saved feh wallpaper
@@ -138,7 +138,7 @@ myStartupHook = do
     spawnOnce "nitrogen --restore &"   -- if you prefer nitrogen to feh
     --spawnOnce "xss-lock /usr/bin/slock &"
     --spawnOnce "/usr/bin/emacs --daemon &" -- emacs daemon for the emacsclient
-    spawnOnce("conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc") -- refresh current conky.
+    -- spawnOnce("conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc") -- refresh current conky.
     spawnOnce("trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22") -- refresh current trayer.
     setWMName "LG3D"
 

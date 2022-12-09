@@ -101,7 +101,7 @@ super + p; b
 super + p; shift + b
 	dm-setbg
 super + p; c
-	rice_lightline.sh && dtos-colorscheme
+	dtos-colorscheme
 super + p; shift + c
 	dm-colorpicker
 super + p; d
