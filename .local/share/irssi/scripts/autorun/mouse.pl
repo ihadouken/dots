@@ -1,0 +1,1 @@
+/home/hadouken/.local/share/irssi/scripts/mouse.pl
