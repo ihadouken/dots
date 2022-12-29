@@ -16,5 +16,5 @@ ts.setup({
 		enable = true,
 		additional_vim_regex_highlighting = { "org" }, -- Required for spellcheck, some LaTex highlights and code block highlights that do not have ts grammar
 	},
-	ensure_installed = { "org", "lua" }, -- Or run :TSUpdate org
+	ensure_installed = { "help", "python", "bash", "comment", "c", "css", "haskell", "html", "json", "org", "lua" }, -- Or run :TSUpdate org
 })
