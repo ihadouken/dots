@@ -21,17 +21,17 @@ map("n", "<leader>fw", "<CMD>Telescope live_grep<CR>")
 map("n", "<leader>ht", "<CMD>Telescope colorscheme<CR>")
 
 -- SudaWrite
-map("c", "ww", "<CMD>SudaWrite<CR>")
+map("c", "ww<CR>", "<CMD>SudaWrite<CR>")
 
 -- Goyo (focus mode)
 map("n", "<leader>g", "<CMD>Goyo<CR>")
 
 -- NerdTree
-map("n", "<leader>nn", "<CMD>NERDTreeVCS<CR>")
+map("n", "<leader>no", "<CMD>NERDTreeVCS<CR>")
 map("n", "<leader>n.", "<CMD>NERDTreeFind<CR>")
 map("n", "<leader>nf", "<CMD>NERDTreeFocus<CR>")
 map("n", "<leader>nq", "<CMD>NERDTreeClose<CR>")
-map("n", "<leader>nt", "<CMD>NERDTreeToggleVCS<CR>")
+map("n", "<leader>nn", "<CMD>NERDTreeToggleVCS<CR>")
 map("n", "<leader>nc", "<CMD>NERDTreeCWD<CR>")
 map("n", "<leader>nr", "<CMD>NERDTreeRefreshRoot<CR>")
 
