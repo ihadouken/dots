@@ -30,6 +30,14 @@ c.content.blocking.adblock.lists = ['https://easylist.to/easylist/easylist.txt',
 
 c.content.blocking.method = "both"
 
+# Whether quitting the application requires a confirmation.
+# Valid values:
+#   - always: Always show a confirmation.
+#   - multiple-tabs: Show a confirmation if multiple tabs are opened.
+#   - downloads: Show a confirmation if downloads are running
+#   - never: Never show a confirmation.
+c.confirm_quit = ["downloads"]
+
 # Automatically start playing `<video>` elements.
 # Type: Bool
 c.content.autoplay = False
@@ -263,7 +271,7 @@ c.url.default_page = '~/.cache/StartTree/index.html'
 # the search engine name to the search term, e.g. `:open google
 # qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'am': 'https://www.amazon.com/s?k={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'goog': 'https://www.google.com/search?q={}', 'wiby': 'https://wiby.me/?q={}', 'hoog': 'https://hoogle.haskell.org/?hoogle={}', 're': 'https://www.reddit.com/r/{}', 'ub': 'https://www.urbandictionary.com/define.php?term={}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'yt': 'https://www.youtube.com/results?search_query={}'}
+c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'am': 'https://www.amazon.com/s?k={}', 'aw': 'https://wiki.archlinux.org/?search={}', 'goog': 'https://www.google.com/search?q={}', 'wiby': 'https://wiby.me/?q={}', 'hoog': 'https://hoogle.haskell.org/?hoogle={}', 're': 'https://www.reddit.com/r/{}', 'ub': 'https://www.urbandictionary.com/define.php?term={}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'piped': 'https://piped.kavin.rocks/results?search_query={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
@@ -377,11 +385,11 @@ c.colors.tabs.bar.bg = '#1c1f34'
 
 # Background color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.bg = '#282c34'
+c.colors.tabs.odd.bg = '#444444'
 
 # Background color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.bg = '#282c34'
+c.colors.tabs.even.bg = '#444444'
 
 # Background color of selected odd tabs.
 # Type: QtColor
@@ -494,11 +502,47 @@ c.fonts.web.size.default = 16
 # Type: Int
 c.fonts.web.size.default_fixed = 16
 
-# Bindings to use dmenu rather than qutebrowser's builtin search.
-config.bind('O', 'spawn --userscript dmenu-open')
+# Chars used for hint strings.
+c.hints.chars = "asdfghjklie"
+
+# Automatically enter insert mode if an editable element is focused
+# after loading the page.
+c.input.insert_mode.auto_load = True
+
+# Padding around text for tabs
+c.tabs.padding = {
+    "left": 5,
+    "right": 5,
+    "top": 0,
+    "bottom": 1,
+}
+
+# Which tab to select when the focused tab is removed.
+# Valid values:
+#   - prev: Select the tab which came before the closed one (left in horizontal, above in vertical).
+#   - next: Select the tab which came after the closed one (right in horizontal, below in vertical).
+#   - last-used: Select the previously selected tab.
+c.tabs.select_on_remove = "prev"
+
+# The format to use for the window title. The following placeholders are
+# defined:
+#   * `{perc}`: The percentage as a string like `[10%]`.
+#   * `{perc_raw}`: The raw percentage, e.g. `10`
+#   * `{title}`: The title of the current web page
+#   * `{title_sep}`: The string ` - ` if a title is set, empty otherwise.
+#   * `{id}`: The internal window ID of this window.
+#   * `{scroll_pos}`: The page scroll position.
+#   * `{host}`: The host of the current web page.
+#   * `{backend}`: Either ''webkit'' or ''webengine''
+#   * `{private}` : Indicates when private mode is enabled.
+c.window.title_format = '{private}{scroll_pos}{title_sep}{perc}{current_title}{title_sep}qutebrowser'
+
+# Editor used by qutebrowser
+c.editor.command = ['alacritty', '-e', 'nvim', '{}']
 
 # Bindings for normal mode
 # START KEYS
+config.bind('<f12>', 'inspector')
 config.bind('M', 'hint links spawn --detach mpv --profile=hadouken {hint-url}')
 config.bind('X', 'hint links spawn ~/.config/qutebrowser/x.sh {hint-url}')
 config.bind('Zv', 'hint links spawn setsid -f alacritty -e bash -c "yt-dlp {hint-url}; read -n 2"')
@@ -513,12 +557,14 @@ config.bind('PL', 'spawn setsid -f alacritty -e links {url:pretty}')
 config.bind('Pm', 'spawn --detach mpv --profile=hadouken {url:pretty}')
 config.bind('e', 'set-cmd-text :open {url:pretty}')
 config.bind('t', 'set-cmd-text -s :open -t goog')
-config.bind('W', 'config-source')
 config.bind('pi', 'open -p')
 config.bind('xb', 'config-cycle statusbar.show always never')
 config.bind('xt', 'config-cycle tabs.show always never')
 config.bind('xx', 'config-cycle statusbar.show always in-mode;; config-cycle tabs.show always never')
 config.bind('zk', 'spawn ~/.config/qutebrowser/qute_keys.sh')
+
+# Bindings to use dmenu rather than qutebrowser's builtin search.
+config.bind('O', 'spawn --userscript dmenu-open')
 
 # Bindings for cycling through CSS stylesheets from Solarized Everything CSS:
 # https://github.com/alphapapa/solarized-everything-css
@@ -527,4 +573,8 @@ config.bind(',dr', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/
 config.bind(',gr', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css ""')
 config.bind(',sd', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/solarized-dark/solarized-dark-all-sites.css ""')
 config.bind(',sl', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/solarized-light/solarized-light-all-sites.css ""')
+
+# Bindings for working with config file.
+config.bind('cr', 'config-source')
+config.bind('ce', 'config-edit')
 # END KEYS
