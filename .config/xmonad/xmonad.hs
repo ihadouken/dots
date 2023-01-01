@@ -6,7 +6,7 @@ import System.Exit (exitSuccess)
 import qualified XMonad.StackSet as W
 
     -- Actions
-import XMonad.Actions.CopyWindow (kill1, copyToAll, killAllOtherCopies) 
+import XMonad.Actions.CopyWindow (kill1, copyToAll, killAllOtherCopies)
 import XMonad.Actions.CycleWS (Direction1D(..), moveTo, shiftTo, WSType(..), nextScreen, prevScreen)
 import XMonad.Actions.GridSelect
 import XMonad.Actions.MouseResize
@@ -126,19 +126,8 @@ myStartupHook = do
     spawn ("killall conky && sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc") -- refresh current conky.
     spawn ("killall trayer && sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22") -- refresh current trayer.
 
-    --spawnOnce "lxsession"
-    --spawnOnce "picom"
-    --spawnOnce "nm-applet"
-    --spawnOnce "volumeicon"
     spawn ("killall sxhkd && sleep 2 && sxhkd &") -- refresh current sxhkd
-    --spawnOnce "~/.local/bin/startup.sh"
-    --spawnOnce "xargs xwallpaper --stretch < ~/.cache/wall"
-    --spawnOnce "~/.fehbg &"  -- set last saved feh wallpaper
-    --spawnOnce "feh --randomize --bg-fill ~/wallpapers/*"  -- feh set random wallpaper
     spawnOnce "nitrogen --restore &"   -- if you prefer nitrogen to feh
-    --spawnOnce "xss-lock /usr/bin/slock &"
-    --spawnOnce "/usr/bin/emacs --daemon &" -- emacs daemon for the emacsclient
-    -- spawnOnce("conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc") -- refresh current conky.
     spawnOnce("trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22") -- refresh current trayer.
     setWMName "LG3D"
 
@@ -437,7 +426,7 @@ myShowWNameTheme = def
 
 -- The layout hook
 myLayoutHook = avoidStruts
-               $ mouseResize 
+               $ mouseResize
                $ windowArrange
                $ T.toggleLayouts floats
                $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) myDefaultLayout
@@ -508,7 +497,7 @@ myManageHook = composeAll
      --, className =? "Qalculate-gtk" --> doShift  ( myWorkspaces !! 4 )
      , title =? "Picture-in-Picture" --> doShift  ( myWorkspaces !! 7 )
      , title =? "Updater" --> doShift ( myWorkspaces !! 2)
-     , title =? "irc" --> doShift ( myWorkspaces !! 5) 
+     , title =? "irc" --> doShift ( myWorkspaces !! 5)
      , title =? "Mail" --> doShift ( myWorkspaces !! 5 )
      , title =? "video0 - mpv" --> doFloat
      --, title =? "ranger" --> doFloat
@@ -572,7 +561,7 @@ myKeys c =
     ^++^ subKeys "Move window to WS and go there"
     [ ("M-.", addName "Switch focus to next monitor" $ nextScreen)
     , ("M-,", addName "Switch focus to prev monitor" $ prevScreen)
-    , ("M-S-<Right>", addName "Shifts focused window to next ws" $ shiftTo Next nonNSP >> moveTo Next nonNSP)       
+    , ("M-S-<Right>", addName "Shifts focused window to next ws" $ shiftTo Next nonNSP >> moveTo Next nonNSP)
     , ("M-S-<Left>", addName "Shifts focused window to prev ws" $ shiftTo Prev nonNSP >> moveTo Prev nonNSP)
     , ("M-C-<Right>", addName "Shifts focused window to next ws" $ moveTo Next nonNSP)
     , ("M-C-<Left>", addName "Shifts focused window to prev ws" $ moveTo Prev nonNSP) ]
@@ -702,7 +691,7 @@ main = do
                 -- Current workspace
               , ppCurrent = xmobarColor color06 "" . wrap ("<box type=Bottom width=2 mb=2 color=" ++ color06 ++ ">") "</box>"
                 -- Visible but not current workspace
-              , ppVisible = xmobarColor color06 "" . clickable 
+              , ppVisible = xmobarColor color06 "" . clickable
                 -- Hidden workspaces
               , ppHidden = xmobarColor color05 "" . wrap ("<box type=Top width=2 mt=2 color=" ++ color05 ++ ">") "</box>" . clickable
                 -- Hidden workspaces (no windows)
@@ -714,7 +703,7 @@ main = do
                 -- Urgent workspace
               , ppUrgent = xmobarColor color02 "" . wrap "!" "!"
                 -- # of windows current workspace
-              , ppExtras  = [windowCount]                                    
+              , ppExtras  = [windowCount]
                 -- order of things in xmobar
               , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
               }

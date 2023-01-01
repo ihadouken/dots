@@ -165,7 +165,7 @@ websearch[wiktionary]="https://en.wiktionary.org/w/index.php?search="
 # Social Media
 websearch[reddit]="https://www.reddit.com/search/?q="
 websearch[odysee]="https://odysee.com/$/search?q="
-websearch[youtube]="https://www.piped.kavin.rocks/results?search_query="
+websearch[piped]="https://piped.kavin.rocks/results?search_query="
 # Online Shopping
 websearch[amazon]="https://www.amazon.com/s?k="
 websearch[craigslist]="https://www.craigslist.org/search/sss?query="

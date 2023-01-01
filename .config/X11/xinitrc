@@ -48,7 +48,7 @@ setxkbmap -option caps:swapescape &
 
 # start some nice programs
 xset s 180 300
-xss-lock -n 'bash /usr/share/doc/xss-lock/dim-screen.sh' -- /usr/bin/slock &
+xss-lock -n 'bash /usr/share/doc/xss-lock/dim-screen.sh' -- /usr/local/bin/slock &
 picom --experimental-backends &
 nm-applet &
 xsetroot -cursor_name left_ptr &
