@@ -16,7 +16,7 @@ tree_1:
     me: "https://hadouken.neocities.org/"
 
 tree_2:
-  documents:
+  docs:
     archwiki: 
       - "https://archlinux.org/"
       - "arch wiki"
@@ -24,7 +24,7 @@ tree_2:
       - "https://docs.python.org"
       - "python docs"
     archive.org: "https://archive.org/"
-  chillin':
+  chill:
     xkcd: "https://xkcd.com/"
     chess: "https://chess.com/"
     odysee: "https://www.odysee.com/"
