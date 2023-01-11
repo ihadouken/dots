@@ -1,1 +1,7 @@
 data.location=$XDG_DATA_HOME/task
+taskd.certificate=$XDG_DATA_HOME/task/private.certificate.pem
+taskd.key=$XDG_DATA_HOME/task/private.key.pem
+taskd.ca=$XDG_DATA_HOME/task/ca.cert.pem
+taskd.server=inthe.am:53589
+taskd.credentials=inthe_am/prodiabolical/f1684280-0107-423b-981a-cc4ef7bcc1ba
+taskd.trust=strict

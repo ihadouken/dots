@@ -82,7 +82,12 @@ channels = (
   # { name = "#gentlemanloser"; chatnet = "unixchat"; autojoin = "Yes"; },
   # { name = "#unix"; chatnet = "unixchat"; autojoin = "Yes"; },
   # { name = "#unixporn"; chatnet = "unixchat"; autojoin = "Yes"; },
-  { 
+  {
+    name = "#gnulinuxindia";
+    chatnet = "liberachat";
+    autojoin = "yes";
+  }
+  {
     name = "#SyntaxEnemies";
     chatnet = "liberachat";
     autojoin = "yes";
