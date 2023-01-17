@@ -542,7 +542,7 @@ c.editor.command = ['alacritty', '-e', 'nvim', '{}']
 
 # Bindings for normal mode
 # START KEYS
-config.bind('<f12>', 'inspector')
+config.bind('<f12>', 'devtools')
 config.bind('M', 'hint links spawn --detach mpv --profile=hadouken {hint-url}')
 config.bind('X', 'hint links spawn ~/.config/qutebrowser/x.sh {hint-url}')
 config.bind('Zv', 'hint links spawn setsid -f alacritty -e bash -c "yt-dlp {hint-url}; read -n 2"')

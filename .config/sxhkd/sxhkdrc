@@ -1,11 +1,15 @@
+# Reload config
+super + r
+	kill -s SIGUSR1 $(pidof sxhkd)
+
 # System
 ctrl + alt + s
 	shutdown now && paplay '/usr/share/sounds/freedesktop/stereo/service-logout.oga'
 ctrl + alt + r
 	shutdown -r now && paplay '/usr/share/sounds/freedesktop/stereo/service-logout.oga'
-ctrl + alt + z
+super + z
 	systemctl suspend-then-hibernate
-ctrl + alt + l
+super + shift + l
 	slock
 
 # Windows
@@ -85,7 +89,7 @@ super + shift + v
 	camtoggle.sh
 ctrl + m
 	mictoggle.sh
-super + r
+super + shift + r
 	killall redshift || redshift &
 alt + c
 	clip -s 
