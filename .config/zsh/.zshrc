@@ -18,7 +18,8 @@ export TMPDIR='/tmp'
 # PS1='[\u@\h \W]\$ '
 # PS1='\n\[\e[1;32m\]  \j\[\e[0m\] \[\e[1;34m\][\[\e[0m\e[1;34m\]hk@ \[\e[0m\]\[\e[1;31m\]tmux\[\e[0m\] \[\e[1;35m\]\w\[\e[0m\]\[\e[1;34m]\]\[\e[0m\]\$ '
 
-PS2="\033[0;2m... \033[0m"
+# PS2='\033[0;2m... \033[0m'
+PS2=$'%{\e[0;2m%}... %{\e[0m%}'
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
 
