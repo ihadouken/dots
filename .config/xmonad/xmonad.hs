@@ -123,10 +123,11 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 
 myStartupHook :: X ()
 myStartupHook = do
+    -- Restart conky and trayer if they were running
     spawn ("killall conky && sleep 2 && conky -c $HOME/.config/conky/xmonad/" ++ colorScheme ++ "-01.conkyrc") -- refresh current conky.
     spawn ("killall trayer && sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22") -- refresh current trayer.
 
-    spawn ("killall sxhkd && sleep 2 && sxhkd &") -- refresh current sxhkd
+    -- spawn ("killall sxhkd && sleep 2 && sxhkd &") -- refresh current sxhkd
     spawnOnce "nitrogen --restore &"   -- if you prefer nitrogen to feh
     spawnOnce("trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 22") -- refresh current trayer.
     setWMName "LG3D"
