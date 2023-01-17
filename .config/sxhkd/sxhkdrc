@@ -1,9 +1,11 @@
 # System
-alt + ctrl + s
+ctrl + alt + s
 	shutdown now && paplay '/usr/share/sounds/freedesktop/stereo/service-logout.oga'
-alt + ctrl + r
+ctrl + alt + r
 	shutdown -r now && paplay '/usr/share/sounds/freedesktop/stereo/service-logout.oga'
-super + shift + l
+ctrl + alt + z
+	systemctl suspend-then-hibernate
+ctrl + alt + l
 	slock
 
 # Windows
@@ -29,8 +31,8 @@ super + v
 	killall volumeicon && volumeicon -d default &
 
 # Fn Keys
-XF86Sleep
-	systemctl suspend-then-hibernate
+# XF86Sleep
+#	systemctl suspend-then-hibernate
 XF86MonBrightnessDown
 	xbacklight -dec 4
 XF86MonBrightnessUp
