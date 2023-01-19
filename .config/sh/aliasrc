@@ -50,8 +50,9 @@ alias doompurge="~/.emacs.d/bin/doom purge"
 # get error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
-# termbin
+# pastebin
 alias tb="nc termbin.com 9999 | tee -a $XDG_DATA_HOME/upload.sh/uploadhst"
+alias ix='curl -s -X POST -u hadouken:$(pass hk@ix.io) -F "f:1=<-" ix.io'
 
 # the terminal rickroll
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'

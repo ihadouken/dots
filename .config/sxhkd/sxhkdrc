@@ -44,7 +44,7 @@ XF86MonBrightnessUp
 XF86ScreenSaver
 	sleep 1; xset dpms force off
 XF86TouchpadToggle
-	touchpad_toggle.sh
+	touchpad-toggle.sh
 XF86AudioMute
 	amixer set Master toggle && play '/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga'
 XF86AudioLowerVolume
