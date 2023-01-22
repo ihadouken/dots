@@ -444,6 +444,9 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 def init_widgets_list():
+    arrow_padding = -6
+    arrow_size = 47
+
     widgets_list = [
               widget.Sep(
                        linewidth = 0,
@@ -488,7 +491,7 @@ def init_widgets_list():
                        font = "Ubuntu Mono",
                        background = colors[0],
                        foreground = '808080',
-                       padding = 2,
+                       padding = -1,
                        fontsize = 14
                        ),
               widget.CurrentLayoutIcon(
@@ -546,8 +549,8 @@ def init_widgets_list():
                        font = "Ubuntu Mono",
                        background = colors[0],
                        foreground = colors[3],
-                       padding = -1,
-                       fontsize = 42.5
+                       padding = arrow_padding,
+                       fontsize = arrow_size
                        ),
               widget.TextBox(
                        text = '',
@@ -571,8 +574,8 @@ def init_widgets_list():
                        font = "Ubuntu Mono",
                        background = colors[3],
                        foreground = colors[10],
-                       padding = -1,
-                       fontsize = 42.5
+                       padding = arrow_padding,
+                       fontsize = arrow_size
                        ),
               widget.TextBox(
                        text = '',
@@ -595,8 +598,8 @@ def init_widgets_list():
                        font = "Ubuntu Mono",
                        background = colors[10],
                        foreground = colors[4],
-                       padding = -1,
-                       fontsize = 42.5
+                       padding = arrow_padding,
+                       fontsize = arrow_size
                        ),
               widget.TextBox(
                        text = '',
@@ -618,8 +621,8 @@ def init_widgets_list():
                        font = "Ubuntu Mono",
                        background = colors[4],
                        foreground = colors[6],
-                       padding = -1,
-                       fontsize = 42.5
+                       padding = arrow_padding,
+                       fontsize = arrow_size
                        ),
               widget.TextBox(
                        text = '',
@@ -642,8 +645,8 @@ def init_widgets_list():
                        font = "Ubuntu Mono",
                        background = colors[6],
                        foreground = colors[5],
-                       padding = -1,
-                       fontsize = 42.5
+                       padding = arrow_padding,
+                       fontsize = arrow_size
                        ),
               widget.TextBox(
                        text = '',
@@ -671,8 +674,8 @@ def init_widgets_list():
                        # font = "Source Code Pro",
                        # background = colors[5],
                        # foreground = colors[10],
-                       # padding = -1,
-                       # fontsize = 42.5
+                       # padding = arrow_padding,
+                       # fontsize = arrow_size
                        # ),
               # widget.TextBox(
                        # text = '',
@@ -695,8 +698,8 @@ def init_widgets_list():
                        font = "Ubuntu Mono",
                        background = colors[5],
                        foreground = colors[10],
-                       padding = -1,
-                       fontsize = 42.5
+                       padding = arrow_padding,
+                       fontsize = arrow_size
                        ),
               widget.Battery(
                        font = "Font Awesome 6 Free Solid",
@@ -726,8 +729,8 @@ def init_widgets_list():
                        font = "Ubuntu Mono",
                        background = colors[10],
                        foreground = colors[8],
-                       padding = -1,
-                       fontsize = 42.5
+                       padding = arrow_padding,
+                       fontsize = arrow_size
                        ),
               widget.TextBox(
                        font = "Font Awesome 6 Free Solid",
@@ -752,8 +755,8 @@ def init_widgets_list():
                        font = "Source Code Pro",
                        background = colors[8],
                        foreground = colors[7],
-                       padding = -1,
-                       fontsize = 42.5
+                       padding = arrow_padding,
+                       fontsize = arrow_size
                        ),
               widget.TextBox(
                        text = '',
@@ -774,8 +777,8 @@ def init_widgets_list():
                        font = "Ubuntu Mono",
                        background = colors[7],
                        foreground = colors[9],
-                       padding = -1,
-                       fontsize = 42.5
+                       padding = arrow_padding,
+                       fontsize = arrow_size
                        ),
               widget.TextBox(
                        text = ' ',
