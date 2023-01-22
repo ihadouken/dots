@@ -9,7 +9,8 @@
 
 # -p is needed as we use prompts, alternative programs have to handle prompts well.
 
-DMENU="dmenu -i -l 20 -fn Mononoki-nerd-font -p"
+# DMENU="dmenu -i -l 15 -fn Mononoki-nerd-font -p"
+DMENU="rofi -dmenu -i -p"
 
 # DMBROWSER="brave"
 DMBROWSER="qutebrowser"
