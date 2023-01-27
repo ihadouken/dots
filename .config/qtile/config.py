@@ -487,7 +487,7 @@ def init_widgets_list():
                        background = colors[0]
                        ),
               widget.TextBox(
-                       text = '|',
+                       text = ' | ',
                        font = "Ubuntu Mono",
                        background = colors[0],
                        foreground = '808080',

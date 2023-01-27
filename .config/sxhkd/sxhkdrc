@@ -89,7 +89,7 @@ super + shift + v
 	camtoggle.sh
 ctrl + m
 	mictoggle.sh
-super + shift + r
+super + shift + n
 	killall redshift || redshift &
 alt + c
 	clip -s 
@@ -129,7 +129,7 @@ super + p; shift + i
 super + p; k
 	dm-kill
 super + p; l
-	dmenu -fn JetBrainsMono -p "Search:" | look $(cat /dev/stdin) | dmenu -i -l 20 -fn JetBrainsMono -p "Matches: " | tr -d '\n' | xclip -sel c
+	dm-wordsearch
 super + p; m
 	dm-music
 super + p; shift + m
