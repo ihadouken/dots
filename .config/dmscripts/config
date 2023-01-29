@@ -1,16 +1,10 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
-# This issue is ignored because it is part of a larger file that calls upon all variables listed
-
-# To edit this file copy it to `$XDG_CONFIG_HOME/dmscripts/config`
-# `cp /etc/dmscripts/config $XDG_CONFIG_HOME/dmscripts/config`
-
-# Defined variables, modify anything in quotes to your prefered software
-
 # -p is needed as we use prompts, alternative programs have to handle prompts well.
 
 # DMENU="dmenu -i -l 15 -fn Mononoki-nerd-font -p"
 DMENU="rofi -dmenu -i -p"
+# DMENU="fzf --prompt"
 
 # DMBROWSER="brave"
 DMBROWSER="qutebrowser"
@@ -20,6 +14,15 @@ DMTERM="$MYTERM -e"
 
 # DMEDITOR="emacsclient -c -a emacs"
 DMEDITOR="$DMTERM nvim"
+
+PDF_VIEWER="zathura"
+DMPLAYER='mpv'
+
+# Socket used for controlling mpv
+MPV_SOCKET="$XDG_CACHE_HOME/mpv-ipc-socket"
+# API key for youtbe related dmscripts
+YT_API_KEY="$(cat "${XDG_CONFIG_HOME}"/api_keys/youtube)"
+
 
 # TODO: Rename this variable to something more traditional
 logout_locker='slock'
@@ -32,276 +35,272 @@ logout_locker='slock'
 # *) should be left blank, global variables are defined above
 
 # include -p in standard dmenu as we use prompts by default
-case "$0##*-" in
-#  "colpick") DMENU="dmenu -i -p";;
-#  "confedit") DMENU="dmenu -i -l 30 -p";;
-#  "youtube") DMBROWSER="firefox";;
+case "${0#*-}" in
+    "bookman")
+        bookman_show_source=1 ;;
+
+    "sounds")
+        sounds_dir="$XDG_DATA_HOME/sounds/dmsounds" ;;
+
+    "music")
+        mus_dir="$HOME/Music"
+        player="mpv --no-video --input-ipc-server="${MPV_SOCKET}""
+        playing_icon='/usr/share/icons/Papirus/32x32/apps/org.gnome.Music.svg' ;;
+
+    "clip")
+        clip_file="${TMPDIR:-"/tmp"}/clip" ;;
+
+    "setbg")
+        setbg_dir="$XDG_DATA_HOME/backgrounds"
+        # xwal_setter='nitrogen --save --set-auto'
+        xwal_setter='xwallpaper --stretch'
+
+        # Set this to 1 if you want to use imv and wayland, 0 if you want to use sxiv
+        # Note that sxiv is X11 only, you need to mark the image you want to use.
+        use_imv=0 ;;
+
+    "maim")
+        maim_dir="$HOME/Pictures/screenshots"
+        maim_file_prefix="maim" ;;
+
+    "note")
+        note_dir="$XDG_CONFIG_HOME/dmscripts/dmnote" ;;
+
+    "wordsearch")
+        word_file="$XDG_DATA_HOME/dict/words" ;;
+
+    "upload")
+        hist_file="${XDG_DATA_HOME:-$HOME/.local/share}/upload.sh/uploadhst"
+        success_icon='/usr/share/icons/Papirus/64x64/apps/mintupload.svg'
+        err_icon='/usr/share/icons/Papirus/48x48/emotes/face-sad.svg' ;;
+
+    "confedit")
+        declare -A confedit_list
+        confedit_list[dmscripts]="$XDG_CONFIG_HOME/dmscripts/config"
+        confedit_list[alacritty]="$XDG_CONFIG_HOME/alacritty/alacritty.yml"
+        confedit_list[scripts]="$HOME/.local/bin"
+        confedit_list[bash]="$HOME/.bashrc"
+        confedit_list[zsh]="$ZDOTDIR/.zshrc"
+        confedit_list[aliasrc]="$XDG_CONFIG_HOME/sh/aliasrc"
+        confedit_list[bash_history]="$HOME/.bash_history"
+        confedit_list[bash_profile]="$HOME/.bash_profile"
+        confedit_list[tmux]="$XDG_CONFIG_HOME/tmux/tmux.conf"
+        confedit_list[mpv]="$XDG_CONFIG_HOME/mpv/mpv.conf"
+        confedit_list[redshift]="$XDG_CONFIG_HOME/redshift/redshift.conf"
+        confedit_list[dunst]="$XDG_CONFIG_HOME/dunst/dunstrc"
+        confedit_list[fish]="$XDG_CONFIG_HOME/fish/config.fish"
+        confedit_list[neovim-mods]="$XDG_CONFIG_HOME/nvim/lua/hk"
+        confedit_list[neovim-plugins]="$XDG_CONFIG_HOME/nvim/after/plugin"
+        confedit_list[neovim-init]="$XDG_CONFIG_HOME/nvim/init.lua"
+        confedit_list[newsboat]="$XDG_CONFIG_HOME/newsboat/config"
+        confedit_list[picom]="$XDG_CONFIG_HOME/picom/picom.conf"
+        confedit_list[qtile]="$XDG_CONFIG_HOME/qtile/config.py"
+        confedit_list[qutebrowser]="$XDG_CONFIG_HOME/qutebrowser"
+        confedit_list[ssh]="$HOME/.ssh/config"
+        confedit_list[sshd]="$HOME/.ssh/sshd_config"
+        confedit_list[irssi]="$XDG_CONFIG_HOME/irssi/config"
+        confedit_list[StartTree]="$XDG_CONFIG_HOME/StartTree/config.yaml"
+        confedit_list[sxhkd]="$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
+        confedit_list[xmonad]="$XDG_CONFIG_HOME/xmonad/xmonad.hs"
+        confedit_list[xmobar]="$XDG_CONFIG_HOME/xmobar"
+        confedit_list[xinitrc]="$XDG_CONFIG_HOME/X11/xinitrc"
+        confedit_list[xresources]="$XDG_CONFIG_HOME/X11/xresources"
+        confedit_list[zathura]="$XDG_CONFIG_HOME/zathura/zathurarc" ;;
+
+    "reddit")
+        declare -a reddit_list=(
+            "r/archlinux"
+            "r/bash"
+            "r/commandline"
+            "r/emacs"
+            "r/freesoftware"
+            "r/linux"
+            "r/linux4noobs"
+            "r/linuxmasterrace"
+            "r/linuxquestions"
+            "r/suckless"
+            "r/Ubuntu"
+            "r/unixporn"
+            "r/vim"
+        ) ;;
+
+    "websearch")
+        declare -A websearch
+        # Syntax:
+        # websearch[name]="https://www.example.com/search?q="
+
+        # Search Engines
+        websearch[google]="https://www.google.com/search?q="
+        websearch[wiby]="https://www.wiby.me/search?q="
+        websearch[bing]="https://www.bing.com/search?q="
+        websearch[brave]="https://search.brave.com/search?q="
+        websearch[duckduckgo]="https://duckduckgo.com/?q="
+        websearch[gemini search \(https\)]="https://portal.mozz.us/gemini/geminispace.info/search%3F"
+        websearch[qwant]="https://www.qwant.com/?q="
+        websearch[swisscows]="https://swisscows.com/web?query="
+        websearch[yandex]="https://yandex.com/search/?text="
+        # Information/News
+        websearch[bbcnews]="https://www.bbc.co.uk/search?q="
+        websearch[cnn]="https://www.cnn.com/search?q="
+        websearch[googlenews]="https://news.google.com/search?q="
+        websearch[wikipedia]="https://en.wikipedia.org/w/index.php?search="
+        websearch[wiktionary]="https://en.wiktionary.org/w/index.php?search="
+        # Social Media
+        websearch[reddit]="https://www.reddit.com/search/?q="
+        websearch[odysee]="https://odysee.com/$/search?q="
+        websearch[piped]="https://piped.kavin.rocks/results?search_query="
+        # Online Shopping
+        websearch[amazon]="https://www.amazon.com/s?k="
+        websearch[craigslist]="https://www.craigslist.org/search/sss?query="
+        websearch[ebay]="https://www.ebay.com/sch/i.html?&_nkw="
+        websearch[gumtree]="https://www.gumtree.com/search?search_category=all&q="
+        # Linux
+        websearch[archaur]="https://aur.archlinux.org/packages/?O=0&K="
+        websearch[archpkg]="https://archlinux.org/packages/?sort=&q="
+        websearch[archwiki]="https://wiki.archlinux.org/index.php?search="
+        websearch[debianpkg]="https://packages.debian.org/search?suite=default&section=all&arch=any&searchon=names&keywords="
+        # Development
+        websearch[github]="https://github.com/search?q="
+        websearch[gitlab]="https://gitlab.com/search?search="
+        websearch[googleOpenSource]="https://opensource.google/projects/search?q="
+        websearch[sourceforge]="https://sourceforge.net/directory/?q="
+        websearch[stackoverflow]="https://stackoverflow.com/search?q=" ;;
+
+    "youtube")
+        cache_dir="${XDG_CACHE_HOME:-"$HOME/.cache"}"/dm-youtube
+        player="${DMPLAYER}" ;;
+
+    "yt-music")
+        cache_dir="${XDG_CACHE_HOME:-"$HOME"/.cache}/dm-yt-music"
+        down_dir="$HOME/Music/youtube"
+        player="mpv --no-video --input-ipc-server="$MPV_SOCKET""
+        playing_icon='/usr/share/icons/Papirus/32x32/apps/org.gnome.Music.svg'
+        download_icon='/usr/share/icons/Papirus/16x16/apps/youtube-dl.svg' ;;
+
+    "yt-rss")
+        # Use same cache as dm-youtube for recording watch history
+        cache_dir="${XDG_CACHE_HOME:="$HOME/.cache"}/dm-youtube"
+        player="${DMPLAYER}"
+
+        declare -A youtube_channels
+        youtube_channels[Distrotube]="https://www.youtube.com/c/DistroTube/videos"
+        youtube_channels[Dream]="https://www.youtube.com/c/dream"
+        youtube_channels[Luke Smith]="https://www.youtube.com/c/LukeSmithxyz"
+        youtube_channels[Bugs Writer]="https://www.youtube.com/channel/UCngn7SVujlvskHRvRKc1cTw"
+        youtube_channels[Taylor Swift]="https://www.youtube.com/c/TaylorSwift"
+        youtube_channels[MindYourDecisions]="https://www.youtube.com/user/MindYourDecisions"
+        youtube_channels[George Hotz]="https://www.youtube.com/c/georgehotzarchive"
+        youtube_channels[The Ellen Show]="https://www.youtube.com/c/TheEllenShow"
+        youtube_channels[Oversimplified]="https://www.youtube.com/c/OverSimplified"
+        youtube_channels[TMKOC]="https://www.youtube.com/c/TaarakMehtaKaOoltahChashmah"
+        youtube_channels[Saturday Night Live]="https://www.youtube.com/snl"
+        youtube_channels[Jimmy Fallon]="https://www.youtube.com/user/latenight"
+        youtube_channels[Wattles]="https://www.youtube.com/c/wattlesplays"
+        youtube_channels[J.Fla]="https://www.youtube.com/c/JFlaMusic"
+        youtube_channels[Program with Larry]="https://www.youtube.com/c/Algorithmist"
+        youtube_channels[Computerphile]="https://www.youtube.com/user/Computerphile"
+        youtube_channels[PwnFunction]="https://www.youtube.com/c/PwnFunction"
+        youtube_channels[pwn.college]="https://www.youtube.com/c/pwncollege"
+        youtube_channels[LiveOverflow]="https://www.youtube.com/c/LiveOverflow"
+        youtube_channels[Joma Tech]="https://www.youtube.com/c/JomaOppa"
+        youtube_channels[jay skullz]="https://www.youtube.com/c/studywithmika"
+        youtube_channels[NeetCode]="https://www.youtube.com/c/NeetCode" ;;
+
+    "radio")
+        player="mpv --no-video --input-ipc-server="${MPV_SOCKET}""
+        # Your list of online radio stations for the dm-radio script.
+        # Syntax: radio_stations[name]="https://www.zeno.fm/radio/your-station"
+
+        declare -A radio_stations
+        radio_stations[50s Rewind]="https://zeno.fm/radio/50s-rewind/"
+        radio_stations[60s Rewind]="https://zeno.fm/radio/60s-rewind/"
+        radio_stations[70s Rewind]="https://zeno.fm/radio/70s-rewind/"
+        radio_stations[80s Rewind]="https://zeno.fm/radio/80s-rewind/"
+        radio_stations[90s Rock]="https://zeno.fm/radio/90s-rock/"
+        radio_stations[The 2000s]="https://zeno.fm/radio/the-2000s/"
+        radio_stations[Musopen Classical]="https://live.musopen.org:8085/streamvbr0?1654256040582"
+        radio_stations[Classical Radio]="https://zeno.fm/radio/classical-radio/"
+        radio_stations[Classical Relaxation]="https://zeno.fm/radio/radio-christmas-non-stop-classical/"
+        radio_stations[Classic Rock]="https://zeno.fm/radio/classic-rockdnb2sav8qs8uv/"
+        radio_stations[Gangsta49]="https://zeno.fm/radio/gangsta49/"
+        radio_stations[HipHop49]="https://zeno.fm/radio/hiphop49/"
+        radio_stations[Madhouse Country Radio]="https://zeno.fm/radio/madhouse-country-radio/"
+        radio_stations[PopMusic]="https://zeno.fm/radio/popmusic74vyurvmug0uv/"
+        radio_stations[PopStars]="https://zeno.fm/radio/popstars/"
+        radio_stations[RadioMetal]="https://zeno.fm/radio/radio-metal/"
+        radio_stations[RocknRoll Radio]="https://zeno.fm/radio/rocknroll-radio994c7517qs8uv/" ;;
+
+    "colpick")
+        declare -A colpick_list
+        colpick_list[black]="#282a36"
+        colpick_list[red]="#ff5555"
+        colpick_list[green]="#5af78e"
+        colpick_list[yellow]="#f1fa8c"
+        colpick_list[blue]="#57c7ff"
+        colpick_list[magenta]="#ff6ac1"
+        colpick_list[cyan]="#8be9fd"
+        colpick_list[white]="#f1f1f0"
+        colpick_list[orange]="#ffb86c"
+        colpick_list[purple]="#bd9cf9" ;;
+
+    "translate")
+        # dm-translate currently supports two translation services, LibreTranslate and Lingva Translate.
+        # LibreTranslate uses the free software (Expat/MIT licensed) Argos Translate library for translation.
+        # Lingva Translate uses the Google Translate (dis)service for translation, but this is fully server-side and Google will not see your IP.
+        # Both are free software services that can be self-hosted.
+        # If you want more languages (or need a specific language not in the Argos library) you should chose Lingva Translate.
+        # If you want to get away from Google and/or want a fully free software implementation you should use LibreTranslate.
+        # The choice is yours...
+        translate_service="libre"
+        translate_service="lingva"
+        libretranslate_instance="https://libretranslate.de"
+        lingva_instance="https://lingva.ml" ;;
+
+        # Uncomment to manually set the languages dm-translate will show
+        # LibreTranslate languages:
+        #   - `curl -Ss "https://libretranslate.de/languages" | jq`
+        # Lingva Translate languages:
+        #   - `curl -Ss "https://lingva.ml/api/v1/languages/source" | jq`
+        # translate_list="manual"
+        # declare -A lang_map
+        # lang_map[Spanish]=es
+        # lang_map[English]=en
+        # lang_map[Automatic]=auto
+
+    "weather")
+        declare -A weather_location
+        weather_location[Tarn Taran]="Tarn+Taran"
+        weather_location[Amritsar]="Amritsar"
+        weather_location[Chandigarh]="Chandigarh"
+        weather_location[Ghasitpur]="Ghasitpur"
+        # weather_opts="m" # Always use metric units (celsius)
+        # weather_opts="u" # Always use US units (fahrenheit)
+        # see: https://github.com/chubin/wttr.in
+        yad_geometry='1280x400+50+200' ;;
+
+    "currencies")
+        # Chose how you want to display the currencies (default: "names")
+        # currency_names="codes"
+
+        # "auto" will get currencies dynamically, "manual" will only use the currencies you define (default: "auto")
+        # defined currencies will still be included when set to auto
+        # currency_method="manual"
+
+        # declare -A currencies
+        # currencies[Dollar]="USD"
+        # currencies[Pound]="GBP"
+        # currencies[Monero]="XMR"
+        # see: https://rate.sx/:currencies and https://rate.sx/:coins
+        ;;
+
+    "emoji")
+        emoji_file="$XDG_DATA_HOME/dm-emoji/emoji_list" ;;
+
+    "usbmount")
+        err_icon='/usr/share/icons/elementary/devices/24/drive-harddisk.svg'
+        success_icon='/usr/share/icons/Dracula/apps/scalable/drive-removable-media.svg' ;;
   *);;
 esac
 
-# "$0##*-" means grab the 0th argument (which is always the path to the program) starting from the
-# last dash. This gives us the word after the - which is what we are searching for in the case
-# statement. ie dm-man -> man
-
-# An awk equivalent is: 
-# awk -F"-" '{print $NF}'
-# Sadly cut has no easy equivalent
-
-# TODO: Move almost all of these variables into the case statement
-# TODO: Make some of the more useful ones general variables
-# IE a pictures directory, an audio directory, config locations, etc
-
-# dm-bookman 
-bookman_show_source=1
-
-# dm-sounds
-sounds_dir="$XDG_DATA_HOME/sounds/dmsounds"
-mus_dir="$HOME/Music"
-
-# dm-setbg
-setbg_dir="$XDG_DATA_HOME/backgrounds"
-# Set this to 1 if you want to use imv and wayland, 0 if you want to use sxiv
-# Note that sxiv is X11 only, you need to mark the image you want to use.
-use_imv=0 
-
-# dm-maim
-maim_dir="$HOME/Pictures/screenshots"
-maim_file_prefix="maim"
-
-# dm-note
-note_dir="$XDG_CONFIG_HOME/dmscripts/dmnote"
-
-# dm-confedit
-declare -A confedit_list
-confedit_list[dmscripts]="$XDG_CONFIG_HOME/dmscripts/config"
-confedit_list[alacritty]="$XDG_CONFIG_HOME/alacritty/alacritty.yml"
-#confedit_list[awesome]="$XDG_CONFIG_HOME/awesome/rc.lua"
-confedit_list[scripts]="$HOME/.local/bin"
-confedit_list[bash]="$HOME/.bashrc"
-confedit_list[zsh]="$ZDOTDIR/.zshrc"
-confedit_list[aliasrc]="$XDG_CONFIG_HOME/sh/aliasrc"
-confedit_list[bash_history]="$HOME/.bash_history"
-confedit_list[bash_profile]="$HOME/.bash_profile"
-confedit_list[tmux]="$XDG_CONFIG_HOME/tmux/tmux.conf"
-confedit_list[mpv]="$XDG_CONFIG_HOME/mpv/mpv.conf"
-#confedit_list[broot]="$XDG_CONFIG_HOME/broot/conf.toml"
-#confedit_list[bspwm]="$XDG_CONFIG_HOME/bspwm/bspwmrc"
-#confedit_list[doom emacs config.el]="$XDG_CONFIG_HOME/doom/config.el"
-#confedit_list[doom emacs config.org]="$XDG_CONFIG_HOME/doom/config.org"
-#confedit_list[doom emacs init.el]="$XDG_CONFIG_HOME/doom/init.el"
-#confedit_list[doom emacs packages.el]="$XDG_CONFIG_HOME/doom/packages.el"
-confedit_list[redshift]="$XDG_CONFIG_HOME/redshift/redshift.conf"
-confedit_list[dunst]="$XDG_CONFIG_HOME/dunst/dunstrc"
-#confedit_list[dwm]="$HOME/dwm-distrotube/config.def.h"
-#confedit_list[dwmblocks]="$HOME/dwmblocks-distrotube/blocks.def.h"
-confedit_list[fish]="$XDG_CONFIG_HOME/fish/config.fish"
-#confedit_list[herbstluftwm]="$XDG_CONFIG_HOME/herbstluftwm/autostart"
-#confedit_list[i3]="$XDG_CONFIG_HOME/i3/config"
-#confedit_list[ncmpcpp]="$XDG_CONFIG_HOME/ncmpcpp/config"
-confedit_list[neovim-mods]="$XDG_CONFIG_HOME/nvim/lua/hk"
-confedit_list[neovim-plugins]="$XDG_CONFIG_HOME/nvim/after/plugin"
-confedit_list[neovim-init]="$XDG_CONFIG_HOME/nvim/init.lua"
-confedit_list[newsboat]="$XDG_CONFIG_HOME/newsboat/config"
-confedit_list[picom]="$XDG_CONFIG_HOME/picom/picom.conf"
-#confedit_list[polybar]="$XDG_CONFIG_HOME/polybar/config"
-confedit_list[qtile]="$XDG_CONFIG_HOME/qtile/config.py"
-confedit_list[qutebrowser]="$XDG_CONFIG_HOME/qutebrowser"
-#confedit_list[spectrwm]="$HOME/.spectrwm.conf"
-confedit_list[ssh]="$HOME/.ssh/config"
-confedit_list[sshd]="$HOME/.ssh/sshd_config"
-confedit_list[irssi]="$XDG_CONFIG_HOME/irssi/config"
-#confedit_list[st]="$HOME/st-distrotube/config.def.h"
-#confedit_list[stumpwm]="$XDG_CONFIG_HOME/stumpwm/config"
-confedit_list[StartTree]="$XDG_CONFIG_HOME/StartTree/config.yaml"
-#confedit_list[surf]="$HOME/surf-distrotube/config.def.h"
-confedit_list[sxhkd]="$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
-#confedit_list[tabbed]="$HOME/tabbed-distrotube/config.def.h"
-#confedit_list[vifm]="$XDG_CONFIG_HOME/vifm/vifmrc"
-#confedit_list[vim]="$HOME/.vimrc"
-#confedit_list[xmobar mon1]="$XDG_CONFIG_HOME/xmobar/xmobarrc0"
-#confedit_list[xmobar mon2]="$XDG_CONFIG_HOME/xmobar/xmobarrc1"
-#confedit_list[xmobar mon3]="$XDG_CONFIG_HOME/xmobar/xmobarrc2"
-#confedit_list[xmonad]="$HOME/.xmonad/README.org"
-confedit_list[xmonad]="$XDG_CONFIG_HOME/xmonad/xmonad.hs"
-confedit_list[xmobar]="$XDG_CONFIG_HOME/xmobar"
-confedit_list[xinitrc]="$XDG_CONFIG_HOME/X11/xinitrc"
-confedit_list[xresources]="$XDG_CONFIG_HOME/X11/xresources"
-confedit_list[zathura]="$XDG_CONFIG_HOME/zathura/zathurarc" #confedit_list[zsh]="$HOME/.zshrc"
-
-# dm-reddit config
-declare -a reddit_list=(
-"r/archlinux"
-"r/bash"
-"r/commandline"
-"r/emacs"
-"r/freesoftware"
-"r/linux"
-"r/linux4noobs"
-"r/linuxmasterrace"
-"r/linuxquestions"
-"r/suckless"
-"r/Ubuntu"
-"r/unixporn"
-"r/vim"
-)
-
-# Search engine config 
-declare -A websearch
-# Syntax:
-# websearch[name]="https://www.example.com/search?q="
-
-# Search Engines
-websearch[google]="https://www.google.com/search?q="
-websearch[wiby]="https://www.wiby.me/search?q="
-websearch[bing]="https://www.bing.com/search?q="
-websearch[brave]="https://search.brave.com/search?q="
-websearch[duckduckgo]="https://duckduckgo.com/?q="
-websearch[gemini search \(https\)]="https://portal.mozz.us/gemini/geminispace.info/search%3F"
-websearch[qwant]="https://www.qwant.com/?q="
-websearch[swisscows]="https://swisscows.com/web?query="
-websearch[yandex]="https://yandex.com/search/?text="
-# Information/News
-websearch[bbcnews]="https://www.bbc.co.uk/search?q="
-websearch[cnn]="https://www.cnn.com/search?q="
-websearch[googlenews]="https://news.google.com/search?q="
-websearch[wikipedia]="https://en.wikipedia.org/w/index.php?search="
-websearch[wiktionary]="https://en.wiktionary.org/w/index.php?search="
-# Social Media
-websearch[reddit]="https://www.reddit.com/search/?q="
-websearch[odysee]="https://odysee.com/$/search?q="
-websearch[piped]="https://piped.kavin.rocks/results?search_query="
-# Online Shopping
-websearch[amazon]="https://www.amazon.com/s?k="
-websearch[craigslist]="https://www.craigslist.org/search/sss?query="
-websearch[ebay]="https://www.ebay.com/sch/i.html?&_nkw="
-websearch[gumtree]="https://www.gumtree.com/search?search_category=all&q="
-# Linux
-websearch[archaur]="https://aur.archlinux.org/packages/?O=0&K="
-websearch[archpkg]="https://archlinux.org/packages/?sort=&q="
-websearch[archwiki]="https://wiki.archlinux.org/index.php?search="
-websearch[debianpkg]="https://packages.debian.org/search?suite=default&section=all&arch=any&searchon=names&keywords="
-# Development
-websearch[github]="https://github.com/search?q="
-websearch[gitlab]="https://gitlab.com/search?search="
-websearch[googleOpenSource]="https://opensource.google/projects/search?q="
-websearch[sourceforge]="https://sourceforge.net/directory/?q="
-websearch[stackoverflow]="https://stackoverflow.com/search?q="
-# Etc
-
-# dm-youtube config
-# Think of these as your "subscribed channels", name the channel in the square brackets then put the channel URL in the quotation marks
-# Syntax: youtube_channels[name]="https://www.youtube.com/link/to/channel"
-
-
-declare -A youtube_channels
-youtube_channels[Distrotube]="https://www.youtube.com/c/DistroTube/videos"
-youtube_channels[Dream]="https://www.youtube.com/c/dream"
-youtube_channels[Luke Smith]="https://www.youtube.com/c/LukeSmithxyz"
-youtube_channels[Bugs Writer]="https://www.youtube.com/channel/UCngn7SVujlvskHRvRKc1cTw"
-youtube_channels[Taylor Swift]="https://www.youtube.com/c/TaylorSwift"
-youtube_channels[MindYourDecisions]="https://www.youtube.com/user/MindYourDecisions"
-youtube_channels[George Hotz]="https://www.youtube.com/c/georgehotzarchive"
-youtube_channels[The Ellen Show]="https://www.youtube.com/c/TheEllenShow"
-youtube_channels[Oversimplified]="https://www.youtube.com/c/OverSimplified"
-youtube_channels[TMKOC]="https://www.youtube.com/c/TaarakMehtaKaOoltahChashmah"
-youtube_channels[Saturday Night Live]="https://www.youtube.com/snl"
-youtube_channels[Jimmy Fallon]="https://www.youtube.com/user/latenight"
-youtube_channels[Wattles]="https://www.youtube.com/c/wattlesplays"
-youtube_channels[J.Fla]="https://www.youtube.com/c/JFlaMusic"
-youtube_channels[Program with Larry]="https://www.youtube.com/c/Algorithmist"
-youtube_channels[Computerphile]="https://www.youtube.com/user/Computerphile"
-youtube_channels[PwnFunction]="https://www.youtube.com/c/PwnFunction"
-youtube_channels[pwn.college]="https://www.youtube.com/c/pwncollege"
-youtube_channels[LiveOverflow]="https://www.youtube.com/c/LiveOverflow"
-youtube_channels[Joma Tech]="https://www.youtube.com/c/JomaOppa"
-youtube_channels[jay skullz]="https://www.youtube.com/c/studywithmika"
-youtube_channels[NeetCode]="https://www.youtube.com/c/NeetCode"
-    
-# dm-radio config
-# Your list of online radio stations for the dm-radio script.
-# Syntax: radio_stations[name]="https://www.zeno.fm/radio/your-station"
-
-declare -A radio_stations
-radio_stations[50s Rewind]="https://zeno.fm/radio/50s-rewind/"
-radio_stations[60s Rewind]="https://zeno.fm/radio/60s-rewind/"
-radio_stations[70s Rewind]="https://zeno.fm/radio/70s-rewind/"
-radio_stations[80s Rewind]="https://zeno.fm/radio/80s-rewind/"
-radio_stations[90s Rock]="https://zeno.fm/radio/90s-rock/"
-radio_stations[The 2000s]="https://zeno.fm/radio/the-2000s/"
-radio_stations[Musopen Classical]="https://live.musopen.org:8085/streamvbr0?1654256040582"
-radio_stations[Classical Radio]="https://zeno.fm/radio/classical-radio/"
-radio_stations[Classical Relaxation]="https://zeno.fm/radio/radio-christmas-non-stop-classical/"
-radio_stations[Classic Rock]="https://zeno.fm/radio/classic-rockdnb2sav8qs8uv/"
-radio_stations[Gangsta49]="https://zeno.fm/radio/gangsta49/"
-radio_stations[HipHop49]="https://zeno.fm/radio/hiphop49/"
-radio_stations[Madhouse Country Radio]="https://zeno.fm/radio/madhouse-country-radio/"
-radio_stations[PopMusic]="https://zeno.fm/radio/popmusic74vyurvmug0uv/"
-radio_stations[PopStars]="https://zeno.fm/radio/popstars/"
-radio_stations[RadioMetal]="https://zeno.fm/radio/radio-metal/"
-radio_stations[RocknRoll Radio]="https://zeno.fm/radio/rocknroll-radio994c7517qs8uv/"
-
-
-# dm-colpick config
-declare -A colpick_list
-colpick_list[black]="#282a36"
-colpick_list[red]="#ff5555"
-colpick_list[green]="#5af78e"
-colpick_list[yellow]="#f1fa8c"
-colpick_list[blue]="#57c7ff"
-colpick_list[magenta]="#ff6ac1"
-colpick_list[cyan]="#8be9fd"
-colpick_list[white]="#f1f1f0"
-colpick_list[orange]="#ffb86c"
-colpick_list[purple]="#bd9cf9"
-
-# dm-translate config
-
-# dm-translate currently supports two translation services, LibreTranslate and Lingva Translate.
-# LibreTranslate uses the free software (Expat/MIT licensed) Argos Translate library for translation.
-# Lingva Translate uses the Google Translate (dis)service for translation, but this is fully server-side and Google will not see your IP.
-# Both are free software services that can be self-hosted.
-# If you want more languages (or need a specific language not in the Argos library) you should chose Lingva Translate.
-# If you want to get away from Google and/or want a fully free software implementation you should use LibreTranslate.
-# The choice is yours...
-translate_service="libre"
-translate_service="lingva"
-libretranslate_instance="https://libretranslate.de"
-lingva_instance="https://lingva.ml"
-
-# Uncomment to manually set the languages dm-translate will show
-# LibreTranslate languages:
-#   - `curl -Ss "https://libretranslate.de/languages" | jq`
-# Lingva Translate languages:
-#   - `curl -Ss "https://lingva.ml/api/v1/languages/source" | jq`
-# translate_list="manual"
-# declare -A lang_map
-# lang_map[Spanish]=es
-# lang_map[English]=en
-# lang_map[Automatic]=auto
-
-# dm-weather config
-declare -A weather_location
-weather_location[Tarn Taran]="Tarn+Taran"
-weather_location[Amritsar]="Amritsar"
-weather_location[Chandigarh]="Chandigarh"
-weather_location[Ghasitpur]="Ghasitpur"
-# weather_opts="m" # Always use metric units (celsius)
-# weather_opts="u" # Always use US units (fahrenheit)
-# see: https://github.com/chubin/wttr.in
-yad_geometry='1280x400+0+0' 
-# dm-currencies config
-
-# Chose how you want to display the currencies (default: "names")
-# currency_names="codes"
-
-# "auto" will get currencies dynamically, "manual" will only use the currencies you define (default: "auto")
-# defined currencies will still be included when set to auto
-# currency_method="manual"
-
-declare -A currencies
-# currencies[Dollar]="USD"
-# currencies[Pound]="GBP"
-# currencies[Monero]="XMR"
-# see: https://rate.sx/:currencies and https://rate.sx/:coins
-
-_revision=22
+# Config file revision number.
+_revision=23
