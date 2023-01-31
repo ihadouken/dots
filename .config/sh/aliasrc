@@ -108,6 +108,10 @@ alias ws="if ! pidof windscribe &> /dev/null; then sudo systemctl start windscri
 alias cp2cb='xclip -in -sel c'
 alias getcb='xclip -out -sel c'
 
+### leetcode cli ###
+alias lc-done="sqlite3 $HOME/.leetcode/cache/Problems 'SELECT id, name FROM problems WHERE status=\"ac\"' | tr '|' '\t'"
+alias lc-seen="sqlite3 $HOME/.leetcode/cache/Problems 'SELECT id, name FROM problems WHERE desc!=\"\" AND status=\"Null\"' | tr '|' '\t'"
+
 ### For power-corp ###
 alias pc="cd $HOME/projects/power-corp"
 alias pcenv="pc && source venv/bin/activate"
