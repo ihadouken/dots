@@ -8,6 +8,7 @@ alias info="pinfo --rcfile=$HOME/.config/pinforc"
 alias irssi="irssi --config=$XDG_CONFIG_HOME/irssi/config --home=$XDG_DATA_HOME/irssi"
 alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+alias tmate="tmate -f $XDG_CONFIG_HOME/tmate/tmate.conf"
 
 # to enable auto-completion
 alias nohup='nohup '
