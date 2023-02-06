@@ -78,7 +78,7 @@ alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias lynx='lynx -cfg=~/.lynx/lynx.cfg -lss=~/.lynx/lynx.lss -vikeys'
 # with other programs
-alias anime='ani-cli -q "best" -c'
+alias anime='jerry -c'
 alias cat='bat -pp'
 alias def="sdcv -u \"Oxford Advanced Learner's Dictionary\""
 alias dl='aria2c -d "$HOME/Downloads" --seed-time=0 -x 3 --summary-interval=300'
@@ -98,7 +98,7 @@ alias dtconky='wm=$(wmctrl -m | head -n 1 | cut -d" " -f 2) && ([[ "$wm" == "qti
 alias fopen='open "$(find / -type f 2> /dev/null | fzf)"'
 alias hbak="mv $HISTFILE $HOME/Backups/hbak/$(basename $HISTFILE)-$(date +%Y.%m.%d.%H-%M)"
 alias contacts='echo "dialog_list" | telegram-cli -C -D | tail +2 | head -n -2'
-alias dotfiles='/usr/bin/git --git-dir=$MY_SRC_DIR/dotfiles --work-tree=$HOME'
+alias dots='/usr/bin/git --git-dir=$MY_SRC_DIR/dotfiles --work-tree=$HOME'
 alias radio-song="printf '{ \"command\": [\"get_property\", \"%s\" ] }\n' \"metadata/by-key/icy-title\" | socat - ~/.cache/mpv-ipc-socket | jq -r .data"
 alias ws="if ! pidof windscribe &> /dev/null; then sudo systemctl start windscribe; fi; sleep 3;windscribe connect"
 
