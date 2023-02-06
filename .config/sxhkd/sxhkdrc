@@ -20,19 +20,17 @@ super + Escape
 
 # Rofi
 ctrl + space
-	rofi -show run -config ~/.cache/wal/colors-rofi-dark.rasi
+	rofi -show run
 #alt + Tab
 	#rofi -show window -config ~/.cache/wal/colors-rofi-dark.rasi
 super + c
-	rofi -show calc -modi calc -no-show-match -no-sort -config ~/.cache/wal/colors-rofi-dark.rasi
+	rofi -show calc -modi calc -no-show-match -no-sort
 
 # Tray
 super + shift + b
 	rfkill toggle bluetooth
 super + shift + w
 	rfkill toggle wifi
-super + v
-	killall volumeicon && volumeicon -d default &
 
 # Fn Keys
 # XF86Sleep
@@ -91,10 +89,6 @@ ctrl + m
 	mictoggle.sh
 super + shift + n
 	killall redshift || redshift &
-alt + c
-	clip -s 
-alt + p
-	clip -l
 
 # Dmenu
 super + shift + Return
@@ -107,19 +101,21 @@ super + p; b
 super + p; shift + b
 	dm-setbg
 super + p; c
-	dtos-colorscheme
+	dm-colpik
 super + p; shift + c
-	dm-colorpicker
+	dm-clip
 super + p; d
 	dm-dict
+super + p; shift + d
+	dm-documents
 super + p; e
-	dm-edit
+	dm-confedit
 super + p; shift + e
 	dm-emoji
 super + p; f
-	dm-mount -m
+	dm-usbmount -m
 super + p; shift + f
-	dm-mount -u
+	dm-usbmount -u
 super + p; h
 	dm-hub
 super + p; i
@@ -137,20 +133,19 @@ super + p; shift + m
 super + p; n
 	dm-note
 super + p; p
-	passmenu -i -fn 'Mononoki-nerd-font'
-#passmenu -i -fn 'Mononoki-14'
+	dm-pass
 super + p; q
 	dm-logout
 super + p; r
 	dm-radio
 super + p; shift + r
-	dm-reddit
+	dm-record
 super + p; s
 	dm-websearch
 super + p; t
 	dm-translate
 super + p; u
-	upload
+	dm-upload
 super + p; v
 	dm-youtube
 super + p; w

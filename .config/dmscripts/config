@@ -59,6 +59,9 @@ case "${0#*-}" in
         # Note that sxiv is X11 only, you need to mark the image you want to use.
         use_imv=0 ;;
 
+    "record")
+        record_dir="$HOME/Recordings/dm-record"
+
     "maim")
         maim_dir="$HOME/Pictures/screenshots"
         maim_file_prefix="maim" ;;
