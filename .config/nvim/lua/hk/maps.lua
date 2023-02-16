@@ -86,3 +86,9 @@ map("n", "<Leader>tc", "<CMD>tabclose<CR>")
 map("n", "<Leader>tl", "<CMD>tabs<CR>")
 map("n", "<Leader>t0", "<CMD>tabFirst<CR>")
 map("n", "<Leader>t$", "<CMD>tabLast<CR>")
+
+-- Redo last command line.
+map("n", "P", "@:")
+
+-- Redo last command line but don't prompt after completion.
+map("n", "<C-p>", "@:<CR>")
