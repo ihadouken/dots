@@ -88,7 +88,7 @@ map("n", "<Leader>t0", "<CMD>tabFirst<CR>")
 map("n", "<Leader>t$", "<CMD>tabLast<CR>")
 
 -- Redo last command line.
-map("n", "P", "@:")
+map("n", "<C-p>", "@:")
 
 -- Redo last command line but don't prompt after completion.
-map("n", "<C-p>", "@:<CR>")
+map("n", "<Leader>p", "@:<CR>")
