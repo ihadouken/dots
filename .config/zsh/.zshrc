@@ -1,5 +1,5 @@
 ### Oh My Zsh ###
-export ZSH="$MY_SRC_DIR/oh-my-zsh"
+export ZSH="$MYSRC/oh-my-zsh"
 ZSH_THEME="alanpeabody"
 # ZSH_THEME="gnzh"
 plugins=(taskwarrior git vi-mode)
@@ -46,4 +46,4 @@ cowsay "$(shuf -n 1 "$HOME/Documents/words.txt")"
 echo
 
 ### Show dotfiles repository status ###
-#/usr/bin/git --git-dir=$MY_SRC_DIR/dotfiles --work-tree=$HOME status -s
+#/usr/bin/git --git-dir=$MYSRC/dotfiles --work-tree=$HOME status -s

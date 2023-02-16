@@ -39,7 +39,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 ### hadouken ###
 #export MYTERM="xterm"
-export MY_SRC_DIR="$HOME/.local/src"
+export MYSRC="$HOME/.local/src"
 export MYEMACS="emacsclient -c -a 'emacs'"
 [[ -d "$HOME/.local/bin" ]] &&  export PATH="$PATH:$HOME/.local/bin"
 [[ -d "$HOME/.local/bin/status-bar" ]] && export PATH="$PATH:$HOME/.local/bin/status-bar" 

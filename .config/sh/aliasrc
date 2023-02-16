@@ -85,7 +85,8 @@ alias dl='aria2c -d "$HOME/Downloads" --seed-time=0 -x 3 --summary-interval=300'
 alias ftp='lftp -p 2121 192.168.1.82'
 #alias hk='oi -rq'
 alias tg='tg -WN'
-alias speed="speedtest-cli --no-upload --bytes --secure"
+alias speed='speedtest-cli --no-upload --bytes --secure'
+alias siri='sgpt --no-animation --no-spinner'
 alias tclk='tty-clock -Dbtc -C5 -d 59'
 alias typist='gtypist -e 4% -b -t -i -c 1,0 --banner-colours=0,1,0,0'
 
@@ -98,7 +99,7 @@ alias dtconky='wm=$(wmctrl -m | head -n 1 | cut -d" " -f 2) && ([[ "$wm" == "qti
 alias fopen='open "$(find / -type f 2> /dev/null | fzf)"'
 alias hbak="mv $HISTFILE $HOME/Backups/hbak/$(basename $HISTFILE)-$(date +%Y.%m.%d.%H-%M)"
 alias contacts='echo "dialog_list" | telegram-cli -C -D | tail +2 | head -n -2'
-alias dots='/usr/bin/git --git-dir=$MY_SRC_DIR/dotfiles --work-tree=$HOME'
+alias dots='/usr/bin/git --git-dir=$MYSRC/dotfiles --work-tree=$HOME'
 alias radio-song="printf '{ \"command\": [\"get_property\", \"%s\" ] }\n' \"metadata/by-key/icy-title\" | socat - ~/.cache/mpv-ipc-socket | jq -r .data"
 alias ws="if ! pidof windscribe &> /dev/null; then sudo systemctl start windscribe; fi; sleep 3;windscribe connect"
 
@@ -111,14 +112,14 @@ alias getcb='xclip -out -sel c'
 
 ### leetcode cli ###
 alias lc-done="sqlite3 $HOME/.leetcode/cache/Problems 'SELECT id, name FROM problems WHERE status=\"ac\"' | tr '|' '\t'"
-alias lc-seen="sqlite3 $HOME/.leetcode/cache/Problems 'SELECT id, name FROM problems WHERE desc!=\"\" AND status=\"Null\"' | tr '|' '\t'"
+alias lc-todo="sqlite3 $HOME/.leetcode/cache/Problems 'SELECT id, name FROM problems WHERE desc!=\"\" AND status=\"Null\"' | tr '|' '\t'"
 
 ### For power-corp ###
 alias pc="cd $HOME/projects/power-corp"
 alias pcenv="pc && source venv/bin/activate"
 alias pcrun="pcenv && env CONFIG_FILE=config.py python main.py"
 alias pctask="task project:power-corp"
-alias pcdeploy="doas rm -fr /var/www/power-corp && doas mv $MY_SRC_DIR/power-corp /var/www/ && doas chown -R http:http /var/www/power-corp && doas systemctl start nginx && doas systemctl start power-corp && cd /var/log"
+alias pcdeploy="doas rm -fr /var/www/power-corp && doas mv $MYSRC/power-corp /var/www/ && doas chown -R http:http /var/www/power-corp && doas systemctl start nginx && doas systemctl start power-corp && cd /var/log"
 alias pcdbase='if ! pidof mariadbd &> /dev/null; then sudo systemctl start mariadb; fi; mariadb -u pc_admin --password=OY8\"3asJrF power_corp'
 
 ### The titan alias to cleanup my history ###
