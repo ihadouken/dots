@@ -60,7 +60,7 @@ case "${0#*-}" in
         use_imv=0 ;;
 
     "record")
-        record_dir="$HOME/Recordings/dm-record"
+        record_dir="$HOME/Recordings/dm-record" ;;
 
     "maim")
         maim_dir="$HOME/Pictures/screenshots"
