@@ -1,5 +1,5 @@
-#unmap <C-r>
-#map [normal] <S-i> recolor
+unmap <C-r>
+map I set recolor
 set default-fg "#bbc2cf"
 set default-bg "#282c34"
 #set recolor-reverse-video true
