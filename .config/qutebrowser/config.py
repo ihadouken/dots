@@ -542,29 +542,42 @@ c.editor.command = ['alacritty', '-e', 'nvim', '{}']
 
 # Bindings for normal mode
 # START KEYS
+# 'wi' also works for devtools.
 config.bind('<f12>', 'devtools')
 config.bind('M', 'hint links spawn --detach mpv --profile=hadouken {hint-url}')
 config.bind('X', 'hint links spawn ~/.config/qutebrowser/x.sh {hint-url}')
-config.bind('Zv', 'hint links spawn setsid -f alacritty -e bash -c "yt-dlp {hint-url}; read -n 2"')
-config.bind('Za', 'hint links spawn setsid -f alacritty -e bash -c "yt-dlp -f \'ba\' --audio-format mp3 {hint-url}; read -n 2"')
+config.bind('Zv', 'hint links spawn --detach alacritty -e bash -c "yt-dlp {hint-url}; read -n 2"')
+config.bind('Za', 'hint links spawn --detach alacritty -e bash -c "yt-dlp -f \'ba\' --audio-format mp3 {hint-url}; read -n 2"')
+# The -s option in set-cmd-text adds a space after putting the given content.
 config.bind('sp', 'set-cmd-text -s :spawn')
-config.bind('Pg', 'hint links spawn setsid -f links -g {hint-url}')
-config.bind('PG', 'spawn setsid -f links -g {url:pretty}')
-config.bind('Py', 'hint links spawn setsid -f alacritty -e lynx -cfg=~/.lynx/lynx.cfg -lss=~/.lynx/lynx.lss -vikeys {hint-url}')
-config.bind('PY', 'spawn setsid -f alacritty -e lynx -cfg=~/.lynx/lynx.cfg -lss=~/.lynx/lynx.lss -vikeys {url:pretty}')
-config.bind('Pl', 'hint links spawn setsid -f alacritty -e links {hint-url}')
-config.bind('PL', 'spawn setsid -f alacritty -e links {url:pretty}')
-config.bind('Pm', 'spawn --detach mpv --profile=hadouken {url:pretty}')
-config.bind('e', 'set-cmd-text :open {url:pretty}')
+config.bind('Py', 'hint links spawn --detach alacritty -e lynx -cfg=~/.config/lynx/lynx.cfg -lss=~/.config/lynx/lynx.lss -vikeys {hint-url}')
+config.bind('PY', 'spawn --detach alacritty -e lynx -cfg=~/.config/lynx/lynx.cfg -lss=~/.config/lynx/lynx.lss -vikeys {url:pretty}')
+config.bind('E', 'set-cmd-text :open {url:pretty}')
 config.bind('t', 'set-cmd-text -s :open -t goog')
-config.bind('pi', 'open -p')
 config.bind('xb', 'config-cycle statusbar.show always never')
 config.bind('xt', 'config-cycle tabs.show always never')
 config.bind('xx', 'config-cycle statusbar.show always in-mode;; config-cycle tabs.show always never')
 config.bind('zk', 'spawn ~/.config/qutebrowser/qute_keys.sh')
+config.bind('Ch', 'history-clear')
 
 # Bindings to use dmenu rather than qutebrowser's builtin search.
 config.bind('O', 'spawn --userscript dmenu-open')
+
+# Print current page.
+config.bind('<Ctrl-P>', 'set-cmd-text :print --pdf ~/Documents/qb-print.pdf')
+config.bind('<Ctrl-Shift-P>', 'set-cmd-text :screenshot ~/Pictures/screenshot/qb-ss.png')
+
+# Edit stuff in external editor.
+config.bind('et', 'edit-text')
+config.bind('eu', 'edit-url')
+config.bind('ec', 'edit-command')
+
+# Opening stuff.
+config.bind('I', 'open -p')
+config.bind('T', 'open -t')
+
+# Yank link from hints.
+config.bind('yl', 'hint links yank')
 
 # Bindings for cycling through CSS stylesheets from Solarized Everything CSS:
 # https://github.com/alphapapa/solarized-everything-css
@@ -576,5 +589,6 @@ config.bind(',sl', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/
 
 # Bindings for working with config file.
 config.bind('cr', 'config-source')
+config.bind('cc', 'config-clear')
 config.bind('ce', 'config-edit')
 # END KEYS
