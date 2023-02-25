@@ -540,7 +540,16 @@ c.window.title_format = '{private}{scroll_pos}{title_sep}{perc}{current_title}{t
 # Editor used by qutebrowser
 c.editor.command = ['alacritty', '-e', 'nvim', '{}']
 
-# Bindings for normal mode
+# Bindings
+
+# Prepend the command "set statusbar.show always;;" to all bindings using
+# set-cmd-text otherwise the browser autoascrolls to top of the page. The
+# statusbar is again set to 'in-mode' visibility by both Escape and Enter.
+config.bind('o', 'set statusbar.show always;; set-cmd-text -s :open')
+config.bind(':', 'set statusbar.show always;; set-cmd-text :')
+config.bind('<Escape>', 'mode-enter normal;; set statusbar.show in-mode', mode='command')
+config.bind('<Return>', 'command-accept;; set statusbar.show in-mode', mode='command')
+
 # START KEYS
 # 'wi' also works for devtools.
 config.bind('<f12>', 'devtools')
@@ -549,11 +558,11 @@ config.bind('X', 'hint links spawn ~/.config/qutebrowser/x.sh {hint-url}')
 config.bind('Zv', 'hint links spawn --detach alacritty -e bash -c "yt-dlp {hint-url}; read -n 2"')
 config.bind('Za', 'hint links spawn --detach alacritty -e bash -c "yt-dlp -f \'ba\' --audio-format mp3 {hint-url}; read -n 2"')
 # The -s option in set-cmd-text adds a space after putting the given content.
-config.bind('sp', 'set-cmd-text -s :spawn')
+config.bind('sp', 'set statusbar.show always;; set-cmd-text -s :spawn')
 config.bind('Py', 'hint links spawn --detach alacritty -e lynx -cfg=~/.config/lynx/lynx.cfg -lss=~/.config/lynx/lynx.lss -vikeys {hint-url}')
 config.bind('PY', 'spawn --detach alacritty -e lynx -cfg=~/.config/lynx/lynx.cfg -lss=~/.config/lynx/lynx.lss -vikeys {url:pretty}')
-config.bind('E', 'set-cmd-text :open {url:pretty}')
-config.bind('t', 'set-cmd-text -s :open -t goog')
+config.bind('E', 'set statusbar.show always;; set-cmd-text :open {url:pretty}')
+config.bind('t', 'set statusbar.show always;; set-cmd-text -s :open -t goog')
 config.bind('xb', 'config-cycle statusbar.show always never')
 config.bind('xt', 'config-cycle tabs.show always never')
 config.bind('xx', 'config-cycle statusbar.show always in-mode;; config-cycle tabs.show always never')
@@ -564,8 +573,8 @@ config.bind('Ch', 'history-clear')
 config.bind('O', 'spawn --userscript dmenu-open')
 
 # Print current page.
-config.bind('<Ctrl-P>', 'set-cmd-text :print --pdf ~/Documents/qb-print.pdf')
-config.bind('<Ctrl-Shift-P>', 'set-cmd-text :screenshot ~/Pictures/screenshot/qb-ss.png')
+config.bind('<Ctrl-P>', 'set statusbar.show always;; set-cmd-text :print --pdf ~/Documents/qb-print.pdf')
+config.bind('<Ctrl-Shift-P>', 'set statusbar.show always;; set-cmd-text :screenshot ~/Pictures/screenshot/qb-ss.png')
 
 # Edit stuff in external editor.
 config.bind('et', 'edit-text')
@@ -591,4 +600,5 @@ config.bind(',sl', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/
 config.bind('cr', 'config-source')
 config.bind('cc', 'config-clear')
 config.bind('ce', 'config-edit')
+
 # END KEYS
