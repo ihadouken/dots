@@ -23,7 +23,7 @@ alias ipy='ipython'
 alias lc='leetcode'
 alias nwre='sudo systemctl stop NetworkManager && sudo systemctl start NetworkManager'
 alias btre='sudo systemctl stop bluetooth && sudo systemctl start bluetooth'
-alias xev='(xev &) && sleep 10; killall xev'
+alias xev='(xev &) && sleep 5; killall xev'
 
 # quick access mounted drives
 alias drives='cd /run/media/hadouken && ls'

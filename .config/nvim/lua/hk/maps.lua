@@ -89,6 +89,8 @@ map("n", "<Leader>t$", "<CMD>tabLast<CR>")
 
 -- Redo last command line.
 map("n", "<C-p>", "@:")
-
--- Redo last command line but don't prompt after completion.
+-- Redo last command line and skip prompt after completion.
 map("n", "<Leader>p", "@:<CR>")
+
+-- Quick write
+map("n", "ZW", "<CMD>w<CR>")
