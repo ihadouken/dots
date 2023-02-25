@@ -94,6 +94,7 @@ o.title = true
 -- templates
 vim.cmd([[autocmd BufNewFile *.c 0r ~/Templates/c-code.c]])
 vim.cmd([[autocmd BufNewFile *.sh 0r ~/Templates/shell-script.sh]])
+vim.cmd([[autocmd BufNewFile *.html 0r ~/Templates/sample-webpage.html]])
 
 
 -- NerdTree
