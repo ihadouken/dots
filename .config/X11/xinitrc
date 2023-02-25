@@ -40,11 +40,14 @@ setleds -D +num &
 # Disable Num Lock
 xmodmap -e 'keycode 77 = ' &
 
-# Swap Caps-Lock with Escape for vim
-setxkbmap -option caps:swapescape &
+# Use "Menu" key as right super key
+xmodmap -e 'keycode 135 = Super_L'
 
 # Disable Escape
 #xmodmap -e 'keycode 9 = ' &
+
+# Swap Caps-Lock with Escape for vim
+setxkbmap -option caps:swapescape &
 
 # start some nice programs
 xset s 180 300

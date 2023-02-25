@@ -1,5 +1,5 @@
 [Default Applications]
-x-scheme-handler/tg=userapp-Telegram Desktop-DH7IH1.desktop
+x-scheme-handler/tg=org.telegram.desktop.desktop
 inode/directory=ranger.desktop
 image/jpg=imv-folder.desktop
 image/webp=imv-folder.desktop
@@ -20,7 +20,7 @@ application/pdf=org.pwmt.zathura.desktop
 application/zip=userapp-ex-NFZLN1.desktop
 
 [Added Associations]
-x-scheme-handler/tg=userapp-Telegram Desktop-2409B1.desktop;userapp-Telegram Desktop-N2ACC1.desktop;userapp-Telegram Desktop-DH7IH1.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-2409B1.desktop;userapp-Telegram Desktop-N2ACC1.desktop;userapp-Telegram Desktop-DH7IH1.desktop;org.telegram.desktop.desktop;
 application/x-executable=sublime_text.desktop;
 image/x-xpixmap=imv-folder.desktop;
 image/jpeg=imv-folder.desktop;
