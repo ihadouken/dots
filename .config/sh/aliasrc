@@ -15,12 +15,13 @@ alias nohup='nohup '
 alias sudo='sudo '
 alias doas="doas -- "
 
-### decreasing verbosity ###
+### type less ###
 alias c='/bin/clear'
 alias ccat='/usr/bin/source-highlight-esc.sh'
 alias fm='. /usr/bin/ranger'
 alias ipy='ipython'
 alias lc='leetcode'
+alias reswap='sudo swapoff -a && sudo swapon -a'
 alias nwre='sudo systemctl stop NetworkManager && sudo systemctl start NetworkManager'
 alias btre='sudo systemctl stop bluetooth && sudo systemctl start bluetooth'
 alias xev='(xev &) && sleep 5; killall xev'
