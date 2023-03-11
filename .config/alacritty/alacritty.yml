@@ -115,16 +115,16 @@ font:
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
-    family: Cascadia Mono PL
+    # family: Cascadia Mono PL
     # family: Consolas
-    # family: JetBrains Mono
+    family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
     # family: TerminessTTF Nerd Font
     # family: Mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: SemiBold
+    style: Bold
 
   # Bold font face
   bold:
@@ -136,9 +136,9 @@ font:
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
-    family: Cascadia Mono PL
+    # family: Cascadia Mono PL
     # family: Consolas
-    # family: JetBrains Mono
+    family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
     # family: TerminessTTF Nerd Font
@@ -157,9 +157,9 @@ font:
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
-    family: Cascadia Mono PL
+    # family: Cascadia Mono PL
     # family: Consolas
-    # family: JetBrains Mono
+    family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
     # family: TerminessTTF Nerd Font
@@ -178,9 +178,9 @@ font:
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
-    family: Cascadia Mono PL
+    # family: Cascadia Mono PL
     # family: Consolas
-    # family: JetBrains Mono
+    family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
     # family: TerminessTTF Nerd Font
@@ -190,7 +190,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 12.0
+  size: 11.5
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -881,7 +881,7 @@ key_bindings:
   - { key: V,         mods: Control|Shift, action: Paste                       }
   - { key: C,         mods: Control|Shift, action: Copy                        }
   - { key: N,         mods: Super|Alt,     action: SpawnNewInstance            }
-  - { key: Escape,    mods: Control,       action: ToggleViMode                }
+  - { key: Escape,    mods: Shift,       action: ToggleViMode                }
   - { key: Insert,    mods: Shift,         action: PasteSelection              }
   - { key: Key0,      mods: Control,       action: ResetFontSize               }
   - { key: Equals,    mods: Control,       action: IncreaseFontSize            }
