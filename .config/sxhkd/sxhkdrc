@@ -66,7 +66,7 @@ super + colon
 super + Return
 	$MYTERM
 alt + e
-	$MYTERM -t FM -e ranger	
+	$MYTERM -t FM -e ranger
 alt + v
 	$MYTERM -e nvim
 super + alt + h
@@ -161,7 +161,7 @@ super + p; slash
 super + e; d
 	$MYEMACS
 super + e; b
-	$MYEMACS --eval '(ibuffer)' 
+	$MYEMACS --eval '(ibuffer)'
 super + e; e
 	$MYEMACS --eval '(dired nil)'
 super + e; c

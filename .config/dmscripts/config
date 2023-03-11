@@ -2,9 +2,7 @@
 # shellcheck disable=SC2034
 # -p is needed as we use prompts, alternative programs have to handle prompts well.
 
-# DMENU="dmenu -i -l 15 -fn Mononoki-nerd-font -p"
-DMENU="rofi -dmenu -i -p"
-# DMENU="fzf --prompt"
+DMENU="${MENU:-dmenu -i -l 15 -fn Mononoki-nerd-font -p}"
 
 # DMBROWSER="brave"
 DMBROWSER="qutebrowser"
@@ -107,9 +105,9 @@ case "${0#*-}" in
         confedit_list[xmonad]="$XDG_CONFIG_HOME/xmonad/xmonad.hs"
         confedit_list[xmobar]="$XDG_CONFIG_HOME/xmobar"
         confedit_list[xinitrc]="${XINITRC:-"$HOME"/.xinitrc}"
+        confedit_list[xmodmap]="$XDG_CONFIG_HOME/X11/xmodmap"
         confedit_list[xresources]="$XDG_CONFIG_HOME/X11/xresources"
         confedit_list[zathura]="$XDG_CONFIG_HOME/zathura/zathurarc" ;;
-
     "reddit")
         declare -a reddit_list=(
             "r/archlinux"

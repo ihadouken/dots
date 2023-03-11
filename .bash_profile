@@ -41,13 +41,18 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 #export MYTERM="xterm"
 export MYSRC="$HOME/.local/src"
 export MYEMACS="emacsclient -c -a 'emacs'"
-[[ -d "$HOME/.local/bin" ]] &&  export PATH="$PATH:$HOME/.local/bin"
-[[ -d "$HOME/.local/bin/status-bar" ]] && export PATH="$PATH:$HOME/.local/bin/status-bar" 
 export TMPDIR='/tmp'
 export STARDICT_DATA_DIR="$XDG_DATA_HOME/stardict"
+export MENU="dmenu -i -l 15 -fn Mononoki-nerd-font -p"
+# export MENU="rofi -dmenu -i -p"
+# export MENU="fzf --prompt"
 
 # for qt5ct
 export QT_QPA_PLATFORMTHEME='qt5ct'
+
+# Add custom scripts to PATH
+[[ -d "$HOME/.local/bin" ]] &&  export PATH="$PATH:$HOME/.local/bin"
+[[ -d "$HOME/.local/bin/status-bar" ]] && export PATH="$PATH:$HOME/.local/bin/status-bar"
 
 
 # red coloured cursor in select ttys
