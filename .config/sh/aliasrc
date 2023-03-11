@@ -43,7 +43,7 @@ alias pscpu='ps auxf | sort -nr -k 3'
 # vim and emacs
 alias vim="nvim"
 alias emc="/usr/bin/emacs -nw"
-alias em="devour emacsclient -c -a 'emacs'"
+alias em="emacsclient -c -a 'emacs'"
 alias doomsync="~/.emacs.d/bin/doom sync"
 alias doomdoctor="~/.emacs.d/bin/doom doctor"
 alias doomupgrade="~/.emacs.d/bin/doom upgrade"
@@ -102,7 +102,7 @@ alias hbak="mv $HISTFILE $HOME/Backups/hbak/$(basename $HISTFILE)-$(date +%Y.%m.
 alias contacts='echo "dialog_list" | telegram-cli -C -D | tail +2 | head -n -2'
 alias dots='/usr/bin/git --git-dir=$MYSRC/dotfiles --work-tree=$HOME'
 alias radio-song="printf '{ \"command\": [\"get_property\", \"%s\" ] }\n' \"metadata/by-key/icy-title\" | socat - ~/.cache/mpv-ipc-socket | jq -r .data"
-alias ws="if ! pidof windscribe &> /dev/null; then sudo systemctl start windscribe; fi; sleep 3;windscribe connect"
+alias ws="if ! pidof windscribe &> /dev/null; then sudo systemctl start windscribe; fi; sleep 3; windscribe connect"
 
 ### For integration with pywal ###
 # alias zathura="$XDG_DATA_HOME/wal/zathura-wal"
@@ -112,8 +112,9 @@ alias cp2cb='xclip -in -sel c'
 alias getcb='xclip -out -sel c'
 
 ### leetcode cli ###
-alias lc-done="sqlite3 $HOME/.leetcode/cache/Problems 'SELECT id, name FROM problems WHERE status=\"ac\"' | tr '|' '\t'"
-alias lc-todo="sqlite3 $HOME/.leetcode/cache/Problems 'SELECT id, name FROM problems WHERE desc!=\"\" AND status=\"Null\"' | tr '|' '\t'"
+alias lc-done="{sqlite3 $HOME/.leetcode/cache/Problems < <(echo SELECT id, name FROM problems WHERE status=\'ac\')} | tr '|' '\t'"
+alias lc-todo="{sqlite3 $HOME/.leetcode/cache/Problems < <(echo SELECT id, name FROM problems WHERE desc!=\'\' AND status=\'Null\')} | tr '|' '\t'"
+alias lc-find="leetcode list | grep '\[\s*[0-9]\{1,4\}\s*\]' | $MENU 'Problem name/number: ' | grep -o '[0-9]\{1,4\}' | head -n 1"
 
 ### For power-corp ###
 alias pc="cd $HOME/projects/power-corp"
@@ -138,7 +139,7 @@ up() {
     limit=1
   fi
 
-  for ((i=1;i<=limit;i++)); do
+  for ((i=1; i<=limit; i++)); do
     d="../$d"
   done
 
