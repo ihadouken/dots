@@ -566,11 +566,12 @@ config.bind('t', 'set statusbar.show always;; set-cmd-text -s :open -t goog')
 config.bind('xb', 'config-cycle statusbar.show always never')
 config.bind('xt', 'config-cycle tabs.show always never')
 config.bind('xx', 'config-cycle statusbar.show always in-mode;; config-cycle tabs.show always never')
-config.bind('zk', 'spawn ~/.config/qutebrowser/qute_keys.sh')
 config.bind('Ch', 'history-clear')
 
-# Bindings to use dmenu rather than qutebrowser's builtin search.
+# custom userscripts
 config.bind('O', 'spawn --userscript dmenu-open')
+config.bind('Sk', 'spawn --userscript qute_keys.sh')
+config.bind('I', 'spawn --userscript toggle-dark.sh')
 
 # Print current page.
 config.bind('<Ctrl-P>', 'set statusbar.show always;; set-cmd-text :print --pdf ~/Documents/qb-print.pdf')
@@ -582,7 +583,6 @@ config.bind('eu', 'edit-url')
 config.bind('ec', 'edit-command')
 
 # Opening stuff.
-config.bind('I', 'open -p')
 config.bind('T', 'open -t')
 
 # Yank link from hints.
