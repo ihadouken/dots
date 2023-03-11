@@ -1,0 +1,11 @@
+! Swap Caps_Lock and Escape
+remove Lock = Caps_Lock
+add Lock = Escape
+keysym Caps_Lock = Escape
+keysym Escape = Caps_Lock
+
+! Remap Menu key as right super
+keysym Menu = Super_L
+ 
+! Disable Num Lock
+! keysym Num_Lock = 
