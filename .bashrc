@@ -180,10 +180,10 @@ alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 #alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
 # bare git repo alias for dotfiles
-alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+# alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
 # Unlock LBRY tips
-alias tips='lbrynet txo spend --type=support --is_not_my_input --blocking'
+# alias tips='lbrynet txo spend --type=support --is_not_my_input --blocking'
 
 ### DTOS ###
 
