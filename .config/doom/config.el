@@ -693,4 +693,12 @@ List of keybindings (SPC h b b)")
 ;; vterm terminal
 (setq vterm-shell "zsh")
 
+;; Use TAB to cycle through and insert completions at the same time
 (company-tng-mode)
+
+;; Cursor changing with changing mode in tty mode.
+(use-package! evil-terminal-cursor-changer
+  :hook (tty-setup . evil-terminal-cursor-changer-activate))
+
+;; Disable blinking cursor in tty.
+(setq visible-cursor nil)

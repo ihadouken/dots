@@ -65,3 +65,4 @@
 (package! password-store)
 (package! org-auto-tangle)
 (package! spacemacs-theme)
+(package! evil-terminal-cursor-changer)
