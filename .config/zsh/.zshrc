@@ -11,8 +11,6 @@ export HISTSIZE=1000
 export SAVEHIST=10000
 export TMPDIR='/tmp'
 
-### Shell variables ###
-
 ### PROMPT
 # This is commented out if using starship prompt
 # PS1='[\u@\h \W]\$ '
@@ -25,7 +23,7 @@ VI_MODE_SET_CURSOR=true
 
 ### Aliases ###
 # aliases common with other shells
-source "$XDG_CONFIG_HOME/sh/aliasrc"
+[[ -f "$XDG_CONFIG_HOME/sh/aliasrc" ]] && source "$XDG_CONFIG_HOME/sh/aliasrc"
 
 # hot reload config
 alias re="source $ZDOTDIR/.zshrc && /bin/clear"

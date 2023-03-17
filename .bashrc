@@ -12,27 +12,6 @@ export HISTFILE="$HOME/.bash_history"
 export HISTSIZE=1000
 export HISTFILESIZE=10000
 export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
-export PAGER="/usr/bin/bat"
-export BROWSER="/usr/bin/links"
-export EDITOR="nvim"
-#export ALTERNATE_EDITOR=""                        # setting for emacsclient
-#export EDITOR="emacsclient -t -a ''"              # $EDITOR use Emacs in terminal
-#export VISUAL="emacsclient -c -a emacs"           # $VISUAL use Emacs in GUI mode
-export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
-export LESS='-R '
-export SDCV_PAGER='lolcat -f | less --quit-if-one-screen -RX'
-export LD_LIBRARY_PATH="$HOME/me/libgourou_utils_0.7.1"
-### SET MANPAGER
-### Uncomment only one of these!
-
-### "bat" as manpager
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-### "vim" as manpager
-# export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
-
-### "nvim" as manpager
-# export MANPAGER="nvim -c 'set ft=man' -"
 
 ### SET VI MODE ###
 # Comment this line out to enable default emacs-like bindings
