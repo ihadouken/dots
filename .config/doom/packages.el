@@ -66,3 +66,6 @@
 (package! org-auto-tangle)
 (package! spacemacs-theme)
 (package! evil-terminal-cursor-changer)
+(package! org-contrib)
+(package! nano-theme)
+(package! nano-modeline)

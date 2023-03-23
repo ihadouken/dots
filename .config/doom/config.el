@@ -406,7 +406,7 @@ List of keybindings (SPC h b b)")
   (setq org-directory "~/nc/Org/"
         org-agenda-files '("~/nc/Org/agenda.org")
         org-default-notes-file (expand-file-name "notes.org" org-directory)
-        org-ellipsis "⬎" ;; …⤵ ▼ ⬎  
+        org-ellipsis "⬎" ;; …⤵ ▼ ⬎
         org-superstar-headline-bullets-list '("◉" "○" "●" "◆" "◉" "○" "●" "◆")
         org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
         org-log-done 'time
@@ -702,3 +702,12 @@ List of keybindings (SPC h b b)")
 
 ;; Disable blinking cursor in tty.
 (setq visible-cursor nil)
+
+;; Convenient mapping to toggle artist-mode
+(map! :leader
+      :desc "Toggle artist mode"
+      "a t" #'artist-mode)
+
+;; Quick save
+;; (map! (:prefix ("Z"))
+;;       :desc "Save current buffer" "W" #'save-buffer)
