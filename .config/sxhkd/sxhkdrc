@@ -26,12 +26,6 @@ ctrl + space
 super + c
 	rofi -show calc -modi calc -no-show-match -no-sort
 
-# Tray
-super + shift + b
-	rfkill toggle bluetooth
-super + shift + w
-	rfkill toggle wifi
-
 # Fn Keys
 # XF86Sleep
 #	systemctl suspend-then-hibernate
@@ -76,16 +70,16 @@ super + b
 super + alt + c
 	qalculate-gtk
 
-# Miscellaneous
-super + shift + s
-	echo "$(xsel)" | tts
-ctrl + shift + t
-	$MYTERM -t scratchpad
-shift + Print
-	screenshot.sh
+# Toggling stuff
+super + shift + b
+	rfkill toggle bluetooth
+super + shift + w
+	rfkill toggle wifi
+super + shift + u
+	touchpad-toggle.sh
 super + shift + v
 	camtoggle.sh
-ctrl + m
+super + shift + m
 	mictoggle.sh
 super + shift + n
 	killall redshift || redshift &
@@ -101,7 +95,7 @@ super + p; b
 super + p; shift + b
 	dm-setbg
 super + p; c
-	dm-colpik
+	dm-colpick
 super + p; shift + c
 	dm-clip
 super + p; d
@@ -176,3 +170,12 @@ super + e; w
 	$MYEMACS --eval '(doom/window-maximize-buffer(eww "google.com"))'
 super + e; m
 	$MYEMACS --eval '(emms)' --eval '(emms-play-directory-tree "~/Music/")'
+
+# Miscellaneous
+super + shift + s
+	echo "$(xsel)" | tts
+ctrl + shift + t
+	$MYTERM -t scratchpad
+shift + Print
+	screenshot.sh
+
