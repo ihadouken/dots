@@ -79,9 +79,9 @@ map("n", "<Leader>io", "<CMD>CocOutline<CR>")
 map("n", "<Leader>ic", "<CMD>CocCommand<CR>")
 
 -- Tabs
-map("n", "<Leader>tt", "<CMD>tabnew<CR>")
-map("n", "<Leader>tn", "<CMD>tabnext<CR>")
-map("n", "<Leader>tp", "<CMD>tabprevious<CR>")
+map("n", "<Leader>tn", "<CMD>tabnew<CR>")
+map("n", "<Leader>t.", "<CMD>tabnext<CR>")
+map("n", "<Leader>t,", "<CMD>tabprevious<CR>")
 map("n", "<Leader>tc", "<CMD>tabclose<CR>")
 map("n", "<Leader>tl", "<CMD>tabs<CR>")
 map("n", "<Leader>t0", "<CMD>tabFirst<CR>")
@@ -89,7 +89,7 @@ map("n", "<Leader>t$", "<CMD>tabLast<CR>")
 
 -- Redo last command line.
 map("n", "<C-p>", "@:")
--- Redo last command line and skip prompt after completion.
+-- Redo last command line and skip "press any key" prompt after completion.
 map("n", "<Leader>p", "@:<CR>")
 
 -- Quick write
