@@ -880,8 +880,8 @@ key_bindings:
     # (Windows, Linux, and BSD only)
   - { key: V,         mods: Control|Shift, action: Paste                       }
   - { key: C,         mods: Control|Shift, action: Copy                        }
-  - { key: N,         mods: Super|Alt,     action: SpawnNewInstance            }
-  - { key: Escape,    mods: Shift,       action: ToggleViMode                }
+  - { key: Return,    mods: Alt,           action: SpawnNewInstance            }
+  - { key: Escape,    mods: Alt,           action: ToggleViMode                }
   - { key: Insert,    mods: Shift,         action: PasteSelection              }
   - { key: Key0,      mods: Control,       action: ResetFontSize               }
   - { key: Equals,    mods: Control,       action: IncreaseFontSize            }
