@@ -79,10 +79,10 @@ case "${0#*-}" in
         declare -A confedit_list
         confedit_list[dmscripts]="$XDG_CONFIG_HOME/dmscripts/config"
         confedit_list[alacritty]="$XDG_CONFIG_HOME/alacritty/alacritty.yml"
+        confedit_list[shell]="$XDG_CONFIG_HOME/sh"
         confedit_list[scripts]="$HOME/.local/bin"
         confedit_list[bash]="$HOME/.bashrc"
         confedit_list[zsh]="$ZDOTDIR/.zshrc"
-        confedit_list[aliasrc]="$XDG_CONFIG_HOME/sh/aliasrc"
         confedit_list[bash_history]="$HOME/.bash_history"
         confedit_list[bash_profile]="$HOME/.bash_profile"
         confedit_list[tmux]="$XDG_CONFIG_HOME/tmux/tmux.conf"
