@@ -1,5 +1,5 @@
 ### Oh My Zsh ###
-export ZSH="$MYSRC/oh-my-zsh"
+export ZSH="$MYSRC/omz"
 ZSH_THEME="alanpeabody"
 # ZSH_THEME="gnzh"
 plugins=(taskwarrior git vi-mode)
