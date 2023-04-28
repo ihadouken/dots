@@ -6,4 +6,7 @@
 # 2. Uncomment to set a random wallpaper on login
 # find /usr/share/backgrounds/dtos-backgrounds/ -type f | shuf -n 1 | xargs xwallpaper --stretch &
 # 3. Uncomment to set wallpaper with nitrogen
-nitrogen --restore &
+# nitrogen --restore &
+
+# Or just restore the previous pywal colorscheme
+wal -R &
