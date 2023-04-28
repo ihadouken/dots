@@ -39,23 +39,23 @@ export QT_QPA_PLATFORMTHEME='qt5ct'
 [[ -d "$HOME/.local/bin/status-bar" ]] && export PATH="$PATH:$HOME/.local/bin/status-bar"
 
 ### personal ###
-#export MYTERM="xterm"
+#export MYTERM='xterm'
 export MYSRC="$HOME/.local/src"
 export MYEMACS="emacsclient -c -a 'emacs'"
 export TMPDIR='/tmp'
 export STARDICT_DATA_DIR="$XDG_DATA_HOME/stardict"
-export MENU="dmenu -i -l 15 -fn Mononoki-nerd-font -p"
-# export MENU="rofi -dmenu -i -p"
-# export MENU="fzf --prompt"
+export MENU='dmenu -i -l 15 -fn Mononoki-nerd-font -p'
+# export MENU='rofi -dmenu -i -p'
+# export MENU='fzf --prompt'
 
 # Standard programs
-export PAGER="/usr/bin/bat"
-export BROWSER="/usr/bin/qutebrowser"
-export EDITOR="nvim"
+export PAGER='/usr/bin/bat'
+export BROWSER='/usr/bin/qutebrowser'
+export EDITOR='nvim'
 #export ALTERNATE_EDITOR=""                        # setting for emacsclient
 #export EDITOR="emacsclient -t -a ''"              # $EDITOR use Emacs in terminal
-#export VISUAL="emacsclient -c -a emacs"           # $VISUAL use Emacs in GUI mode
-export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
+#export VISUAL='emacsclient -c -a emacs'           # $VISUAL use Emacs in GUI mode
+export LESSOPEN='| /usr/bin/source-highlight-esc.sh %s'
 export LESS='-R '
 export SDCV_PAGER='lolcat -f | less --quit-if-one-screen -RX'
 # export LD_LIBRARY_PATH="$HOME/me/libgourou_utils_0.7.1"
@@ -73,4 +73,4 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Libby
 export LIBBY_OUTPUT_DIR="$HOME/Documents/books/libby"
-export LIBBY_VIEWER="alacritty -e epy"
+export LIBBY_VIEWER="$MYTERM -e epy"

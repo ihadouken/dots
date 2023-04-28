@@ -23,6 +23,7 @@ alias ipy='ipython'
 alias lc='leetcode'
 alias reswap='sudo swapoff -a && sudo swapon -a'
 alias nwre='sudo systemctl stop NetworkManager && sudo systemctl start NetworkManager'
+alias mymodmap="xmodmap $XDG_CONFIG_HOME/X11/xmodmap"
 alias btre='sudo systemctl stop bluetooth && sudo systemctl start bluetooth'
 alias xev='(xev &) && sleep 5; killall xev'
 
