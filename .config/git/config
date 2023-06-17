@@ -11,9 +11,8 @@
 [mergetool]
 	prompt = false
 [credential]
-	helper = 
-	helper = /usr/share/git-credential-manager-core/git-credential-manager-core
 	credentialStore = gpg
+	helper = /usr/bin/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
 [alias]
