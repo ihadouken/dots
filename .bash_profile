@@ -14,9 +14,23 @@ sudo updatedb &
 
 # Start X session
 if [[ "$(tty)" == '/dev/tty1' ]]; then
-    pgrep -x dwm || export MYTERM='st' && exec startx
+    if ! pgrep -x dwm; then
+        export XDG_SESSION_DESKTOP="dwm"
+        export MYTERM='st'
+        exec startx
+    fi
+
 elif [[ "$(tty)" == '/dev/tty3' ]]; then
-    pgrep xmonad || export MYTERM='alacritty' && exec startx
+    if ! pgrep xmonad; then 
+        export XDG_SESSION_DESKTOP="xmonad"
+        export MYTERM='alacritty'
+        exec startx
+    fi
+
 elif [[ "$(tty)" == '/dev/tty4' ]]; then
-    pgrep -x qtile || export MYTERM='alacritty' && exec startx
+    if ! pgrep -x qtile; then
+        export XDG_SESSION_DESKTOP="qtile"
+        export MYTERM='st'
+        exec startx
+    fi
 fi
