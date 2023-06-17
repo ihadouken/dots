@@ -1,27 +1,31 @@
 font_size: 20
-theme: neon
+theme: pywal
 tree_1:
   search:
     wiby: "https://www.wiby.me/"
     marginalia: "https://search.marginalia.nu/"
     sms:  "https://searchmysite.net/"
-    oldvista: "https://oldavista.com/"
   program:
     github: "https://www.github.com/"
-    leetcode: "https://www.leetcode.com"
+    leetcode: "https://www.leetcode.com/"
+    neetcode: "https://www.neetcode.io/"
+    aoc:
+      - "https://www.adventofcode.com/"
+      - "advent of code"
   people:
-    neovoid: "https://neovoid.tk/"
-    gtlsgamr: "https://hitarththummar.xyz/posts/archive.html"
+    gtlsgamr: "https://hitarththummar.xyz/"
     bugswriter: "https://bugswriter.com/"
     me: "https://hadouken.neocities.org/"
+  tildes:
+    ~varsh: "https://tildevarsh.in/"
+    ~team: "https://tilde.team/"
+    ~verse: "https://tildeverse.org/"
 
 tree_2:
   docs:
-    archwiki: 
-      - "https://archlinux.org/"
-      - "arch wiki"
+    archwiki: "https://archlinux.org/"
     python:
-      - "https://docs.python.org"
+      - "https://docs.python.org/"
       - "python docs"
     archive.org: "https://archive.org/"
   chill:
@@ -34,3 +38,6 @@ tree_2:
     whatsapp: "https://web.whatsapp.com/"
     instagram: "https://instagram.com/"
     gmail: "https://mail.google.com/"
+  tools:
+    segfault: "https://projectsegfau.lt/"
+    screensy: "https://screensy.marijn.it/#hadouken"
