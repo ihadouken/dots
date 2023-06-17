@@ -41,7 +41,7 @@ sxhkd &
 # setleds -D +num
 
 # start some nice programs
-xset s 180 300
+xset s 120 300
 xss-lock -n 'bash /usr/share/doc/xss-lock/dim-screen.sh' -- /usr/local/bin/slock &
 picom --experimental-backends &
 nm-applet &
@@ -50,7 +50,6 @@ dunst &
 #emacs --daemon &
 lxsession &
 unclutter --timeout 10 &
-libinput-gestures-setup start &
 
 # start window manager
 if [[ "$(tty)" == "/dev/tty1" ]]; then
