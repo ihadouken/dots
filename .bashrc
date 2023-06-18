@@ -186,7 +186,7 @@ case $rand_num in
     1)
         colorscript random ;;
     2)
-        pokemon-colorscripts random ;;
+        pokemon-colorscripts random; echo ;;
 #   3)
 #       wal --preview | sed '/Current/d'
 #       fortune | lolcat ;;
@@ -202,20 +202,6 @@ unset rand_num
 if [ -f /etc/bash.command-not-found ]; then
     . /etc/bash.command-not-found
 fi
-
-### SETTING THE STARSHIP PROMPT ###
-eval "$(starship init bash)"
-
-### POWERLINE SHELL ###
-#function _update_ps1() {
-#    echo ""
-##    echo ""
-#    PS1=$(powerline-shell $?)
-#}
-
-#if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-#    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-#fi
 
 if [ "$(cat ~/.bash_history | wc -l)" -gt 9000 ]; then
     printf "\033[1;31m *** History exceeds pre-cautionary limit."
