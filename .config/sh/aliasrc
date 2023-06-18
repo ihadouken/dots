@@ -54,7 +54,7 @@ alias doompurge="~/.emacs.d/bin/doom purge"
 alias jctl="journalctl -p 3 -xb"
 
 # pastebin
-alias tb="nc termbin.com 9999 | tee -a $XDG_DATA_HOME/upload.sh/uploadhst"
+alias tb="{nc termbin.com 9999 | sed 's/^\x00//' | tee -a '$XDG_DATA_HOME'/tbhistory;}"
 alias ix='curl -s -X POST -u hadouken:$(pass hk@ix.io) -F "f:1=<-" ix.io'
 
 # the terminal rickroll
@@ -100,7 +100,7 @@ alias clr='/bin/clear; echo; seq 1 $(tput cols) | sort -R | spark | lolcat; echo
 alias del='([[ ! -d /tmp/Trash ]] && \mkdir /tmp/Trash ); \mv -f -t /tmp/Trash'
 alias dtconky='wm=$(wmctrl -m | head -n 1 | cut -d" " -f 2) && ([[ "$wm" == "qtile" ]] && conky -c $HOME/.config/conky/qtile/doom-one-01.conkyrc || conky -c $HOME/.config/conky/xmonad/doom-one-01.conkyrc)'
 alias fopen='open "$(find / -type f 2> /dev/null | fzf)"'
-alias hbak="mv $HISTFILE $HOME/Backups/hbak/$(basename $HISTFILE)-$(date +%Y.%m.%d.%H-%M)"
+alias hbak='mv $HISTFILE $HOME/Backups/hbak/$(basename $HISTFILE)-$(date +%Y.%m.%d.%H-%M)'
 alias contacts='echo "dialog_list" | telegram-cli -C -D | tail +2 | head -n -2'
 alias dots='/usr/bin/git --git-dir=$MYSRC/dotfiles --work-tree=$HOME'
 alias radio-song="printf '{ \"command\": [\"get_property\", \"%s\" ] }\n' \"metadata/by-key/icy-title\" | socat - ~/.cache/mpv-ipc-socket | jq -r .data"
