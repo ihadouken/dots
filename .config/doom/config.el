@@ -711,3 +711,9 @@ List of keybindings (SPC h b b)")
 ;; Quick save
 ;; (map! (:prefix ("Z"))
 ;;       :desc "Save current buffer" "W" #'save-buffer)
+
+(setq org-plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar")
+
+(org-babel-do-load-languages
+    'org-babel-load-languages
+    '((plantuml . t)))
