@@ -19,10 +19,8 @@ super + Escape
 	xkill
 
 # Rofi
-ctrl + space
-	rofi -show run
-#alt + Tab
-	#rofi -show window -config ~/.cache/wal/colors-rofi-dark.rasi
+alt + Tab
+	rofi -show window -config ~/.cache/wal/colors-rofi-dark.rasi
 super + c
 	rofi -show calc -modi calc -no-show-match -no-sort
 
@@ -86,8 +84,8 @@ super + shift + n
 
 # Dmenu
 super + shift + Return
-	dmenu_run -i -l 20 -fn Mononoki -g 3 -X 0 -Y 0 -W 680 -p 'Run: '
-	#dmenu_run -i -l 20 -fn Mononoki -g 3 -x 0 -y 0 -z 680 -p 'Run: '
+	dmenu_run 'Run: ' -l 20 -g 3 -X 0 -Y 0 -W 680
+	# dmenu_run -i -l 20 -fn Mononoki -g 3 -X 0 -Y 0 -W 680 -p 'Run: '
 super + p; a
 	jerry -D -c
 super + p; b
