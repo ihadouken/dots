@@ -12,33 +12,10 @@ from typing import List  # noqa: F401
 
 mod = "mod4"              # Sets mod key to SUPER/WINDOWS
 alt = "mod1"
-myTerm = "alacritty"      # My terminal of choice
+myTerm = os.getenv('MYTERM')
 myBrowser = "qutebrowser" # My browser of choice
 
-# @lazy.function
-# def tileall(qtile):
-    # for window in qtile.currentGroup.windows:
-        # window.disable_floating()
-
-# @lazy.function
-# def killall(qtile):
-    # for window in qtile.currentGroup.windows:
-        # window.kill()
-
 keys = [
-#         ### The essentials
-#         Key([mod], "Return",
-#             lazy.spawn(myTerm),
-#             desc='Launches My Terminal'
-#             ),
-#         Key([mod, "shift"], "Return",
-#             lazy.spawn("dmenu_run -i -fn Mononoki-nerd-font -p 'Run: '"),
-#             desc='Run Launcher'
-#             ),
-#         Key([mod], "b",
-#             lazy.spawn(myBrowser),
-#             desc='Qutebrowser'
-#             ),
          Key([mod, "shift"], "r",
              lazy.restart(),
              desc='Restart Qtile'
@@ -51,10 +28,6 @@ keys = [
              lazy.window.kill(),
              desc='Kill active window'
              ),
-         # Key([mod, "shift"], "a",
-             # killall,
-             # desc='Kill active window'
-             # ),
          Key([mod, "shift"], "Tab",
              lazy.prev_layout(),
              desc='Toggle through layouts'
@@ -63,33 +36,6 @@ keys = [
              lazy.next_layout(),
              desc='Toggle through layouts'
              ),
-#         Key(["control", "shift"], "e",
-#             lazy.spawn("emacsclient -c -a emacs"),
-#             desc='Doom Emacs'
-#             ),
-#         ### Switch focus to specific monitor (out of three)
-#        #Key([mod], "w",
-#        #    lazy.to_screen(0),
-#        #    desc='Keyboard focus to monitor 1'
-#        #    ),
-#        #Key([mod], "e",
-#        #    lazy.to_screen(1),
-#        #    desc='Keyboard focus to monitor 2'
-#        #    ),
-#        #Key([mod], "r",
-#        #    lazy.to_screen(2),
-#        #    desc='Keyboard focus to monitor 3'
-#        #    ),
-#         ### Switch focus of monitors
-#         Key([mod], "period",
-#             lazy.next_screen(),
-#             desc='Move focus to next monitor'
-#             ),
-#         Key([mod], "comma",
-#             lazy.prev_screen(),
-#             desc='Move focus to prev monitor'
-#             ),
-         ### Treetab controls
          Key([mod, "shift"], "h",
              lazy.layout.move_left(),
              desc='Move up a section in treetab'
@@ -131,10 +77,6 @@ keys = [
              lazy.layout.swap_main(),
              desc='Promote focussed window to master'
              ),
-         Key([mod, "shift"], "t",
-             lazy.layout.reset(),
-             desc='Send all windows back to tiling.'
-             ),
          Key([mod], "m",
              lazy.layout.maximize(),
              desc='toggle window between minimum and maximum sizes'
@@ -147,11 +89,11 @@ keys = [
              lazy.window.toggle_fullscreen(),
              desc='toggle fullscreen'
              ),
-         Key([mod, "control"], "Left",
+         Key([mod, "shift"], "h",
              lazy.screen.prev_group(),
-             desc='Move focused window to previous group'
+             desc='Move to the previous group'
              ),
-         Key([mod, "control"], "Right",
+         Key([mod, "shift"], "l",
              lazy.screen.next_group(),
              desc='Move to the next group'
              ),
@@ -178,168 +120,10 @@ keys = [
              lazy.layout.flip(),
              desc='Switch which side main pane occupies (XmonadTall)'
              ),
-         Key([alt], "Tab",
-             lazy.layout.next(),
-             desc='Switch window focus to other pane(s) of stack'
-             ),
          Key([alt, "shift"], "space",
              lazy.layout.toggle_split(),
              desc='Toggle between split and unsplit sides of stack'
-             ),
-
-#        # hadouken
-#         Key([mod], "i",
-#             lazy.spawn("invert-color-rs"),
-#             desc='Invert colors of the active window.'
-#             ),
-#         Key([mod], "e",
-#             lazy.spawn(myTerm+" -t ranger -e ranger"),
-#             desc='Ranger bound to File Manager KB'
-#             ),
-#         Key(["control"], "space",
-#             lazy.spawn("rofi -show run -display-run \"RUN: \""),
-#             desc='Launch rofi as App Launcher'
-#             ),
-#         Key([mod, "shift"], "w",
-#             lazy.spawn("rfkill toggle wifi"),
-#             desc='Toggle my wifi card'
-#             ),
-#         Key([mod, "shift"], "b",
-#             lazy.spawn("rfkill toggle bluetooth"),
-#             desc='Toggle my bluetooth controller'
-#             ),
-#         Key([mod, "shift"], "l",
-#             lazy.spawn("slock"),
-#             desc='Lock Screen'
-#             ),
-#         Key([mod, "shift"], "s",
-#             lazy.spawn("narrator $(xsel)"),
-#             desc='Speak what\'s selected'
-#             ),
-#         Key([alt], "Tab",
-#             lazy.spawn("rofi -show window"),
-#             desc='rofi shows open windows'
-#             ),
-#         Key([alt, "control"], "s",
-#             lazy.spawn("shutdown now"),
-#             desc='Simple shutdown KB'
-#             ),
-#         Key([mod, "shift"], "x",
-#             lazy.spawn("echo 'cycle pause' | socat - ~/.cache/dmsounds-ipc"),
-#             desc='Toggle pause for dm-music and yt-music'
-#             ),
-#         Key([mod, "shift"], "comma",
-#             lazy.spawn("echo '{ \"command\": [ \"seek\", \"-10\" ] }' | socat - ~/.cache/dmsounds-ipc > /dev/null 2>&1"),
-#             desc='Seek backwards 10 seconds in dm-music and yt-music'
-#             ),
-#         Key([mod, "shift"], "period",
-#             lazy.spawn("echo '{ \"command\": [ \"seek\", \"+10\" ] }' | socat - ~/.cache/dmsounds-ipc > /dev/null 2>&1"),
-#             desc='Seek forwards 10 seconds in dm-music and yt-music'
-#             ),
-#         Key([mod], "r",
-#             lazy.spawn("killall redshift || redshift &"),
-#             desc='Toggle redshift color'
-#             ),
-#         Key([mod], "n",
-#             lazy.spawn(myTerm+" -t neomutt -e neomutt"),
-#             desc='Launch neomutt mail client'
-#             ),
-#         Key([mod], "x",
-#             lazy.spawn(myTerm+" -t irc -e cp442.5 BichtX"),
-#             desc='Launch BitchX irc client'
-#             ),
-#         Key([mod], "d",
-#             lazy.spawn(myTerm+"/bin/bash -c \"xdotool keyup d super && xdotool key Down && xdotool keyup super\""),
-#             desc='Using xdotool hack for Down key'
-#             ),
-#         Key(["control"], "m",
-#             lazy.spawn("mictoggle"),
-#             desc='Toggle my mic Mute/Unmute state'
-#             ),
-#         Key([mod], "Escape",
-#             lazy.spawn("xkill"),
-#             desc='Spawn the xkill cursor to kill a window'
-#             ),
-#
-#
-#         # Emacs programs launched using the key chord CTRL+e followed by 'key'
-#         KeyChord(["control"],"e", [
-#             Key([], "e",
-#                 lazy.spawn("emacsclient -c -a 'emacs'"),
-#                 desc='Launch Emacs'
-#                 ),
-#             Key([], "b",
-#                 lazy.spawn("emacsclient -c -a 'emacs' --eval '(ibuffer)'"),
-#                 desc='Launch ibuffer inside Emacs'
-#                 ),
-#             Key([], "d",
-#                 lazy.spawn("emacsclient -c -a 'emacs' --eval '(dired nil)'"),
-#                 desc='Launch dired inside Emacs'
-#                 ),
-#             Key([], "i",
-#                 lazy.spawn("emacsclient -c -a 'emacs' --eval '(erc)'"),
-#                 desc='Launch erc inside Emacs'
-#                 ),
-#             Key([], "m",
-#                 lazy.spawn("emacsclient -c -a 'emacs' --eval '(mu4e)'"),
-#                 desc='Launch mu4e inside Emacs'
-#                 ),
-#             Key([], "n",
-#                 lazy.spawn("emacsclient -c -a 'emacs' --eval '(elfeed)'"),
-#                 desc='Launch elfeed inside Emacs'
-#                 ),
-#             Key([], "s",
-#                 lazy.spawn("emacsclient -c -a 'emacs' --eval '(eshell)'"),
-#                 desc='Launch the eshell inside Emacs'
-#                 ),
-#             Key([], "v",
-#                 lazy.spawn("emacsclient -c -a 'emacs' --eval '(+vterm/here nil)'"),
-#                 desc='Launch vterm inside Emacs'
-#                 )
-#         ]),
-#         # Dmenu scripts launched using the key chord SUPER+p followed by 'key'
-#         KeyChord([mod], "p", [
-#             Key([], "e",
-#                 lazy.spawn("/usr/bin/dm-emoji"),
-#                 desc='Choose a config file to edit'
-#                 ),
-#             Key([], "i",
-#                 lazy.spawn("/usr/bin/dm-ip"),
-#                 desc='Take screenshots via dmenu'
-#                 ),
-#             Key([], "k",
-#                 lazy.spawn("/usr/bin/dm-kill"),
-#                 desc='Kill processes via dmenu'
-#                 ),
-#             Key([], "l",
-#                 lazy.spawn("/usr/bin/dm-logout"),
-#                 desc='A logout menu'
-#                 ),
-#             Key([], "m",
-#                 lazy.spawn("/usr/bin/dm-music"),
-#                 desc='Search manpages in dmenu'
-#                 ),
-#             Key([], "o",
-#                 lazy.spawn("/usr/bin/dm-bookman"),
-#                 desc='Search your qutebrowser bookmarks and quickmarks'
-#                 ),
-#             Key([], "r",
-#                 lazy.spawn("/usr/bin/dm-reddit"),
-#                 desc='Search reddit via dmenu'
-#                 ),
-#             Key([], "s",
-#                 lazy.spawn("/usr/bin/dm-websearch"),
-#                 desc='Search various search engines via dmenu'
-#                 ),
-#             Key([], "t",
-#                 lazy.spawn("/usr/bin/dm-translate"),
-#                 desc='Search various search engines via dmenu'
-#                 ),
-#             Key([], "p",
-#                 lazy.spawn("passmenu -fn Mononoki-nerd-font"),
-#                 desc='Retrieve passwords with dmenu'
-#                 )
-#         ])
+             )
 ]
 
 groups = []
@@ -444,8 +228,8 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 def init_widgets_list():
-    arrow_padding = -6
-    arrow_size = 47
+    arrow_padding = -1
+    arrow_size = 50
 
     widgets_list = [
               widget.Sep(
@@ -553,41 +337,16 @@ def init_widgets_list():
                        fontsize = arrow_size
                        ),
               widget.TextBox(
-                       text = '',
-                       font = "Font Awesome 5 Free Solid",
-                       background = colors[3],
-                       foreground = colors[1],
-                       padding = 0,
-                       fontsize = 24
-                       ),
-              widget.Net(
-                       interface = "wlp3s0",
-                       format = '{down}',
-                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e speedtest-cli')},
-                       foreground = colors[1],
-                       background = colors[3],
-                       update_interval = 3,
-                       padding = 5
-                       ),
-              widget.TextBox(
-                       text = '',
-                       font = "Ubuntu Mono",
-                       background = colors[3],
-                       foreground = colors[10],
-                       padding = arrow_padding,
-                       fontsize = arrow_size
-                       ),
-              widget.TextBox(
                        text = '',
                        font = "Font Awesome 6 Free Solid",
-                       background = colors[10],
+                       background = colors[3],
                        foreground = colors[1],
                        padding = 0,
                        fontsize = 16
                        ),
               widget.CPU(
                        foreground = colors[1],
-                       background = colors[10],
+                       background = colors[3],
                        format = '{load_percent}%',
                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
                        update_interval = 2,
@@ -596,7 +355,7 @@ def init_widgets_list():
               widget.TextBox(
                        text='',
                        font = "Ubuntu Mono",
-                       background = colors[10],
+                       background = colors[3],
                        foreground = colors[4],
                        padding = arrow_padding,
                        fontsize = arrow_size
@@ -644,7 +403,7 @@ def init_widgets_list():
                        text='',
                        font = "Ubuntu Mono",
                        background = colors[6],
-                       foreground = colors[5],
+                       foreground = colors[7],
                        padding = arrow_padding,
                        fontsize = arrow_size
                        ),
@@ -652,7 +411,7 @@ def init_widgets_list():
                        text = '',
                        font = "Font Awesome 6 Free Solid",
                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -t Updater -e update')},
-                       background = colors[5],
+                       background = colors[7],
                        foreground = colors[1],
                        padding = 0,
                        fontsize = 16
@@ -667,36 +426,12 @@ def init_widgets_list():
                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -t Updater -e update')},
                        padding = 3,
                        no_update_string = "None ",
-                       background = colors[5]
+                       background = colors[7]
                        ),
-              # widget.TextBox(
-                       # text = '',
-                       # font = "Source Code Pro",
-                       # background = colors[5],
-                       # foreground = colors[10],
-                       # padding = arrow_padding,
-                       # fontsize = arrow_size
-                       # ),
-              # widget.TextBox(
-                       # text = '',
-                       # font = "Font Awesome 6 Free Solid",
-                       # background = colors[7],
-                       # foreground = colors[1],
-                       # padding = 0,
-                       # fontsize = 16
-                       # ),
-              # widget.Maildir(
-                       # foreground = colors[1],
-                       # background = colors[7],
-                       # maildir_path='~/.local/share/mail/sharmarahul41928@gmail.com/INBOX/new',
-                       # mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -t Mail -e neomutt')},
-                       # update_interval = 600,
-                       # padding = 5
-                       # ),
               widget.TextBox(
                        text = '',
                        font = "Ubuntu Mono",
-                       background = colors[5],
+                       background = colors[7],
                        foreground = colors[10],
                        padding = arrow_padding,
                        fontsize = arrow_size
@@ -728,21 +463,21 @@ def init_widgets_list():
                        text = '',
                        font = "Ubuntu Mono",
                        background = colors[10],
-                       foreground = colors[8],
+                       foreground = colors[5],
                        padding = arrow_padding,
                        fontsize = arrow_size
                        ),
               widget.TextBox(
                        font = "Font Awesome 6 Free Solid",
                        text = '',
-                       background = colors[8],
+                       background = colors[5],
                        foreground = colors[1],
                        padding = 0,
                        fontsize = 16
                        ),
               widget.Backlight(
                        foreground = colors[1],
-                       background = colors[8],
+                       background = colors[5],
                        backlight_name = "intel_backlight",
                        brightness_file = "brightness",
                        max_brightness_file = "max_brightness",
@@ -752,30 +487,8 @@ def init_widgets_list():
                        ),
               widget.TextBox(
                        text = '',
-                       font = "Source Code Pro",
-                       background = colors[8],
-                       foreground = colors[7],
-                       padding = arrow_padding,
-                       fontsize = arrow_size
-                       ),
-              widget.TextBox(
-                       text = '',
-                       font = "Font Awesome 6 Free Solid",
-                       background = colors[7],
-                       foreground = colors[1],
-                       padding = 0,
-                       fontsize = 16
-                       ),
-              widget.Volume(
-                       foreground = colors[1],
-                       background = colors[7],
-                       update_interval = 1,
-                       padding = 5
-                       ),
-              widget.TextBox(
-                       text = '',
                        font = "Ubuntu Mono",
-                       background = colors[7],
+                       background = colors[5],
                        foreground = colors[9],
                        padding = arrow_padding,
                        fontsize = arrow_size
@@ -795,17 +508,6 @@ def init_widgets_list():
                        ),
               ]
     return widgets_list
-
-# def init_widgets_screen():
-    # widgets_screen = init_widgets_list()
-    # return widgets_screen
-
-# def init_screen():
-    # return [Screen(top=bar.Bar(widgets=init_widgets_screen(), opacity=0.9, size=30)),]
-
-# if __name__ in ["config", "__main__"]:
-    # screens = init_screens()
-    # widgets_list = init_widgets_list()
 
 def init_widgets_screen():
     widgets_screen = init_widgets_list()

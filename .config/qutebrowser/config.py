@@ -590,6 +590,7 @@ config.bind('<Ctrl-P>', 'set statusbar.show always;; set-cmd-text :print --pdf ~
 config.bind('<Ctrl-Shift-P>', 'set statusbar.show always;; set-cmd-text :screenshot ~/Pictures/screenshot/qb-ss.png')
 
 # Edit stuff in external editor.
+# config.unbind('<Ctrl+e>', 'insert')
 config.bind('et', 'edit-text')
 config.bind('eu', 'edit-url')
 config.bind('ec', 'edit-command')
