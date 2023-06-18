@@ -175,7 +175,7 @@ List of keybindings (SPC h b b)")
 (setq delete-by-moving-to-trash t
       trash-directory "~/.local/share/Trash/files/")
 
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-gruvbox-light)
 (map! :leader
       :desc "Load new theme" "h t" #'counsel-load-theme)
 
@@ -475,14 +475,14 @@ List of keybindings (SPC h b b)")
   (interactive)
   (dolist
       (face
-       '((org-level-1 1.7 "#458588" ultra-bold)
-         (org-level-2 1.6 "#b16286" extra-bold)
-         (org-level-3 1.5 "#98971a" bold)
-         (org-level-4 1.4 "#fb4934" semi-bold)
-         (org-level-5 1.3 "#83a598" normal)
-         (org-level-6 1.2 "#d3869b" normal)
-         (org-level-7 1.1 "#d79921" normal)
-         (org-level-8 1.0 "#8ec07c" normal)))
+       '((org-level-1 1.5 "#458588" ultra-bold)
+         (org-level-2 1.4 "#b16286" extra-bold)
+         (org-level-3 1.3 "#98971a" bold)
+         (org-level-4 1.2 "#fb4934" semi-bold)
+         (org-level-5 1.1 "#83a598" normal)
+         (org-level-6 1.0 "#d3869b" normal)))
+         ;; (org-level-7 1.1 "#d79921" normal)
+         ;; (org-level-8 1.0 "#8ec07c" normal)))
     (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
     (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
 
@@ -599,7 +599,7 @@ List of keybindings (SPC h b b)")
     (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
 
 ;; Load our desired dt/org-colors-* theme on startup
-(dt/org-colors-doom-one)
+(add-hook 'org-mode-hook 'dt/org-colors-gruvbox-dark)
 
 (use-package ox-man)
 (use-package ox-gemini)
