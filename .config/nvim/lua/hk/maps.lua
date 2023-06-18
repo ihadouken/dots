@@ -72,12 +72,6 @@ map("n", "<Leader>hrr", "<CMD>lua ReloadConfig()<CR>")
 -- For vim's terminal buffer
 map("t", "<ESC><ESC>", "<C-\\><C-n>")
 
--- Coc
-map("n", "<Leader>ie", "<CMD>CocEnable<CR>")
-map("n", "<Leader>id", "<CMD>CocDisable<CR>")
-map("n", "<Leader>io", "<CMD>CocOutline<CR>")
-map("n", "<Leader>ic", "<CMD>CocCommand<CR>")
-
 -- Tabs
 map("n", "<Leader>tn", "<CMD>tabnew<CR>")
 map("n", "<Leader>t.", "<CMD>tabnext<CR>")

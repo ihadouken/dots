@@ -79,12 +79,6 @@ packer.startup(function(use)
         end
     }
 
-    -- Intellisense
-    use({
-        "neoclide/coc.nvim",
-        branch = "release"
-    })
-
 	if packer_bootstrap then
 		packer.sync()
 	end

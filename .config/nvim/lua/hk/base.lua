@@ -24,7 +24,7 @@ o.scrolloff = 8
 o.number = true
 o.numberwidth = 2
 o.relativenumber = true
-o.signcolumn = "yes"
+-- o.signcolumn = "yes"
 o.cursorline = false
 vim.cmd([[set noshowmode]])
 
