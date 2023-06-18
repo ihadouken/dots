@@ -7,9 +7,9 @@ ctrl + alt + s
 	shutdown now && paplay '/usr/share/sounds/freedesktop/stereo/service-logout.oga'
 ctrl + alt + r
 	shutdown -r now && paplay '/usr/share/sounds/freedesktop/stereo/service-logout.oga'
-super + z
+ctrl + alt + z
 	systemctl suspend-then-hibernate
-super + shift + l
+ctrl + alt + l
 	slock
 
 # Windows
