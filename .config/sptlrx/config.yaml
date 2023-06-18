@@ -7,7 +7,7 @@ style:
   before:
     background: ""
     foreground: ""
-    bold: true
+    bold: false
     italic: false
     undeline: false
     strikethrough: false
