@@ -47,7 +47,8 @@ map("i", "<Left>" , "<Nop>")
 map("i", "<Right>", "<Nop>")
 
 -- Open terminal inside vim
-map("n", "<Leader>ot", "<CMD>vnew term://zsh<CR>")
+map("n", "<Leader>ot", "<CMD>new term://zsh<CR>")
+map("n", "<Leader>oT", "<CMD>vnew term://zsh<CR>")
 
 -- Split navigation (easy)
 map("n", "<C-h>"    , "<C-w>h")
