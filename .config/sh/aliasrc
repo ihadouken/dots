@@ -88,7 +88,8 @@ alias ftp='lftp -p 2121 192.168.1.82'
 #alias hk='oi -rq'
 alias tg='tg -WN'
 alias speed='speedtest-cli --no-upload --bytes --secure'
-alias siri='sgpt --no-animation --no-spinner'
+alias siri='sgpt'
+alias alexa='tgpt'
 alias tclk='tty-clock -Dbtc -C5 -d 59'
 alias typist='gtypist -e 4% -b -t -i -c 1,0 --banner-colours=0,1,0,0'
 
@@ -105,8 +106,8 @@ alias dots='/usr/bin/git --git-dir=$MYSRC/dotfiles --work-tree=$HOME'
 alias radio-song="printf '{ \"command\": [\"get_property\", \"%s\" ] }\n' \"metadata/by-key/icy-title\" | socat - ~/.cache/mpv-ipc-socket | jq -r .data"
 alias ws="if ! pidof windscribe &> /dev/null; then doas systemctl start windscribe; fi; sleep 3; windscribe connect"
 
-### For integration with pywal ###
-# alias zathura="$XDG_DATA_HOME/wal/zathura-wal"
+### pywal ###
+alias wal='wal --backend colorz --cols16'
 
 ### clipboard ###
 alias cp2cb='xclip -in -sel c'
