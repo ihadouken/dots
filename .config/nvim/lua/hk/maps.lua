@@ -35,16 +35,11 @@ map("n", "<leader>nn", "<CMD>NERDTreeToggleVCS<CR>")
 map("n", "<leader>nc", "<CMD>NERDTreeCWD<CR>")
 map("n", "<leader>nr", "<CMD>NERDTreeRefreshRoot<CR>")
 
--- Disable arrow keys
+-- Disable arrow keys in normal mode
 map("n", "<Up>"   , "<Nop>")
 map("n", "<Down>" , "<Nop>")
 map("n", "<Left>" , "<Nop>")
 map("n", "<Right>", "<Nop>")
-
-map("i", "<Up>"   , "<Nop>")
-map("i", "<Down>" , "<Nop>")
-map("i", "<Left>" , "<Nop>")
-map("i", "<Right>", "<Nop>")
 
 -- Open terminal inside vim
 map("n", "<Leader>ot", "<CMD>new term://zsh<CR>")
