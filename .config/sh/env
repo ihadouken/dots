@@ -44,8 +44,8 @@ export MYSRC="$HOME/.local/src"
 export MYEMACS="emacsclient -c -a 'emacs'"
 export TMPDIR='/tmp'
 export STARDICT_DATA_DIR="$XDG_DATA_HOME/stardict"
-export MENU='dmenu -i -l 15 -fn Mononoki-nerd-font -p'
-# export MENU='rofi -dmenu -i -p'
+# export MENU='dmenu -c -l 10 -p'
+export MENU='rofi -dmenu -i -p'
 # export MENU='fzf --prompt'
 
 # Standard programs
