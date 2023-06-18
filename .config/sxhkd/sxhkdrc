@@ -36,11 +36,11 @@ XF86ScreenSaver
 XF86TouchpadToggle
 	touchpad-toggle.sh
 XF86AudioMute
-	amixer set Master toggle && play '/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga'
+	volchange.sh -t
 XF86AudioLowerVolume
-	amixer set Master 5%- unmute && play '/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga'
+	volchange.sh -d 5
 XF86AudioRaiseVolume
-	amixer set Master 5%+ unmute && play '/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga'
+	volchange.sh -u 5
 Print
 	dm-maim
 
