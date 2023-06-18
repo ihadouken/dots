@@ -58,7 +58,7 @@ super + colon
 super + Return
 	$MYTERM
 alt + e
-	$MYTERM -t FM -e ranger
+	$MYTERM -t FM -e lf
 alt + v
 	$MYTERM -e nvim
 super + alt + h
@@ -169,6 +169,18 @@ super + e; w
 super + e; m
 	$MYEMACS --eval '(emms)' --eval '(emms-play-directory-tree "~/Music/")'
 
+# lobster
+super + n; n
+	lobster
+super + n; c
+	lobster -c
+super + n; d
+	lobster -d
+super + n; r
+	lobster -r
+super + n; t
+	lobster -t
+
 # Miscellaneous
 super + shift + s
 	echo "$(xsel)" | tts
@@ -176,4 +188,5 @@ ctrl + shift + t
 	$MYTERM -t scratchpad
 shift + Print
 	screenshot.sh
-
+super + d
+	dunstctl context
