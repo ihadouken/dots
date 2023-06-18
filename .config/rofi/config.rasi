@@ -5,4 +5,6 @@ configuration {
  kb-element-next: "";
  kb-row-select: "Tab";
  }
-@theme "~/.config/rofi/themes/dt-center.rasi"
+
+// @theme "~/.config/rofi/themes/dt-center.rasi"
+@theme "~/.config/rofi/themes/wal.rasi"
