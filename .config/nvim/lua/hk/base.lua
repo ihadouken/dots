@@ -5,10 +5,8 @@ local opt = vim.opt
 -- vim.cmd('syntax on')
 vim.api.nvim_command('filetype plugin indent on')
 
-o.termguicolors = true
 o.t_Co = 256
 g.nocompatible = true
--- o.background = 'dark'
 
 -- Do not save when switching buffers
 o.hidden = true
@@ -24,7 +22,6 @@ o.scrolloff = 8
 o.number = true
 o.numberwidth = 2
 o.relativenumber = true
--- o.signcolumn = "yes"
 o.cursorline = false
 vim.cmd([[set noshowmode]])
 
@@ -59,7 +56,6 @@ os.execute("mkdir -p " .. o.undodir)
 o.swapfile = false
 -- o.backupdir = '/tmp/'
 -- o.directory = '/tmp/'
--- o.undodir = '/tmp/'
 
 -- Remember 50 items in commandline history
 o.history = 50

@@ -64,6 +64,7 @@ packer.startup(function(use)
 	-- Colorschemes --
 	use("RRethy/nvim-base16")
 	use("kyazdani42/nvim-palenight.lua")
+    use("dylanaraps/wal.vim")
 
 	-- Other stuff --
 	use("frazrepo/vim-rainbow")

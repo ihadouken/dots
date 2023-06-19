@@ -8,11 +8,12 @@
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-monokai')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-nord')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-oceanicnext')
-local ok, _ = pcall(vim.cmd, "colorscheme base16-onedark")
+-- local ok, _ = pcall(vim.cmd, "colorscheme base16-onedark")
 -- local ok, _ = pcall(vim.cmd, 'colorscheme palenight')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-solarized-dark')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-solarized-light')
 -- local ok, _ = pcall(vim.cmd, 'colorscheme base16-tomorrow-night')
+-- local ok, _ = pcall(vim.cmd, "colorscheme wal")
 
 -- Highlight the region on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -22,29 +23,53 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-function DoomOne()
-    vim.cmd([[
-    highlight Normal           guifg=#dfdfdf ctermfg=15   guibg=#282c34 ctermbg=none  cterm=none
-    highlight LineNr           guifg=#5b6268 ctermfg=8    guibg=#282c34 ctermbg=none  cterm=none
-    highlight CursorLineNr     guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
-    highlight VertSplit        guifg=#1c1f24 ctermfg=0    guifg=#5b6268 ctermbg=8     cterm=none
-    highlight Statement        guifg=#98be65 ctermfg=2    guibg=none    ctermbg=none  cterm=none
-    highlight Directory        guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=none
-    highlight StatusLine       guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
-    highlight StatusLineNC     guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
-    highlight NERDTreeClosable guifg=#98be65 ctermfg=2
-    highlight NERDTreeOpenable guifg=#5b6268 ctermfg=8
-    highlight Comment          guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=italic
-    highlight Constant         guifg=#3071db ctermfg=12   guibg=none    ctermbg=none  cterm=none
-    highlight Special          guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=none
-    highlight Identifier       guifg=#5699af ctermfg=6    guibg=none    ctermbg=none  cterm=none
-    highlight PreProc          guifg=#c678dd ctermfg=5    guibg=none    ctermbg=none  cterm=none
-    highlight String           guifg=#3071db ctermfg=12   guibg=none    ctermbg=none  cterm=none
-    highlight Number           guifg=#ff6c6b ctermfg=1    guibg=none    ctermbg=none  cterm=none
-    highlight Function         guifg=#ff6c6b ctermfg=1    guibg=none    ctermbg=none  cterm=none
-    highlight Visual           guifg=#dfdfdf ctermfg=1    guibg=#1c1f24 ctermbg=none  cterm=none
-    highlight MatchParen gui=bold guibg=#cfbfaf guifg=#666666 cterm=bold ctermbg=NONE
-    ]])
+function ColorMyPencils()
+    vim.cmd([[highlight Normal           ctermfg=15   ctermbg=none  cterm=none]])
+    vim.cmd([[highlight LineNr           ctermfg=8    ctermbg=none  cterm=none]])
+    vim.cmd([[highlight CursorLineNr     ctermfg=7    ctermbg=8     cterm=none]])
+    vim.cmd([[highlight VertSplit        ctermfg=0    ctermbg=8     cterm=none]])
+    vim.cmd([[highlight Statement        ctermfg=2    ctermbg=none  cterm=none]])
+    vim.cmd([[highlight Directory        ctermfg=4    ctermbg=none  cterm=none]])
+    vim.cmd([[highlight StatusLine       ctermfg=7    ctermbg=8     cterm=none]])
+    vim.cmd([[highlight StatusLineNC     ctermfg=7    ctermbg=8     cterm=none]])
+    vim.cmd([[highlight NERDTreeClosable ctermfg=2]])
+    vim.cmd([[highlight NERDTreeOpenable ctermfg=8]])
+    vim.cmd([[highlight Comment          ctermfg=4    ctermbg=none  cterm=italic]])
+    vim.cmd([[highlight Constant         ctermfg=12   ctermbg=none  cterm=none]])
+    vim.cmd([[highlight Special          ctermfg=4    ctermbg=none  cterm=none]])
+    vim.cmd([[highlight Identifier       ctermfg=6    ctermbg=none  cterm=none]])
+    vim.cmd([[highlight PreProc          ctermfg=5    ctermbg=none  cterm=none]])
+    vim.cmd([[highlight String           ctermfg=12   ctermbg=none  cterm=none]])
+    vim.cmd([[highlight Number           ctermfg=1    ctermbg=none  cterm=none]])
+    vim.cmd([[highlight Function         ctermfg=1    ctermbg=none  cterm=none]])
+    vim.cmd([[highlight Visual           ctermfg=1    ctermbg=none  cterm=none]])
+
+    vim.cmd([[highlight WildMenu         ctermfg=0    ctermbg=80    cterm=none]])
+    vim.cmd([[highlight Folded           ctermfg=103  ctermbg=234   cterm=none]])
+    vim.cmd([[highlight FoldColumn       ctermfg=103  ctermbg=234   cterm=none]])
+    vim.cmd([[highlight DiffAdd          ctermfg=none ctermbg=23    cterm=none]])
+    vim.cmd([[highlight DiffChange       ctermfg=none ctermbg=56    cterm=none]])
+    vim.cmd([[highlight DiffDelete       ctermfg=168  ctermbg=96    cterm=none]])
+    vim.cmd([[highlight DiffText         ctermfg=0    ctermbg=80    cterm=none]])
+    vim.cmd([[highlight SignColumn       ctermfg=244  ctermbg=235   cterm=none]])
+    vim.cmd([[highlight Conceal          ctermfg=251  ctermbg=none  cterm=none]])
+    vim.cmd([[highlight SpellBad         ctermfg=168  ctermbg=none  cterm=underline]])
+    vim.cmd([[highlight SpellCap         ctermfg=80   ctermbg=none  cterm=underline]])
+    vim.cmd([[highlight SpellRare        ctermfg=121  ctermbg=none  cterm=underline]])
+    vim.cmd([[highlight SpellLocal       ctermfg=186  ctermbg=none  cterm=underline]])
+    vim.cmd([[highlight Pmenu            ctermfg=251  ctermbg=234   cterm=none]])
+    vim.cmd([[highlight PmenuSel         ctermfg=0    ctermbg=111   cterm=none]])
+    vim.cmd([[highlight PmenuSbar        ctermfg=206  ctermbg=235   cterm=none]])
+    vim.cmd([[highlight PmenuThumb       ctermfg=235  ctermbg=206   cterm=none]])
+    vim.cmd([[highlight TabLine          ctermfg=244  ctermbg=234   cterm=none]])
+    vim.cmd([[highlight TablineSel       ctermfg=0    ctermbg=247   cterm=none]])
+    vim.cmd([[highlight TablineFill      ctermfg=244  ctermbg=234   cterm=none]])
+    vim.cmd([[highlight CursorColumn     ctermfg=none ctermbg=236   cterm=none]])
+    vim.cmd([[highlight CursorLine       ctermfg=none ctermbg=236   cterm=none]])
+    vim.cmd([[highlight ColorColumn      ctermfg=none ctermbg=236   cterm=none]])
+    vim.cmd([[highlight Cursor           ctermfg=0    ctermbg=5     cterm=none]])
+    vim.cmd([[highlight htmlEndTag       ctermfg=114  ctermbg=none  cterm=none]])
+    vim.cmd([[highlight xmlEndTag        ctermfg=114  ctermbg=none  cterm=none]])
 end
 
---DoomOne()
+ColorMyPencils()
