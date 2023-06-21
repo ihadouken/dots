@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+rotate() {
+    degree="$1"
+    tr '\n' '\0' | xargs -0 realpath | sort | uniq | while read file; do
+	case "$(file -b -i "$file")" in
+	    image/jpeg*)
+		jpegtran -rotate "$degree" -copy all -outfile "$file" "$file"
+	    ;;
+	    *)
+		mogrify  -rotate "$degree" "$file" ;;
+        esac
+    done
+}
+
+while read file
+do
+    case "$1" in
+        "c")
+            xclip -selection clipboard -target image/png "$file" &&
+            notify-send "$file has been copied to clipboard." && exit 0
+        ;;
+
+        "d")
+            [ "$(printf "No\\nYes" | $MENU "Really delete $file?")" = "Yes" ] &&
+            rm "$file" && notify-send "$file deleted."
+        ;;
+
+        "i")
+            notify-send "File information" \
+            "$(mediainfo "$file" | tr -s ' ' | grep -v CompleteName_Last)"
+        ;;
+
+        "w")
+            walset "$file"
+            notify-send "$file has been set as your wallpaper."
+        ;;
+
+        "7")
+            rotate 270
+        ;;
+
+        "8")
+            rotate 180
+        ;;
+
+        "9")
+            rotate 90
+        ;;
+        esac
+done
