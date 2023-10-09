@@ -12,6 +12,17 @@ image_preview=0
 debug=0
 image_config_path="$HOME/.config/rofi/styles/lobster-selector.rasi"
 
+try() {
+  local response res
+  until [[ "$response" == 'true' ]]; do
+    res=`eval $*`
+    [[ -n "$res" ]] && response='true'
+  done
+  echo "$res"
+
+  # eval $*
+}
+
 download_video() {
   ffmpeg -loglevel error -stats -i "$1" -c copy "$3/$2".mp4
 }
