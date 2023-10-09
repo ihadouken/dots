@@ -21,9 +21,6 @@ db.default_banner = {
 	"",
 }
 -- linux
---db.preview_command = 'ueberzug'
---
---db.preview_file_path = home .. '/.config/nvim/static/neovim.cat'
 db.preview_file_height = 11
 db.preview_file_width = 70
 db.custom_center = {
