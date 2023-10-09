@@ -34,6 +34,10 @@ fi
 # before these are grabbed by the built-in keybinder of the WM/DE.
 sxhkd &
 
+# Run some configuration commands
+nice -n 19 xset s 120 300 &
+nice -n 19 xsetroot -cursor_name left_ptr &
+
 # Swap Caps-Lock with Escape for vim
 # setxkbmap -option caps:swapescape
 
@@ -41,11 +45,9 @@ sxhkd &
 # setleds -D +num
 
 # start some nice programs
-xset s 120 300
 xss-lock -n 'bash /usr/share/doc/xss-lock/dim-screen.sh' -- /usr/local/bin/slock &
 picom --experimental-backends &
 nm-applet &
-xsetroot -cursor_name left_ptr &
 dunst &
 #emacs --daemon &
 lxsession &
@@ -53,11 +55,11 @@ unclutter --timeout 10 &
 
 # start window manager
 if [[ "$(tty)" == "/dev/tty1" ]]; then
-    while type dwm > /dev/null; do dwm && continue || break; done
-elif [[ "$(tty)" == "/dev/tty3" ]]; then
-    xmonad
-elif [[ "$(tty)" == "/dev/tty4" ]]; then
     qtile start
+elif [[ "$(tty)" == "/dev/tty3" ]]; then
+    while type dwm > /dev/null; do dwm && continue || break; done
+elif [[ "$(tty)" == "/dev/tty4" ]]; then
+    xmonad
 fi
 
 # instead of WM, start only 1 terminal in fullscreen
