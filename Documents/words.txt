@@ -1,34 +1,36 @@
 aloof -> being distant
-corset -> victorian era support garment
-clandestine -> secretive
-petrified -> terrified
-grouchy -> complaining
-relinquish -> let go
-perpetual -> continuing uninterruptedly
-coquettish -> flirty
-spat -> minor disagreement
-pedantic -> worried about minor details
-indignant -> suprised + angry
-petty -> small, unimportant
-hum -> full of activity
-baptism -> ritual in christianity conversion
-drone -> distant sound
-dextrose -> type of glucose
-veritable -> comparable with sth
-profane -> unreligious
-bicker -> unimportant argument
-flimsy -> hard to believe
-bolster -> boost morale / thick pillow
-sagging -> bent in middle (weakness)
-perturbed -> anxious
-ledger -> record book
-fleas -> jumping insects (suck blood)
-figuratively -> meant in different way
-morsel -> small bit of food
-substantial -> in significant amounts
-loathe -> dislike
-sway -> move gracefully / to persuade
-fleeting -> short lived
-truimph -> vicory / achievement
-deluge -> pouring in heavy amount
 amortized -> distributed payment over time
+baptism -> ritual in christianity conversion
+bicker -> unimportant argument
+bolster -> boost morale / thick pillow
+clandestine -> secretive
+coquettish -> flirty
+corset -> victorian era support garment
+deluge -> pouring in heavy amount
+dextrose -> type of glucose
+drone -> distant sound
+fastidious -> being careful that every detail of sth is correct
+figuratively -> meant in different way
+fleas -> jumping insects (suck blood)
+fleeting -> short lived
+flimsy -> hard to believe
+grouchy -> complaining
+hum -> full of activity
+indignant -> suprised + angry
+ledger -> record book
+loathe -> dislike
+morsel -> small bit of food
+pedantic -> worried about minor details
+perpetual -> continuing uninterruptedly
+perturbed -> anxious
+petrified -> terrified
+petty -> small, unimportant
+profane -> unreligious
+relinquish -> let go
+sagging -> bent in middle (weakness)
+scrupulous -> careful about paying attention to every detail
+spat -> minor disagreement
+substantial -> in significant amounts
+sway -> move gracefully / to persuade
+truimph -> vicory / achievement
+veritable -> comparable with sth
