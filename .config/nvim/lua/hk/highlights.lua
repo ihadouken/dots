@@ -70,6 +70,7 @@ function ColorMyPencils()
     vim.cmd([[highlight Cursor           ctermfg=0    ctermbg=5     cterm=none]])
     vim.cmd([[highlight htmlEndTag       ctermfg=114  ctermbg=none  cterm=none]])
     vim.cmd([[highlight xmlEndTag        ctermfg=114  ctermbg=none  cterm=none]])
+    vim.cmd([[highlight MatchParen       ctermfg=6     ctermbg=NONE cterm=bold,underline]])
 end
 
 ColorMyPencils()
