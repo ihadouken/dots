@@ -7,19 +7,22 @@ tree_1:
     sms:  "https://searchmysite.net/"
   program:
     github: "https://www.github.com/"
-    leetcode: "https://www.leetcode.com/"
-    neetcode: "https://www.neetcode.io/"
+    neetcode: "https://www.neetcode.io/practice"
     aoc:
       - "https://www.adventofcode.com/"
       - "advent of code"
+    codeforces: "https://codeforces.com/problemset"
+    # pe:
+    #   - "https://projecteuler.net/archives"
+    #   - "project euler"
   people:
     gtlsgamr: "https://hitarththummar.xyz/"
     bugswriter: "https://bugswriter.com/"
     me: "https://hadouken.neocities.org/"
-  tildes:
-    ~varsh: "https://tildevarsh.in/"
+  pubnix:
+    psf: "https://projectsegfau.lt/"
+    ctrlc: "https://ctrl-c.club/"
     ~team: "https://tilde.team/"
-    ~verse: "https://tildeverse.org/"
 
 tree_2:
   docs:
@@ -39,5 +42,4 @@ tree_2:
     instagram: "https://instagram.com/"
     gmail: "https://mail.google.com/"
   tools:
-    segfault: "https://projectsegfau.lt/"
     screensy: "https://screensy.marijn.it/#hadouken"
