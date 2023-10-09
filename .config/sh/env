@@ -43,7 +43,6 @@ export QT_QPA_PLATFORMTHEME='qt5ct'
 export MYSRC="$HOME/.local/src"
 export MYEMACS="emacsclient -c -a 'emacs'"
 export TMPDIR='/tmp'
-export STARDICT_DATA_DIR="$XDG_DATA_HOME/stardict"
 # export MENU='dmenu -c -l 10 -p'
 export MENU='rofi -dmenu -i -p'
 # export MENU='fzf --prompt'
@@ -63,7 +62,7 @@ export SDCV_PAGER='lolcat -f | less --quit-if-one-screen -RX'
 ### Uncomment only one of these!
 
 ### "bat" as manpager
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 ### "vim" as manpager
 # export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
@@ -71,6 +70,8 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 ### "nvim" as manpager
 # export MANPAGER="nvim -c 'set ft=man' -"
 
-# Libby
-export LIBBY_OUTPUT_DIR="$HOME/Documents/books/libby"
-export LIBBY_VIEWER="$MYTERM -e epy"
+### "less" as manpager
+export MANPAGER="less"
+
+# console dictionary
+export STARDICT_DATA_DIR="$XDG_DATA_HOME/stardict"
