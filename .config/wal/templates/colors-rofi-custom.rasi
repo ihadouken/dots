@@ -26,7 +26,7 @@
     border-color: @background;
     spacing: 2;
 
-    font: "JetBrainsMono 13";
+    font: "JetBrainsMono Bold 13";
 }}
 
 #window {{
