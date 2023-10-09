@@ -184,8 +184,6 @@ super + n; t
 # Miscellaneous
 super + shift + s
 	echo "$(xsel)" | tts
-ctrl + shift + t
-	$MYTERM -t scratchpad
 shift + Print
 	screenshot.sh
 super + d
