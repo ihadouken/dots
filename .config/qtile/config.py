@@ -2,13 +2,14 @@
 import os
 import socket
 import subprocess
+from typing import List  # noqa: F401
+
+# from libqtile.log_utils import logger
 from libqtile import qtile
-from libqtile.config import Click, Drag, Group, KeyChord, Key, Match, Screen, ScratchPad, DropDown
+from libqtile.config import Click, Drag, Group, KeyChord, Key, Match, Screen, ScratchPad, DropDown, Rule
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
-from typing import List  # noqa: F401
 
 mod = "mod4"              # Sets mod key to SUPER/WINDOWS
 alt = "mod1"
@@ -148,11 +149,11 @@ for i in range(len(group_names)):
     groups.append(Group(name=group_names[i], label=group_labels[i], layout=group_layouts[i], matches=group_matches[i]))
 
 groups.append(ScratchPad("scr", [
-    DropDown("Quake", "alacritty -t Scratchpad",
-            x=0.35, y=0.05, width=0.60, height=0.60, opacity=0.9,
+    DropDown("Quake", f"{myTerm} -t Scratchpad",
+            x=0.35, y=0.05, width=0.60, height=0.60, opacity=0.95,
             on_focus_lost_hide=False),
-    DropDown("Countdown", "alacritty -t Timer",
-            x=0.68, y=0.03, width=0.30, height=0.27, opacity=0.8,
+    DropDown("Countdown", f"{myTerm} -t Timer",
+            x=0.68, y=0.03, width=0.30, height=0.27, opacity=0.90,
             on_focus_lost_hide=False),
     ]))
 
@@ -165,7 +166,7 @@ dgroups_key_binder = simple_key_binder("mod4")
 layout_theme = {"border_width": 2,
                 "margin": 8,
                 "border_focus": "#e1acff",
-                "border_normal": "#1D2330"
+                "border_normal": "#1D2330",
                 }
 
 layouts = [
@@ -574,7 +575,6 @@ def start():
 def start_once():
     home = os.path.expanduser('~')
     subprocess.call([home + '/.config/qtile/autostart/start_once.sh'])
-
 
 # @hook.subscribe.client_new
 # def grouper(window):

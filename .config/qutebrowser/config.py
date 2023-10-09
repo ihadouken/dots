@@ -544,18 +544,21 @@ c.editor.command = [os.getenv('MYTERM'), '-e', 'nvim', '{}']
 # Enable smooth scrolling
 c.scrolling.smooth = True
 # Dont smooth scroll with j/k
-config.bind('j', 'run-with-count 3 scroll down')
-config.bind('k', 'run-with-count 3 scroll up')
-# config.bind('j', 'scroll-px 0 100')
-# config.bind('k', 'scroll-px 0 -100')
+# config.bind('j', 'cmd-run-with-count 3 scroll down')
+# config.bind('k', 'cmd-run-with-count 3 scroll up')
+config.bind('j', 'scroll-px 0 100')
+config.bind('k', 'scroll-px 0 -100')
+
+# Workaround for strict policy of Qt6 for local pages opening remote links.
+c.content.local_content_can_access_remote_urls = True
 
 # Bindings
 
 # Prepend the command "set statusbar.show always;;" to all bindings using
-# set-cmd-text otherwise the browser autoascrolls to top of the page. The
+# cmd-set-text otherwise the browser autoascrolls to top of the page. The
 # statusbar is again set to 'in-mode' visibility by both Escape and Enter.
-config.bind('o', 'set statusbar.show always;; set-cmd-text -s :open')
-config.bind(':', 'set statusbar.show always;; set-cmd-text :')
+config.bind('o', 'set statusbar.show always;; cmd-set-text -s :open')
+config.bind(':', 'set statusbar.show always;; cmd-set-text :')
 config.bind('<Escape>', 'mode-enter normal;; set statusbar.show in-mode', mode='command')
 config.bind('<Return>', 'command-accept;; set statusbar.show in-mode', mode='command')
 
@@ -566,12 +569,12 @@ config.bind('M', 'hint links spawn --detach mpv --profile=hadouken {hint-url}')
 config.bind('X', 'hint links spawn ~/.config/qutebrowser/x.sh {hint-url}')
 config.bind('Zv', 'hint links spawn --detach alacritty -e bash -c "yt-dlp {hint-url}; read -n 2"')
 config.bind('Za', 'hint links spawn --detach alacritty -e bash -c "yt-dlp -f \'ba\' --audio-format mp3 {hint-url}; read -n 2"')
-# The -s option in set-cmd-text adds a space after putting the given content.
-config.bind('sp', 'set statusbar.show always;; set-cmd-text -s :spawn')
+# The -s option in cmd-set-text adds a space after putting the given content.
+config.bind('sp', 'set statusbar.show always;; cmd-set-text -s :spawn')
 config.bind('Py', 'hint links spawn --detach alacritty -e lynx -cfg=~/.config/lynx/lynx.cfg -lss=~/.config/lynx/lynx.lss -vikeys {hint-url}')
 config.bind('PY', 'spawn --detach alacritty -e lynx -cfg=~/.config/lynx/lynx.cfg -lss=~/.config/lynx/lynx.lss -vikeys {url:pretty}')
-config.bind('E', 'set statusbar.show always;; set-cmd-text :open {url:pretty}')
-config.bind('t', 'set statusbar.show always;; set-cmd-text -s :open -t goog')
+config.bind('E', 'set statusbar.show always;; cmd-set-text :open {url:pretty}')
+config.bind('gs', 'set statusbar.show always;; cmd-set-text -s :open -t goog')
 config.bind('xb', 'config-cycle statusbar.show always never')
 config.bind('xt', 'config-cycle tabs.show always never')
 config.bind('xx', 'config-cycle statusbar.show always in-mode;; config-cycle tabs.show always never')
@@ -586,8 +589,8 @@ config.bind('Sk', 'spawn --userscript qute_keys.sh')
 config.bind('I', 'spawn --userscript toggle-dark.sh')
 
 # Print current page.
-config.bind('<Ctrl-P>', 'set statusbar.show always;; set-cmd-text :print --pdf ~/Documents/qb-print.pdf')
-config.bind('<Ctrl-Shift-P>', 'set statusbar.show always;; set-cmd-text :screenshot ~/Pictures/screenshot/qb-ss.png')
+config.bind('<Ctrl-P>', 'set statusbar.show always;; cmd-set-text :print --pdf ~/Documents/qb-print.pdf')
+config.bind('<Ctrl-Shift-P>', 'set statusbar.show always;; cmd-set-text :screenshot ~/Pictures/screenshot/qb-ss.png')
 
 # Edit stuff in external editor.
 # config.unbind('<Ctrl+e>', 'insert')
@@ -596,7 +599,7 @@ config.bind('eu', 'edit-url')
 config.bind('ec', 'edit-command')
 
 # Opening stuff.
-config.bind('T', 'open -t')
+config.bind('T', 'set open -t')
 
 # Yank link from hints.
 config.bind('yl', 'hint links yank')
