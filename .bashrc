@@ -28,7 +28,8 @@ bind -m vi-insert 'Control-l: clear-screen'
 # This is commented out if using starship prompt
 # PS1='[\u@\h \W]\$ '
 #PS1='\n\[\e[1;32m\]  \j\[\e[0m\] \[\e[1;34m\][\[\e[0m\e[1;34m\]hk@ \[\e[0m\]\[\e[1;31m\]tmux\[\e[0m\] \[\e[1;35m\]\w\[\e[0m\]\[\e[1;34m]\]\[\e[0m\]\$ '
-#PS2='\033[0;2m... \033[0m'
+[[ -n "$SOCKS_REMOTE" ]] && PS1="(via \033[1;46m$SOCKS_REMOTE\033[0m) $PS1"
+PS2='\033[0;2m... \033[0m'
 
 ### PATH
 #if [ -d "$HOME/.local/bin" ] ;
@@ -208,5 +209,4 @@ if [ "$(cat ~/.bash_history | wc -l)" -gt 9000 ]; then
 fi
 
 complete -cf doas
-PS2='\033[0;2m... \033[0m'
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
