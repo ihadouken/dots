@@ -23,7 +23,7 @@ if [[ "$(tty)" == '/dev/tty1' ]]; then
 elif [[ "$(tty)" == '/dev/tty3' ]]; then
     export XDG_SESSION_DESKTOP="hypr"
     export MYTERM='foot'
-    Hyprland
+    exec Hyprland
 
 elif [[ "$(tty)" == '/dev/tty4' ]]; then
     if ! pgrep xmonad; then
