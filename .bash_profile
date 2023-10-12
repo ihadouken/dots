@@ -14,16 +14,16 @@ nice -n 19 sudo updatedb &
 
 # Start X session
 if [[ "$(tty)" == '/dev/tty1' ]]; then
+    export XDG_SESSION_DESKTOP="hypr"
+    export MYTERM='footclient'
+    exec Hyprland
+
+elif [[ "$(tty)" == '/dev/tty3' ]]; then
     if ! pgrep -x qtile; then
         export XDG_SESSION_DESKTOP="qtile"
         export MYTERM='st'
         exec startx
     fi
-
-elif [[ "$(tty)" == '/dev/tty3' ]]; then
-    export XDG_SESSION_DESKTOP="hypr"
-    export MYTERM='foot'
-    exec Hyprland
 
 elif [[ "$(tty)" == '/dev/tty4' ]]; then
     if ! pgrep xmonad; then
