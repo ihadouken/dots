@@ -1,12 +1,12 @@
 # Reload config
 super + r
-	kill -s SIGUSR1 $(pidof sxhkd)
+	pkill -s SIGUSR1 sxhkd
 
 # System
 ctrl + alt + s
-	shutdown now && paplay '/usr/share/sounds/freedesktop/stereo/service-logout.oga'
+	paplay '/usr/share/sounds/freedesktop/stereo/service-logout.oga' && shutdown now
 ctrl + alt + r
-	shutdown -r now && paplay '/usr/share/sounds/freedesktop/stereo/service-logout.oga'
+	paplay '/usr/share/sounds/freedesktop/stereo/service-logout.oga' && shutdown -r now
 ctrl + alt + z
 	systemctl suspend-then-hibernate
 ctrl + alt + l
@@ -65,8 +65,6 @@ super + alt + h
 	$MYTERM -t Htop -e htop
 super + b
 	qutebrowser --qt-flag ignore-gpu-blocklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4
-super + alt + c
-	qalculate-gtk
 
 # Toggling stuff
 super + shift + b
