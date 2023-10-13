@@ -184,6 +184,11 @@
         },
         "exec-if": "which waybar-module-pacman-updates",
         "exec": "waybar-module-pacman-updates"
+    },
+    "custom/logo": {
+        "format": " ",
+        "on-click": "~/.config/waybar/scripts/terminal.sh",
+        "on-click-right": "dmenu_run"
     }
 }
 
