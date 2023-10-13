@@ -126,7 +126,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% 🗲",
+        "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
@@ -168,8 +168,8 @@
         "format": "{} {icon}",
         "return-type": "json",
         "format-icons": {
-            "has-updates": "󱍷",
-            "updated": "󰂪"
+            "has-updates": "",
+            "updated": "✔"
         },
         "exec-if": "which waybar-module-pacman-updates",
         "exec": "waybar-module-pacman-updates"
