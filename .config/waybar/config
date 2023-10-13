@@ -4,10 +4,16 @@
     "height": 34, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
+
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "idle_inhibitor", "pulseaudio", "backlight", "network", "custom/updates"],
+    "modules-left": ["custom/logo", "hyprland/workspaces", "idle_inhibitor", "pulseaudio", "backlight"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["cpu", "memory", "temperature", "battery", "tray", "clock"],
+    "modules-right": ["cpu", "memory", "battery", "custom/updates", "tray", "clock"],
+
+    // "modules-left": ["hyprland/workspaces", "idle_inhibitor", "pulseaudio", "mpris"],
+    // "modules-center": ["hyprland/window"],
+    // "modules-right": ["cpu", "memory", "battery", "custom/updates", "backlight", "tray", "clock"],
+
     // Modules configuration
      "hyprland/workspaces": {
          "disable-scroll": true,
