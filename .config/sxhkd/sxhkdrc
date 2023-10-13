@@ -25,8 +25,8 @@ super + c
 	rofi -show calc -modi calc -no-show-match -no-sort
 
 # Fn Keys
-# XF86Sleep
-#	systemctl suspend-then-hibernate
+XF86Sleep
+	systemctl suspend-then-hibernate
 XF86MonBrightnessDown
 	xbacklight -dec 4
 XF86MonBrightnessUp
