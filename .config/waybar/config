@@ -112,10 +112,12 @@
     },
     "cpu": {
         "format": "{usage}%  ",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "termexec.sh htop"
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% ",
+        "on-click": "termexec.sh htop"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -128,7 +130,9 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-click": "hyprshade toggle blue-light-filter",
+        "on-double-click": "hyprshade toggle vibrance"
     },
     "battery": {
         "states": {
@@ -161,9 +165,9 @@
         "format": "{volume}%{icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-muted": "  {format_source}",
         "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format-source-muted": " ",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -173,7 +177,8 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-right": "termexec.sh alsamixer"
     },
     "custom/updates": {
         "format": "{} {icon}",
@@ -183,11 +188,12 @@
             "updated": "✔"
         },
         "exec-if": "which waybar-module-pacman-updates",
-        "exec": "waybar-module-pacman-updates"
+        "exec": "waybar-module-pacman-updates",
+        "on-click": "termexec.sh update"
     },
     "custom/logo": {
         "format": " ",
-        "on-click": "~/.config/waybar/scripts/terminal.sh",
+        "on-click": "termexec.sh",
         "on-click-right": "dmenu_run"
     }
 }
