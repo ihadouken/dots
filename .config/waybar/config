@@ -20,7 +20,7 @@
         "on-click": "activate",
         // "all-outputs": false,
         // "format": "{name}: {icon}",
-        "format": "{name}",
+        "format": "<b>{name}</b>",
         "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
         "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null",
         "format-icons": {
@@ -111,12 +111,12 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "{usage}%  ",
+        "format": "<b>{usage}%</b>  ",
         "tooltip": false,
         "on-click": "termexec.sh htop"
     },
     "memory": {
-        "format": "{}% ",
+        "format": "<b>{}%</b>  ",
         "on-click": "termexec.sh htop"
     },
     "temperature": {
@@ -129,7 +129,7 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
+        "format": "<b>{percent}%</b> {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "on-click": "hyprshade toggle blue-light-filter",
         "on-double-click": "hyprshade toggle vibrance"
@@ -140,10 +140,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+        "format": "<b>{capacity}%</b>  {icon}",
+        "format-charging": "<b>{capacity}%</b>  ",
+        "format-plugged": "<b>{capacity}%</b>  ",
+        "format-alt": "<b>{time}</b>  {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
@@ -162,11 +162,11 @@
     },
     "pulseaudio": {
         // "scroll-step": 10, // %, can be a float
-        "format": "{volume}%{icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format": "<b>{volume}%</b>{icon} {format_source}",
+        "format-bluetooth": "<b>{volume}%</b> {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": "  {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": "<b>{volume}%</b> ",
         "format-source-muted": " ",
         "format-icons": {
             "headphone": "",
@@ -181,7 +181,7 @@
         "on-click-right": "termexec.sh alsamixer"
     },
     "custom/updates": {
-        "format": "{} {icon}",
+        "format": "<b>{}</b> {icon}",
         "return-type": "json",
         "format-icons": {
             "has-updates": "",

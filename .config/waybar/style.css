@@ -84,6 +84,7 @@
 #clock {
   margin-left: 0px;
   margin-right: 4px;
+  font-weight: bold;
   background-color: transparent;
 }
 
@@ -93,6 +94,6 @@
 
 #window {
   font-size: 0.9em;
-	font-weight: 400;
+	font-weight: bold;
 	font-family: sans-serif;
 }
