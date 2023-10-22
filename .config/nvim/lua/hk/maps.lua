@@ -26,21 +26,6 @@ map("c", "ww<CR>", "<CMD>SudaWrite<CR>")
 -- Goyo (focus mode)
 map("n", "<leader>g", "<CMD>Goyo<CR>")
 
--- NerdTree
-map("n", "<leader>no", "<CMD>NERDTreeVCS<CR>")
-map("n", "<leader>n.", "<CMD>NERDTreeFind<CR>")
-map("n", "<leader>nf", "<CMD>NERDTreeFocus<CR>")
-map("n", "<leader>nq", "<CMD>NERDTreeClose<CR>")
-map("n", "<leader>nn", "<CMD>NERDTreeToggleVCS<CR>")
-map("n", "<leader>nc", "<CMD>NERDTreeCWD<CR>")
-map("n", "<leader>nr", "<CMD>NERDTreeRefreshRoot<CR>")
-
--- Disable arrow keys in normal mode
-map("n", "<Up>"   , "<Nop>")
-map("n", "<Down>" , "<Nop>")
-map("n", "<Left>" , "<Nop>")
-map("n", "<Right>", "<Nop>")
-
 -- Open terminal inside vim
 map("n", "<Leader>ot", "<CMD>new term://zsh<CR>")
 map("n", "<Leader>oT", "<CMD>vnew term://zsh<CR>")
@@ -63,7 +48,7 @@ map("n", "<Leader>sh", "<C-w>t<C-w>H")
 map("n", "<Leader>sv", "<C-w>t<C-w>K")
 
 -- Hot reload config
-map("n", "<Leader>hrr", "<CMD>lua ReloadConfig()<CR>")
+map("n", "<Leader>r", "<CMD>lua ReloadConfig()<CR>")
 
 -- For vim's terminal buffer
 map("t", "<ESC><ESC>", "<C-\\><C-n>")
