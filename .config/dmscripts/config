@@ -90,6 +90,7 @@ case "${0#*-}" in
         confedit_list[lobster]="$XDG_CONFIG_HOME/lobster/lobster_config.txt"
         confedit_list[leetcode]="$HOME/.leetcode/leetcode.toml"
         confedit_list[hypr]="$XDG_CONFIG_HOME/hypr"
+        confedit_list[foot]="$XDG_CONFIG_HOME/foot"
         confedit_list[redshift]="$XDG_CONFIG_HOME/redshift/redshift.conf"
         confedit_list[dunst]="$XDG_CONFIG_HOME/dunst/dunstrc"
         confedit_list[fish]="$XDG_CONFIG_HOME/fish/config.fish"

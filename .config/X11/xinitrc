@@ -55,9 +55,9 @@ unclutter --timeout 10 &
 
 # start window manager
 if [[ "$(tty)" == "/dev/tty1" ]]; then
-    qtile start
-elif [[ "$(tty)" == "/dev/tty3" ]]; then
     while type dwm > /dev/null; do dwm && continue || break; done
+elif [[ "$(tty)" == "/dev/tty3" ]]; then
+    qtile start
 elif [[ "$(tty)" == "/dev/tty4" ]]; then
     xmonad
 fi
