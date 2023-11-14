@@ -1,4 +1,4 @@
-require('impatient')     -- Faster Loading
+vim.loader.enable()
 require("hk.base")       -- General Settings
 require("hk.highlights") -- Colourscheme and other highlights
 require("hk.maps")       -- Keymaps

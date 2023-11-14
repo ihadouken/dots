@@ -16,9 +16,6 @@ packer.startup(function(use)
     -- Packer can manage itself --
     use("wbthomason/packer.nvim")
 
-    -- Fast load neovim --
-    use 'lewis6991/impatient.nvim'
-
     -- Dashboard is a nice start screen for nvim --
     use("glepnir/dashboard-nvim")
 
