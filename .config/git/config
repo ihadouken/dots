@@ -6,7 +6,7 @@
 [init]
     defaultBranch = main
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
 	conflictstyle = diff3
 [mergetool]
 	prompt = false

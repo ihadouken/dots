@@ -106,6 +106,7 @@ case "${0#*-}" in
         confedit_list[irssi]="$XDG_CONFIG_HOME/irssi/config"
         confedit_list[StartTree]="$XDG_CONFIG_HOME/StartTree/config.yaml"
         confedit_list[sxhkd]="$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
+        confedit_list[waybar]="$XDG_CONFIG_HOME/waybar"
         confedit_list[xmonad]="$XDG_CONFIG_HOME/xmonad/xmonad.hs"
         confedit_list[xmobar]="$XDG_CONFIG_HOME/xmobar"
         confedit_list[xinitrc]="${XINITRC:-"$HOME"/.xinitrc}"
