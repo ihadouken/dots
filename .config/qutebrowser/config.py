@@ -552,6 +552,9 @@ config.bind('k', 'scroll-px 0 -100')
 # Workaround for strict policy of Qt6 for local pages opening remote links.
 c.content.local_content_can_access_remote_urls = True
 
+# Allow websites to write to system clipboard.
+c.content.javascript.clipboard = 'access-paste'
+
 # Bindings
 
 # Prepend the command "set statusbar.show always;;" to all bindings using
