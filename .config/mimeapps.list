@@ -1,33 +1,37 @@
 [Default Applications]
 x-scheme-handler/tg=org.telegram.desktop.desktop
-inode/directory=ranger.desktop
-image/jpg=imv-folder.desktop
-image/webp=imv-folder.desktop
+inode/directory=lf.desktop
+image/jpg=sxiv.desktop
+image/webp=sxiv.desktop
 x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop
 x-www-browser=org.qutebrowser.qutebrowser.desktop
-image/xpm=imv-folder.desktop
-img/xpm=imv-folder.desktop
+image/xpm=sxiv.desktop
+img/xpm=sxiv.desktop
 x-scheme-handler/mailto=neomutt.desktop
-image/png=imv-folder.desktop
-image/gif=imv-folder.desktop
+image/png=sxiv.desktop
+image/jpeg=sxiv.desktop;
+image/gif=sxiv.desktop
 text/html=org.qutebrowser.qutebrowser.desktop
 x-scheme-handler/discord-505520727521361941=discord-505520727521361941.desktop
 application/pdf=org.pwmt.zathura.desktop
 application/zip=userapp-ex-NFZLN1.desktop
+text/plain=nvim.desktop;
+text/x-csrc=nvim.desktop
+text/x-python=nvim.desktop;
 
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-2409B1.desktop;userapp-Telegram Desktop-N2ACC1.desktop;userapp-Telegram Desktop-DH7IH1.desktop;org.telegram.desktop.desktop;
-application/x-executable=sublime_text.desktop;
-image/x-xpixmap=imv-folder.desktop;
-image/png=imv-folder.desktop;
-image/gif=imv-folder.desktop;
+application/x-executable=neovim.desktop
+image/x-xpixmap=sxiv.desktop
+image/png=sxiv.desktop
+image/gif=sxiv.desktop
 text/html=org.qutebrowser.qutebrowser.desktop;
-text/x-csrc=nvim.desktop;
 application/pdf=org.pwmt.zathura.desktop;
 application/zip=userapp-ex-NFZLN1.desktop;
+image/jpeg=sxiv.desktop;
+text/x-python=nvim.desktop;
+text/plain=nvim.desktop;
+text/x-csrc=nvim.desktop;
 
 [Removed Associations]
-text/plain=nvim.desktop;
-text/x-python=nvim.desktop;
-image/jpeg=imv.desktop;
