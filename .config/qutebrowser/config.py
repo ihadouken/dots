@@ -509,6 +509,7 @@ c.hints.chars = "asdfghjklie"
 # Automatically enter insert mode if an editable element is focused
 # after loading the page.
 c.input.insert_mode.auto_load = True
+# c.input.insert_mode.auto_leave = False
 
 # Padding around text for tabs
 c.tabs.padding = {
@@ -589,7 +590,7 @@ config.bind('Ch', 'history-clear')
 # custom userscripts
 config.bind('O', 'spawn --userscript dmenu-open')
 config.bind('Sk', 'spawn --userscript qute_keys.sh')
-config.bind('I', 'spawn --userscript toggle-dark.sh')
+config.bind('<Ctrl-I>', 'spawn --userscript toggle-dark.sh')
 
 # Print current page.
 config.bind('<Ctrl-P>', 'set statusbar.show always;; cmd-set-text :print --pdf ~/Documents/qb-print.pdf')
