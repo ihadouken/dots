@@ -28,9 +28,9 @@ super + c
 XF86Sleep
 	systemctl suspend-then-hibernate
 XF86MonBrightnessDown
-	xbacklight -dec 4
+	xbacklight -dec 5
 XF86MonBrightnessUp
-	xbacklight -inc 4
+	xbacklight -inc 5
 XF86ScreenSaver
 	sleep 1; xset dpms force off
 XF86TouchpadToggle
