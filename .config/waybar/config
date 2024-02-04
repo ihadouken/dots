@@ -20,19 +20,29 @@
         "on-click": "activate",
         // "all-outputs": false,
         // "format": "{name}: {icon}",
-        "format": "<b>{name}</b>",
+        "format": "<b>{icon}</b>",
         "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
         "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
             "urgent": "",
             "focused": "",
             "default": ""
         }
+        // "format-icons": {
+        //     "1": "",
+        //     "2": "",
+        //     "3": "",
+        //     "4": "",
+        //     "5": "",
+        //     "urgent": "",
+        //     "focused": "",
+        //     "default": ""
+        // }
     },
     "mpris": {
         "format": "<b>{title}</b> {status_icon}",
