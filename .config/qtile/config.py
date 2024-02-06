@@ -171,7 +171,7 @@ groups.append(ScratchPad("scr", [
             on_focus_lost_hide=False),
     ]))
 
-colors = colors.GruvboxDark
+colors = colors.DoomOne
 
 # Allow MODKEY+[0 through 9] to bind to groups, see https://docs.qtile.org/en/stable/manual/config/groups.html
 # MOD4 + index Number : Switch to Group[index]
@@ -187,7 +187,7 @@ dgroups_key_binder = simple_key_binder("mod4")
 
 layout_theme = {"border_width": 2,
                 "margin": 12,
-                "border_focus": colors[8],
+                "border_focus": colors[7],
                 "border_normal": colors[0],
                 "single_margin": 0,
                 "single_border_width": 0,
@@ -203,9 +203,12 @@ layouts = [
     #layout.MonadWide(**layout_theme),
     layout.Tile(
          shift_windows=True,
-         border_width = 0,
+         border_width = 3,
+         border_on_single = False,
+         border_focus = colors[7],
+         border_normal = colors[0],
          margin = 0,
-         ratio = 0.335,
+         ratio = 0.35,
          ),
     layout.Max(
          border_width = 0,
