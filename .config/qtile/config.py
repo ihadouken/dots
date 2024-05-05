@@ -354,7 +354,7 @@ def init_widgets_list():
                  foreground = colors[0],
                  background = colors[3],
                  mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
-                 update_interval = 2,
+                 update_interval = 5,
                  padding = 5,
                  ),
         widget.TextBox(
@@ -379,6 +379,7 @@ def init_widgets_list():
                  foreground = colors[0],
                  background = colors[8],
                  mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
+                 update_interval = 10,
                  format = '{MemUsed: .0f}{mm} ',
                  ),
         widget.TextBox(
@@ -495,6 +496,7 @@ def init_widgets_list():
                  foreground = colors[0],
                  background = colors[6],
                  format = "%H:%M ",
+                 update_interval = 50
                  ),
         ]
     return widgets_list
@@ -548,7 +550,7 @@ floating_layout = layout.Floating(
     Match(wm_class='Yad'),
     Match(wm_class='confirm'),
 ])
-auto_fullscreen = True
+auto_fullscreen = False
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 
