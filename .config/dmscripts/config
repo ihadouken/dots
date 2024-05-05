@@ -14,7 +14,7 @@ DMTERM="$MYTERM -e"
 DMEDITOR="$DMTERM nvim"
 
 PDF_VIEWER="zathura"
-DMPLAYER='mpv'
+DMPLAYER='mpv --no-resume-playback'
 
 # Socket used for controlling mpv
 MPV_SOCKET="$XDG_CACHE_HOME/mpv-ipc-socket"
@@ -42,7 +42,7 @@ case "${0#*-}" in
 
     "music")
         mus_dir="$HOME/Music"
-        player="mpv --no-video --input-ipc-server="${MPV_SOCKET}""
+        player="mpv --no-resume-playback --no-video --input-ipc-server="${MPV_SOCKET}""
         playing_icon='/usr/share/icons/Papirus/32x32/apps/org.gnome.Music.svg' ;;
 
     "clip")
@@ -179,7 +179,7 @@ case "${0#*-}" in
     "yt-music")
         cache_dir="${XDG_CACHE_HOME:-"$HOME"/.cache}/dmscripts/dm-yt-music"
         down_dir="$HOME/Music/youtube"
-        player="mpv --no-video --input-ipc-server="$MPV_SOCKET""
+        player="mpv --no-resume-playback --no-video --input-ipc-server="$MPV_SOCKET""
         playing_icon='/usr/share/icons/Papirus/32x32/apps/org.gnome.Music.svg'
         download_icon='/usr/share/icons/Papirus/16x16/apps/youtube-dl.svg' ;;
 
@@ -213,7 +213,7 @@ case "${0#*-}" in
         youtube_channels[NeetCode]="https://www.youtube.com/c/NeetCode" ;;
 
     "radio")
-        player="mpv --no-video --input-ipc-server="${MPV_SOCKET}""
+        player="mpv --no-resume-playback --no-video --input-ipc-server="${MPV_SOCKET}""
         # Your list of online radio stations for the dm-radio script.
         # Syntax: radio_stations[name]="https://www.zeno.fm/radio/your-station"
 
