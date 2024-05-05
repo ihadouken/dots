@@ -33,6 +33,11 @@ packer.startup(function(use)
     -- use("jreybert/vimagit")
     -- use("nvim-orgmode/orgmode")
 
+    --File Management --
+    use("scrooloose/nerdtree")
+    use("tiagofumo/vim-nerdtree-syntax-highlight")
+    use("ryanoasis/vim-devicons")
+
     -- UI --
     use("folke/which-key.nvim")
     use("nvim-lualine/lualine.nvim")
