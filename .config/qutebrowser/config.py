@@ -43,6 +43,8 @@ c.confirm_quit = ["downloads"]
 # Type: Bool
 c.content.autoplay = False
 
+c.content.user_stylesheets = ["styles/all-sites.css"]
+
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
 # including IndexedDB, DOM storage, filesystem API, service workers, and
@@ -549,6 +551,7 @@ c.scrolling.smooth = True
 # config.bind('k', 'cmd-run-with-count 3 scroll up')
 config.bind('j', 'scroll-px 0 100')
 config.bind('k', 'scroll-px 0 -100')
+c.scrolling.bar = 'never'
 
 # Workaround for strict policy of Qt6 for local pages opening remote links.
 c.content.local_content_can_access_remote_urls = True
