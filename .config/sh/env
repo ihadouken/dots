@@ -23,17 +23,20 @@ export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 # python
+export PYTHONPATH="$(ls -d /usr/lib/python3.* | cut -f 2 -d '.'| sort -n | xargs -I % echo "/usr/lib/python3.%/site-packages" | paste -s -d ':')"
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 export PYTHONPYCACHEPREFIX="$XDG_CACHE_HOME/python"
 export PYTHONUSERBASE="$XDG_DATA_HOME/python"
 export PATH="$PATH:$HOME/.local/share/python/bin"
 export MYPY_CACHE_DIR="$XDG_CACHE_HOME"/mypy
 
+
 # zsh
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # for qt5ct
 export QT_QPA_PLATFORMTHEME='qt5ct'
+
 # Add custom scripts to PATH
 [[ -d "$HOME/.local/bin" ]] &&  export PATH="$PATH:$HOME/.local/bin"
 [[ -d "$HOME/.local/bin/status-bar" ]] && export PATH="$PATH:$HOME/.local/bin/status-bar"
@@ -43,8 +46,9 @@ export QT_QPA_PLATFORMTHEME='qt5ct'
 export MYSRC="$HOME/.local/src"
 export MYEMACS="emacsclient -c -a 'emacs'"
 export TMPDIR='/tmp'
+export MENU='dmenu -l 20 -p'
 # export MENU='dmenu -c -l 10 -p'
-export MENU='rofi -dmenu -i -p'
+# export MENU='rofi -dmenu -i -p'
 # export MENU='fzf --prompt'
 
 # Standard programs
