@@ -44,7 +44,7 @@ nice -n 19 xsetroot -cursor_name left_ptr &
 # Set Num Lock on.
 # setleds -D +num
 
-# start some nice programs
+# Start some programs for graphical session.
 xss-lock -n 'bash /usr/share/doc/xss-lock/dim-screen.sh' -- /usr/local/bin/slock &
 picom --experimental-backends &
 nm-applet &
@@ -55,10 +55,10 @@ unclutter --timeout 10 &
 
 # start window manager
 if [[ "$(tty)" == "/dev/tty1" ]]; then
+    qtile start
+elif [[ "$(tty)" == "/dev/tty2" ]]; then
     while type dwm > /dev/null; do dwm && continue || break; done
 elif [[ "$(tty)" == "/dev/tty3" ]]; then
-    qtile start
-elif [[ "$(tty)" == "/dev/tty4" ]]; then
     xmonad
 fi
 
