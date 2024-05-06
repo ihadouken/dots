@@ -18,9 +18,6 @@ DMPLAYER='mpv --no-resume-playback'
 
 # Socket used for controlling mpv
 MPV_SOCKET="$XDG_CACHE_HOME/mpv-ipc-socket"
-# API key for youtbe related dmscripts
-YT_API_KEY="$(cat "${XDG_CONFIG_HOME}"/api_keys/youtube)"
-
 
 # TODO: Rename this variable to something more traditional
 logout_locker='slock'
@@ -173,10 +170,12 @@ case "${0#*-}" in
         websearch[stackoverflow]="https://stackoverflow.com/search?q=" ;;
 
     "youtube")
+        YT_API_KEY="$(cat "${XDG_CONFIG_HOME}"/api_keys/youtube)"
         cache_dir="${XDG_CACHE_HOME:-"$HOME/.cache"}/dmscripts/dm-youtube"
         player="${DMPLAYER}" ;;
 
     "yt-music")
+        YT_API_KEY="$(cat "${XDG_CONFIG_HOME}"/api_keys/youtube)"
         cache_dir="${XDG_CACHE_HOME:-"$HOME"/.cache}/dmscripts/dm-yt-music"
         down_dir="$HOME/Music/youtube"
         player="mpv --no-resume-playback --no-video --input-ipc-server="$MPV_SOCKET""
@@ -184,6 +183,7 @@ case "${0#*-}" in
         download_icon='/usr/share/icons/Papirus/16x16/apps/youtube-dl.svg' ;;
 
     "yt-rss")
+        YT_API_KEY="$(cat "${XDG_CONFIG_HOME}"/api_keys/youtube)"
         # Use same cache as dm-youtube for recording watch history
         cache_dir="${XDG_CACHE_HOME:="$HOME/.cache"}/dmscripts/dm-youtube"
         player="${DMPLAYER}"
