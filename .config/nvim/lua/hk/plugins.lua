@@ -40,7 +40,10 @@ packer.startup(function(use)
 
     -- UI --
     use("folke/which-key.nvim")
-    use("nvim-lualine/lualine.nvim")
+    use({
+        "nvim-lualine/lualine.nvim",
+        requires = { {"tinted-theming/base16-vim"} },
+    })
 
     -- Tim Pope Plugins --
     use("tpope/vim-surround")

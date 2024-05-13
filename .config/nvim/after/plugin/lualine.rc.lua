@@ -1,6 +1,6 @@
 require('lualine').setup {
   options = {
-      theme = 'jellybeans'
+      theme = 'base16'
       -- globalstatus = true
   },
   disabled_buftypes = {
