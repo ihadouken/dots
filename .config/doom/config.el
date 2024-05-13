@@ -262,6 +262,12 @@ List of keybindings (SPC h b b)")
         org-hide-emphasis-markers t
         org-fontify-whole-heading-line t
 
+        org-journal-dir "~/Documents/org/journal/"
+        org-journal-date-prefix "* "
+        org-journal-time-prefix "** "
+        org-journal-date-format "%B %d, %Y (%A) "
+        org-journal-file-format "%Y-%m-%d.org"
+
         ;; Automatically change bullet type when indenting
         ;; Ex: indenting a + makes the bullet a *.
         org-list-demote-modify-bullet '(("+" . "*") ("*" . "-") ("-" . "+"))
@@ -449,12 +455,9 @@ List of keybindings (SPC h b b)")
 
 ;; Load our desired dt/org-colors-* theme on startup
 (add-hook 'org-mode-hook 'dt/org-colors-doom-one)
+;; Update org checklist cookies on file save.
+(add-hook 'after-save-hook (lambda () (org-update-statistics-cookies t)))
 
-(setq org-journal-dir "~/Documents/org/journal/"
-      org-journal-date-prefix "* "
-      org-journal-time-prefix "** "
-      org-journal-date-format "%B %d, %Y (%A) "
-      org-journal-file-format "%Y-%m-%d.org")
 
 ;; (setq org-publish-use-timestamps-flag nil)
 ;; (setq org-export-with-broken-links t)
