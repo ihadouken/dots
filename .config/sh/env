@@ -23,7 +23,7 @@ export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 # python
-export PYTHONPATH="$(ls -d /usr/lib/python3.* | cut -f 2 -d '.'| sort -n | xargs -I % echo "/usr/lib/python3.%/site-packages" | paste -s -d ':')"
+export PYTHONPATH="$(ls -d /usr/lib/python3.* | cut -f 2 -d '.'| sort -nr | xargs -I % echo "/usr/lib/python3.%/site-packages" | paste -s -d ':')"
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 export PYTHONPYCACHEPREFIX="$XDG_CACHE_HOME/python"
 export PYTHONUSERBASE="$XDG_DATA_HOME/python"
