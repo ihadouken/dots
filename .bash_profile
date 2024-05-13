@@ -1,10 +1,10 @@
+# Environment varibles
+[[ -f "$HOME/.config/sh/env" ]] && . "$HOME/.config/sh/env"
+
 #
 # ~/.bash_profile
 #
 [[ -f ~/.bashrc ]] && . ~/.bashrc
-
-# Environment varibles
-[[ -f "$HOME/.config/sh/env" ]] && . "$HOME/.config/sh/env"
 
 # Start programs independent of session type here.
 nice -n 19 sudo updatedb & &> /dev/null
@@ -12,13 +12,13 @@ nice -n 19 sudo updatedb & &> /dev/null
 # Start X session
 if [[ "$(tty)" == '/dev/tty1' ]]; then
     if ! pgrep -x qtile; then
-        export XDG_SESSION_DESKTOP="qtile"
+        export XDG_SESSION_DESKTOP='qtile'
         export MYTERM='st'
         exec startx
     fi
 
 elif [[ "$(tty)" == '/dev/tty2' ]]; then
-    export XDG_SESSION_DESKTOP="hypr"
+    export XDG_SESSION_DESKTOP='hypr'
     export MYTERM='footclient'
     exec Hyprland
 

@@ -2,7 +2,7 @@
 #  | |__   | | _____ _ __
 #  | '_ \  | |/ / _ \ '_ \
 #  | | | | |   <  __/ | | |
-#  |_| |_| |_|\_\___|_| |_| 
+#  |_| |_| |_|\_\___|_| |_|
 #
 # My bash config. Not much to see here; just some pretty standard stuff.
 
@@ -197,7 +197,7 @@ esac
 unset rand_num
 
 ### PYWAL ###
-#[[ -f ~/.cache/wal/sequences ]] && cat /home/hadouken/.cache/wal/sequences
+# [[ -f ~/.cache/wal/sequences ]] && cat /home/hadouken/.cache/wal/sequences
 
 ### BASH INSULTER ###
 if [ -f /etc/bash.command-not-found ]; then
