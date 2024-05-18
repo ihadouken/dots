@@ -28,6 +28,10 @@ do
             rm "$file" && notify-send "$file deleted."
         ;;
 
+        "D")
+            rm "$file" && notify-send "$file deleted."
+        ;;
+
         "i")
             notify-send "File information" \
             "$(exiftool "$file")"
