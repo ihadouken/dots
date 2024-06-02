@@ -67,6 +67,8 @@ bind "set completion-ignore-case on"
 
 # last command root privileges
 alias pls='doas $(history -p !!) && printf "\n\033[1;35m%s\n\033[0m" "You are welcome."'
+# last command output in less.
+alias lss='$(history -p !!) | less'
 
 
 # vim and emacs

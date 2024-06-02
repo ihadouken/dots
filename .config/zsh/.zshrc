@@ -32,6 +32,9 @@ alias re="source $ZDOTDIR/.zshrc && /bin/clear"
 # rerun last cmd as root
 alias pls='doas $(fc -ln -1)'
 
+# Run last command and open output in less.
+alias lss='$(fc -ln -1) | less'
+
 ### Completions ###
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
