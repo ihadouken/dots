@@ -305,8 +305,10 @@ case "${0#*-}" in
     "usbmount")
         err_icon='/usr/share/icons/elementary/devices/24/drive-harddisk.svg'
         success_icon='/usr/share/icons/Dracula/apps/scalable/drive-removable-media.svg' ;;
-  *);;
+    "gpt")
+        DMGPT='tgpt -w' ;;
+    *);;
 esac
 
 # Config file revision number.
-_revision=23
+_revision=24
