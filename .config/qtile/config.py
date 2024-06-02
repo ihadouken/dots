@@ -143,15 +143,18 @@ group_labels = [ "一", "二", "三", "四", "五", "六", "七", "八", "九" ]
 #group_labels = [" ", "爵 ", " ", "ﴬ", "", "", "", "", ""]
 
 group_layouts = ['monadtall'] * 10
-group_matches = [None,
-            [Match(wm_class=["qutebrowser", "Links", "firefox"])],
-            [Match(title=["Updater", "GParted", "BleachBit"])],
-            [Match(wm_class=["obsidian", "Com.github.johnfactotum.Foliate", "libreoffice", "libreoffice-writer", "Zathura"])],
-            [Match(wm_class=["subl"])],
-            [Match(wm_class=["TelegramDesktop"]), Match(title=["irc", "Mail"])],
-            None,
-            [Match(title=["Picture-in-Picture"]), Match(wm_class=["gl"])],
-            [Match(wm_class=["imv", "Gimp", "Sxiv"])],]
+group_matches = [
+    None,
+    [Match(wm_class=["qutebrowser", "Links", "firefox"])],
+    [Match(title=["Updater", "GParted", "BleachBit"])],
+    [Match(wm_class=["obsidian", "Com.github.johnfactotum.Foliate", "libreoffice", "libreoffice-writer", "Zathura"])],
+    [Match(wm_class=["subl"])],
+    [Match(wm_class=["TelegramDesktop"]), Match(title=["irc", "Mail"])],
+    None,
+    [Match(title=["Picture-in-Picture"]), Match(wm_class=["gl"])],
+    # [Match(wm_class=["imv", "Gimp", "Sxiv"])],
+    [Match(wm_class=["Stardew Valley"])]
+]
 
 for i in range(len(group_names)):
     groups.append(
@@ -549,6 +552,7 @@ floating_layout = layout.Floating(
     Match(wm_class='toolbar'),
     Match(wm_class='Yad'),
     Match(wm_class='confirm'),
+    Match(wm_class='Sxiv'),
 ])
 auto_fullscreen = False
 focus_on_window_activation = "smart"
