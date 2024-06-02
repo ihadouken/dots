@@ -69,3 +69,21 @@ map("n", "<Leader>p", "@:<CR>")
 
 -- Quick write
 map("n", "ZW", "<CMD>w<CR>")
+
+function SmartTabComplete()
+    -- Get current line.
+    local line = vim.api.nvim_get_current_line()
+    -- Get index of column before cursor.
+    local col = vim.api.nvim_win_get_cursor(0)[2]
+
+    -- NORMAL: Insert a tabspace when invoked at start of new line / word.
+    if col == 0 or string.sub(line, col, col):match("%s") ~= nil then
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Tab>',true,false,true),'n',true)
+    -- SMART: Try built-in autocomplete when invoked in the middle of a word.
+    else
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-n>',true,false,true),'m',true)
+    end
+end
+
+-- Smart tabspace and autocompletion handling for TAB key.
+map("i", "<Tab>", "<CMD>lua SmartTabComplete()<CR>")
