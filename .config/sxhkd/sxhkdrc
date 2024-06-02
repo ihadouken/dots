@@ -80,7 +80,7 @@ super + shift + m
 super + shift + n
 	killall redshift || redshift &
 
-# Dmenu
+# $MENU scripts
 super + shift + Return
 	dmenu_run 'Run: ' -l 20 -g 3 -X 0 -Y 0 -W 680
 	# dmenu_run -i -l 20 -fn Mononoki -g 3 -X 0 -Y 0 -W 680 -p 'Run: '
@@ -106,6 +106,8 @@ super + p; f
 	dm-usbmount -m
 super + p; shift + f
 	dm-usbmount -u
+super + p; g
+	dm-gpt
 super + p; h
 	dm-hub
 super + p; i
