@@ -1,6 +1,6 @@
 {
   "Setting": {
-    "DefaultViewer": "auto",
+    "DefaultViewer": "open",
     "DictionaryClient": "auto",
     "ShowProgressIndicator": true,
     "PageScrollAnimation": true,
