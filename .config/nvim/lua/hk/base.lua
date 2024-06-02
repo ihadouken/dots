@@ -7,7 +7,7 @@ o.termguicolors = true
 -- vim.cmd('syntax on')
 vim.api.nvim_command('filetype plugin indent on')
 
-o.t_Co = 256
+-- o.t_Co = 256
 g.nocompatible = true
 
 -- Do not save when switching buffers
