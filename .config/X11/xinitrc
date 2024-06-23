@@ -45,7 +45,14 @@ nice -n 19 xsetroot -cursor_name left_ptr &
 # setleds -D +num
 
 # Start some programs for graphical session.
-xss-lock -n 'bash /usr/share/doc/xss-lock/dim-screen.sh' -- /usr/local/bin/slock &
+
+# Run screen lock manager.
+if command -v dim-screen.sh; then
+    xss-lock -n dim-screen.sh -- /usr/local/bin/slock &
+else
+    xss-lock /usr/local/bin/slock &
+fi
+
 picom --experimental-backends &
 nm-applet &
 dunst &
