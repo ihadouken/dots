@@ -22,7 +22,7 @@ packer.startup(function(use)
     -- Telescope --
     use({
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.0",
+        tag = "0.1.4",
         requires = { { "nvim-lua/plenary.nvim" } },
     })
     use("nvim-telescope/telescope-file-browser.nvim")
