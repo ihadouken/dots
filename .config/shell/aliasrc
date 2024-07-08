@@ -28,7 +28,7 @@ alias btre='doas systemctl stop bluetooth && doas systemctl start bluetooth'
 alias xev='(xev &) && sleep 5; killall xev'
 
 # quick access mounted drives
-alias drives='cd /run/media/hadouken && ls'
+alias drives="cd /run/media/$USER && ls"
 alias mtp="cd $XDG_RUNTIME_DIR/gvfs && ls"
 
 # quick vpn
@@ -65,8 +65,8 @@ alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/mas
 
 # pacman
 alias pacsyu='doas pacman -Syyu'                 # update only standard pkgs
-alias unlock='doas rm /var/lib/pacman/db.lck'    # remove pacman lock
-alias pacclean='doas pacman -Rns $(pacman -Qtdq); yay -Sc --noconfirm'  # remove orphaned packages
+alias paclck='doas rm /var/lib/pacman/db.lck'    # remove pacman lock
+alias paclean='doas pacman -Rns $(pacman -Qtdq); yay -Sc --noconfirm'  # remove orphaned packages
 
 # ls
 alias ll="exa -alh --color=always --group-directories-first"
@@ -152,6 +152,11 @@ up() {
   if ! cd "$d"; then
     echo "Couldn't go up $limit dirs.";
   fi
+}
+
+jrnl() {
+    local cmd='PATH=$HOME/.local/share/python/bin:$PATH PYTHONUSERBASE=$HOME/.local/share/python jrnl'
+    ssh -t ctrlc "${cmd} $@" 2> /dev/null
 }
 
 # substitute a regex with another regex in previous command

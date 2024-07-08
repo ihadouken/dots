@@ -46,9 +46,9 @@ export QT_QPA_PLATFORMTHEME='qt5ct'
 export MYSRC="$HOME/.local/src"
 export MYEMACS="emacsclient -c -a 'emacs'"
 export TMPDIR='/tmp'
-export MENU='dmenu -l 20 -p'
+# export MENU='dmenu -l 20 -p'
 # export MENU='dmenu -c -l 10 -p'
-# export MENU='rofi -dmenu -i -p'
+export MENU='rofi -dmenu -i -p'
 # export MENU='fzf --prompt'
 
 # Standard programs

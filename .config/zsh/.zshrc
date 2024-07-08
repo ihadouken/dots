@@ -24,7 +24,7 @@ VI_MODE_SET_CURSOR=true
 
 ### Aliases ###
 # aliases common with other shells
-[[ -f "$XDG_CONFIG_HOME/sh/aliasrc" ]] && source "$XDG_CONFIG_HOME/sh/aliasrc"
+[[ -f "$XDG_CONFIG_HOME/shell/aliasrc" ]] && source "$XDG_CONFIG_HOME/shell/aliasrc"
 
 # hot reload config
 alias re="source $ZDOTDIR/.zshrc && /bin/clear"

@@ -63,7 +63,7 @@ shopt -s checkwinsize # checks term size when bash regains control
 bind "set completion-ignore-case on"
 
 ### ALIASES ###
-[[ -f $XDG_CONFIG_HOME/sh/aliasrc ]] && . $XDG_CONFIG_HOME/sh/aliasrc
+[[ -f $XDG_CONFIG_HOME/shell/aliasrc ]] && . $XDG_CONFIG_HOME/shell/aliasrc
 
 # last command root privileges
 alias pls='doas $(history -p !!) && printf "\n\033[1;35m%s\n\033[0m" "You are welcome."'

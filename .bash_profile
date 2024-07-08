@@ -1,9 +1,6 @@
 # Environment varibles
-[[ -f "$HOME/.config/sh/env" ]] && . "$HOME/.config/sh/env"
+[[ -f "$HOME/.config/shell/env" ]] && . "$HOME/.config/shell/env"
 
-#
-# ~/.bash_profile
-#
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 # Start programs independent of session type here.
