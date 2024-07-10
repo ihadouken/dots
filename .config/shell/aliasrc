@@ -154,10 +154,14 @@ up() {
   fi
 }
 
+# Use jrnl installed on ctrl-c.club like its installed locally.
 jrnl() {
     local cmd='PATH=$HOME/.local/share/python/bin:$PATH PYTHONUSERBASE=$HOME/.local/share/python jrnl'
     ssh -t ctrlc "${cmd} $@" 2> /dev/null
 }
+
+# Quickly write a note using the above jrnl setup.
+alias note='jrnl --config-override editor \"\"'
 
 # substitute a regex with another regex in previous command
 sub() {
