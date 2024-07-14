@@ -572,7 +572,7 @@ config.bind('<Return>', 'command-accept;; set statusbar.show in-mode', mode='com
 # START KEYS
 # 'wi' also works for devtools.
 config.bind('<f12>', 'devtools')
-config.bind('M', 'hint links spawn --detach mpv --profile=hadouken {hint-url}')
+config.bind('M', 'hint links spawn --detach mpv {hint-url}')
 config.bind('X', 'hint links spawn ~/.config/qutebrowser/x.sh {hint-url}')
 config.bind('Zv', 'hint links spawn --detach alacritty -e bash -c "yt-dlp {hint-url}; read -n 2"')
 config.bind('Za', 'hint links spawn --detach alacritty -e bash -c "yt-dlp -f \'ba\' --audio-format mp3 {hint-url}; read -n 2"')
