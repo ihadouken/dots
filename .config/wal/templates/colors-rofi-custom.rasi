@@ -26,7 +26,7 @@
     border-color: @background;
     spacing: 2;
 
-    font: "JetBrainsMono Bold 13";
+    font: "JetBrainsMono 13";
 }}
 
 #window {{
@@ -167,6 +167,6 @@
     text-color: @normal-foreground;
     background-color: {color4};
     border-radius: 2px;
-    font: "Ubuntu Bold 12";
+    font: "Ubuntu Bold 13";
     padding: 4px;
 }}
