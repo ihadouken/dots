@@ -37,9 +37,8 @@ alias mtp='cd $XDG_RUNTIME_DIR/gvfs && ls'
 # quick anonymity
 alias novpn='doas protonvpn d'
 alias vpn='doas protonvpn -f c'
-alias ws="if ! pidof windscribe &> /dev/null; then doas systemctl start windscribe; fi; sleep 3; windscribe connect"
-alias proxy="ssh -fND 7890"
-alias noproxy='kill -9 $(pgrep --full "ssh -fND 7890" | tr "\n" " ")'
+alias noproxy='kill -9 "$(lsof -i :7890 -P -n -Fp | tail -c +2)"'
+alias proxy='noproxy; ssh -fND 7890'
 
 # ps
 alias psa="ps auxf"
