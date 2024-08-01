@@ -65,8 +65,9 @@
         }
     },
     "hyprland/window": {
-        "max-length": 70,
-        "separate-outputs": true
+        "max-length": 60,
+        "separate-outputs": true,
+        "format": "  {}  "
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -194,7 +195,7 @@
         "format": "<b>{}</b> {icon}",
         "return-type": "json",
         "format-icons": {
-            "has-updates": "",
+            "has-updates": " ",
             "updated": "✔"
         },
         "exec-if": "which waybar-module-pacman-updates",

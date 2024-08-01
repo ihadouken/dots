@@ -21,9 +21,9 @@
 }
 
 #waybar {
-	font-family: 'Source Code Pro', sans-serif;
-	font-size: 1.2em;
-	font-weight: 400;
+  font-family: 'Source Code Pro', sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
   color: @base04;
   background: @base01;
 }
@@ -36,9 +36,6 @@
   margin: 4px 0;
   padding: 0 4px;
   color: @base05;
-}
-
-#workspaces button.visible {
 }
 
 #workspaces button.active {
@@ -94,6 +91,6 @@
 
 #window {
   font-size: 0.9em;
-	font-weight: bold;
-	font-family: sans-serif;
+  font-weight: bold;
+  font-family: sans-serif;
 }
