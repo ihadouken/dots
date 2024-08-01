@@ -50,5 +50,3 @@ fi
 cowsay "$(shuf -n 1 "$HOME/Documents/words.txt")"
 echo
 
-### Show dotfiles repository status ###
-#/usr/bin/git --git-dir=$MYSRC/dotfiles --work-tree=$HOME status -s
