@@ -21,17 +21,20 @@ alias ccat='/usr/bin/source-highlight-esc.sh'
 alias fm='. /usr/bin/ranger'
 alias ipy='ipython'
 alias lc='leetcode'
-alias reswap='doas swapoff -a && doas swapon -a'
-alias nwre='doas systemctl stop NetworkManager && doas systemctl start NetworkManager'
 alias mymodmap="xmodmap $XDG_CONFIG_HOME/X11/xmodmap"
-alias btre='doas systemctl stop bluetooth && doas systemctl start bluetooth'
 alias xev='(xev &) && sleep 5; killall xev'
 
-# quick access mounted drives
-alias drives="cd /run/media/$USER && ls"
-alias mtp="cd $XDG_RUNTIME_DIR/gvfs && ls"
+### refresh stuff ###
+alias reswap='doas swapoff -a && doas swapon -a'
+alias renw='doas systemctl stop NetworkManager && doas systemctl start NetworkManager'
+alias rebt='doas systemctl stop bluetooth && doas systemctl start bluetooth'
+alias rectrlc='pkill --full "flaafy@ctrl-c.club:22|ssh -fN ctrlc true"; ssh -fN ctrlc true'
 
-# quick vpn
+# quick access mounted drives
+alias drives='cd /run/media/$USER && ls'
+alias mtp='cd $XDG_RUNTIME_DIR/gvfs && ls'
+
+# quick anonymity
 alias novpn='doas protonvpn d'
 alias vpn='doas protonvpn -f c'
 alias ws="if ! pidof windscribe &> /dev/null; then doas systemctl start windscribe; fi; sleep 3; windscribe connect"
@@ -54,7 +57,7 @@ alias doomupgrade="~/.emacs.d/bin/doom upgrade"
 alias doompurge="~/.emacs.d/bin/doom purge"
 
 # get error messages from journalctl
-alias jctl="journalctl -p 3 -xb"
+alias logs="journalctl -p 3 -xb"
 
 # pastebin
 alias tb="{nc termbin.com 9999 | sed 's/^\x00//' | tee -a '$XDG_DATA_HOME'/tbhistory;}"
@@ -70,7 +73,7 @@ alias pacsyu='doas pacman -Syyu'                 # update only standard pkgs
 alias paclck='doas rm /var/lib/pacman/db.lck'    # remove pacman lock
 alias paclean='doas pacman -Rns $(pacman -Qtdq); yay -Sc --noconfirm'  # remove orphaned packages
 
-# ls
+# file listing
 alias ll="exa -alh --color=always --group-directories-first"
 alias la="exa -a --color=always --group-directories-first"
 alias l.="ls -a | grep -E "^\." | tr '\n' ' '"
@@ -123,16 +126,8 @@ alias lc-todo="{sqlite3 $HOME/.leetcode/cache/Problems < <(echo SELECT id, name 
 alias lc-find="leetcode list | grep '\[\s*[0-9]\{1,4\}\s*\]' | $MENU 'Problem name/number: ' | grep -o '[0-9]\{1,4\}' | head -n 1"
 # alias lc-tags='sqlite3 $HOME/.leetcode/cache/Problems < <(echo SELECT tag from tags where refs like \'%\"$(lc-find)\"%\')'
 
-### For power-corp ###
-alias pc="cd $HOME/projects/power-corp"
-alias pcenv="pc && source venv/bin/activate"
-alias pcrun="pcenv && env CONFIG_FILE=config.py python main.py"
-alias pctask="task project:power-corp"
-alias pcdeploy="doas rm -fr /var/www/power-corp && doas mv $MYSRC/power-corp /var/www/ && doas chown -R http:http /var/www/power-corp && doas systemctl start nginx && doas systemctl start power-corp && cd /var/log"
-alias pcdbase='if ! pidof mariadbd &> /dev/null; then doas systemctl start mariadb; fi; mariadb -u pc_admin --password=OY8\"3asJrF power_corp'
-
 ### The titan alias to cleanup my history ###
-alias hclean="sed -i '/Q2/d; /nincat/d; /htop/d; /^ani/d; /^pidof/d; /^killall/d; /^clr/d; /^echo/d; /^mpv/d; /^systemctl/d; /^cppr/d; /^xprop/d; /^man/d; /^tldr/d; /^upload/d; /^a=/d; /^b=/d; /^c=/d; /^hlen/d; /^confbak/d; /^hbak/d; /^tclk$/d; /^score$/d; /^neofetch$/d; /^fm$/d; /^hclean$/d; /^fg/d; /^bg/d; /^nohup/d; /^disown/d; /^test/d; /^pls$/d; /^vim/d; /^ytfzf/d; /^arci/d; /^info/d; /^play/d; /^ansi/d; /^speedtest/d; /^alias/d; /^merge$/d; /^clk$/d; /^speedtest-cli/d; /^dm-/d; /^mplay/d; /^notify-send/d; /^kill/d; /^rnnoise/d; /^rmnoise/d; /^xcolor/d; /^colpicker/d; /^curl ifconfig.me$/d; /^ip addr$/d; /^ex /d; /^look/d; /^msg/d; /tmux/d; /^say/d; /^date$/d; /^mupdf/d; /^mkdir/d; /^rmdir/d; /^touch/d; /^diff/d; /^rmdir/d; /--help/d; /^python$/d; /^micro/d; /^checkupdates/d; /mk.jpg/d; /dpmk/d; /^xbacklight/d; /^bpython$/d; /^cppr/d; /^cr/d; /^colorscript/d; /^pgrep$/d; /^exit$/d; /^pwd$/d; /^tty-clock$/d; /^la$/d; /^lx$/d; /^ls$/d; /^$/d; /^cd/d; /^err/d; /^cat/d; /^tree/d; /^ll/d; /^up/d; /^lyrics/d; /^locate/d; /^lolcat/d; /^song/d; /^open/d; /^quiet/d; /^echo/d; /^\\ls/d; /^printf/d; /^icons$/d; /^tty$/d; /^conky/d; /^pkill/d; /^rfkill/d; /ping/d; /^re$/d; /^cat/d; /^bat/d; /^du -sh/d; /^umount/d; /^mount/d; /^blkid$/d; /^lsblk$/d; /^df$/d; /^free/d; /^less/d; /^hfind/d; /^dm-/d; /^whereis/d; /^olog/d; /^c$/d; /^8$/d; /^:q$/d; /^:w$/d; /^timer/d; /^clear/d; /^mlog/d; /^wc -l/d; /^mus/d; /^cleanup/d; /^grep/d; /^incognito/d; /^pacman -Q/d; /^emacs/d' $HISTFILE"
+alias hclean='sed -i "/Q2/d; /nincat/d; /htop/d; /^ani/d; /^pidof/d; /^killall/d; /^clr/d; /^echo/d; /^mpv/d; /^systemctl/d; /^cppr/d; /^xprop/d; /^man/d; /^tldr/d; /^upload/d; /^a=/d; /^b=/d; /^c=/d; /^hlen/d; /^confbak/d; /^hbak/d; /^tclk$/d; /^score$/d; /^neofetch$/d; /^fm$/d; /^hclean$/d; /^fg/d; /^bg/d; /^nohup/d; /^disown/d; /^test/d; /^pls$/d; /^vim/d; /^ytfzf/d; /^arci/d; /^info/d; /^play/d; /^ansi/d; /^speedtest/d; /^alias/d; /^merge$/d; /^clk$/d; /^speedtest-cli/d; /^dm-/d; /^mplay/d; /^notify-send/d; /^kill/d; /^rnnoise/d; /^rmnoise/d; /^xcolor/d; /^colpicker/d; /^curl ifconfig.me$/d; /^ip addr$/d; /^ex /d; /^look/d; /^msg/d; /tmux/d; /^say/d; /^date$/d; /^mupdf/d; /^mkdir/d; /^rmdir/d; /^touch/d; /^diff/d; /^rmdir/d; /--help/d; /^python$/d; /^micro/d; /^checkupdates/d; /mk.jpg/d; /dpmk/d; /^xbacklight/d; /^bpython$/d; /^cppr/d; /^cr/d; /^colorscript/d; /^pgrep$/d; /^exit$/d; /^pwd$/d; /^tty-clock$/d; /^la$/d; /^lx$/d; /^ls$/d; /^$/d; /^cd/d; /^err/d; /^cat/d; /^tree/d; /^ll/d; /^up/d; /^lyrics/d; /^locate/d; /^lolcat/d; /^song/d; /^open/d; /^quiet/d; /^echo/d; /^\\ls/d; /^printf/d; /^icons$/d; /^tty$/d; /^conky/d; /^pkill/d; /^rfkill/d; /ping/d; /^re$/d; /^cat/d; /^bat/d; /^du -sh/d; /^umount/d; /^mount/d; /^blkid$/d; /^lsblk$/d; /^df$/d; /^free/d; /^less/d; /^hfind/d; /^dm-/d; /^whereis/d; /^olog/d; /^c$/d; /^8$/d; /^:q$/d; /^:w$/d; /^timer/d; /^clear/d; /^mlog/d; /^wc -l/d; /^mus/d; /^cleanup/d; /^grep/d; /^incognito/d; /^pacman -Q/d; /^emacs/d" $HISTFILE'
 
 ### functions ###
 
@@ -165,7 +160,7 @@ jrnl() {
 # Quickly write a note using the above jrnl setup.
 alias note='jrnl --config-override editor \"\"'
 
-# substitute a regex with another regex in previous command
+# Substitute each occurence of regex in previous command with given replacement.
 sub() {
     local cmd="$(tail -n 1 $HOME/.bash_history | sed "s/$1/$2/g")"
     [[ -n "cmd" ]] && echo $cmd && eval "$cmd"
