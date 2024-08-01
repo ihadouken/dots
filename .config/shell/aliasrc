@@ -89,6 +89,7 @@ alias lynx='lynx -cfg=~/.lynx/lynx.cfg -lss=~/.lynx/lynx.lss -vikeys'
 # with other programs
 alias anime='jerry -c'
 alias cat='bat -pp'
+alias less='bat --paging=always --decorations=never'
 alias def="sdcv -u \"Oxford Advanced Learner's Dictionary\""
 alias dl='aria2c -d "$HOME/Downloads" --seed-time=0 -x 3 --summary-interval=300'
 alias ftp='lftp -p 2121 192.168.1.82'
@@ -100,7 +101,11 @@ alias siri='sgpt'
 alias alexa='tgpt'
 alias tclk='tty-clock -Dbtc -C5 -d 59'
 alias typist='gtypist -e 4% -b -t -i -c 1,0 --banner-colours=0,1,0,0'
-
+alias svim='sudo --edit '
+alias dots='/usr/bin/git --git-dir=$MYSRC/dotfiles --work-tree=$HOME'
+alias wal='wal --backend colorz --cols16'
+alias drop='dragon-drop -x -t -T -p'
+alias drag='dragon-drop -T'
 
 ### cool one liners ###
 alias clk='printf "\033[1;35m%s\n\033[0m" "$(date +"%l:%M %p")"'
