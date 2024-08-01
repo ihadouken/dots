@@ -195,7 +195,7 @@ layout_theme = {"border_width": 2,
                 "single_margin": 0,
                 "single_border_width": 0,
                 "new_client_position": 'bottom',
-                "ratio": 0.57
+                "ratio": 0.56
                 }
 
 layouts = [
