@@ -67,6 +67,9 @@ map("n", "<Leader>p", "@:<CR>")
 -- Quick write
 map("n", "ZW", "<CMD>w<CR>")
 
+-- Clear highlighted matches after search.
+map("n", "<Leader>d", "<CMD>nohlsearch<CR>")
+
 function SmartTabComplete()
     -- Get current line.
     local line = vim.api.nvim_get_current_line()
