@@ -1,19 +1,23 @@
 [user]
-	name = Rahul Sharma
-	email = rsharma842756@gmail.com
+    name = Rahul Sharma
+    email = rsharma842756@gmail.com
 [core]
     editor = nvim
 [init]
     defaultBranch = main
 [merge]
-	tool = nvimdiff
-	conflictstyle = diff3
+    tool = nvimdiff
+    conflictstyle = diff3
 [mergetool]
-	prompt = false
+    prompt = false
 [credential]
-	credentialStore = gpg
-	helper = /usr/bin/git-credential-manager
+    credentialStore = gpg
+    helper = /usr/bin/git-credential-manager
 [credential "https://dev.azure.com"]
-	useHttpPath = true
+    useHttpPath = true
 [alias]
-	plog = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches
+    plog = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches
+[pull]
+    rebase = false
+[color]
+    ui = auto
