@@ -1,32 +1,30 @@
 # Environment varibles
-[[ -f "$HOME/.config/shell/env" ]] && . "$HOME/.config/shell/env"
+[ -f "$HOME/.config/shell/env" ] && . "$HOME/.config/shell/env"
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+[ -f ~/.bashrc ] && . ~/.bashrc
 
 # Start programs independent of session type here.
 nice -n 19 sudo updatedb & &> /dev/null
 
-# Start X session
-if [[ "$(tty)" == '/dev/tty1' ]]; then
-    if ! pgrep -x qtile; then
-        export XDG_SESSION_DESKTOP='qtile'
-        export MYTERM='st'
-        exec startx
+# Start ssh master session for using jrnl via ctrlc pubnix.
+{ while true ; do
+    if [ ! -S "$HOME/.ssh/controlmasters/flaafy@ctrl-c.club:22" ]; then
+        nice -n 19 nm-online -q -t 60 && nice -n 19 ssh -NT ctrlc
+        notify-send 'Restarting Ctrl-C Connection ...'
     fi
+    sleep 10
+done } &
 
-elif [[ "$(tty)" == '/dev/tty2' ]]; then
-    export XDG_SESSION_DESKTOP='hypr'
-    export MYTERM='footclient'
+# All WMs are mapped to particular TTYs.
+export TTY=$(tty)
+
+if [ "$TTY" == '/dev/tty1' ]; then
     exec Hyprland
-
-elif [[ "$(tty)" == '/dev/tty3' ]]; then
-    if ! pgrep xmonad; then
-        export XDG_SESSION_DESKTOP="xmonad"
-        export MYTERM='alacritty'
-        exec startx
-    fi
+elif [ "$TTY" = '/dev/tty2' -o "$TTY" == '/dev/tty3']; then
+    exec startx
 else
     # Red coloured cursor in non-graphical ttys
     echo -e '\e[?16;0;200c'
+    # Set a good looking TTY font.
     setfont ter-u20b
 fi

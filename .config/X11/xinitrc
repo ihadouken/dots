@@ -56,16 +56,22 @@ fi
 picom --experimental-backends &
 nm-applet &
 dunst &
-#emacs --daemon &
+# emacs --daemon &
 lxsession &
 unclutter --timeout 10 &
 
+# setup environment for X session.
+export MYTERM='st'
+
 # start window manager
-if [[ "$(tty)" == "/dev/tty1" ]]; then
+if [ "$TTY" = "/dev/tty2" ]; then
+    export XDG_SESSION_DESKTOP='qtile'
     qtile start
-elif [[ "$(tty)" == "/dev/tty2" ]]; then
+elif [ "$TTY" = "/dev/tty1" ]; then
+    export XDG_SESSION_DESKTOP='dwm'
     while type dwm > /dev/null; do dwm && continue || break; done
-elif [[ "$(tty)" == "/dev/tty3" ]]; then
+elif [ "$TTY" = "/dev/tty3" ]; then
+    export XDG_SESSION_DESKTOP="xmonad"
     xmonad
 fi
 
