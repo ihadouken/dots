@@ -67,9 +67,6 @@ packer.startup(function(use)
     -- Other stuff --
     use("frazrepo/vim-rainbow")
 
-    -- Vim needs sudo --
-    use("lambdalisue/suda.vim")
-
     -- Advanced commenting/uncommenting --
     use {
         'numToStr/Comment.nvim',

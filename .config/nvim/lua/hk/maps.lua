@@ -20,9 +20,6 @@ map("n", "<leader>fb", "<CMD>Telescope file_browser<CR>")
 map("n", "<leader>fw", "<CMD>Telescope live_grep<CR>")
 map("n", "<leader>ht", "<CMD>Telescope colorscheme<CR>")
 
--- SudaWrite
-map("c", "ww<CR>", "<CMD>SudaWrite<CR>")
-
 -- Goyo (focus mode)
 map("n", "<leader>g", "<CMD>Goyo<CR>")
 
