@@ -3,9 +3,6 @@
 
 [ -f ~/.bashrc ] && . ~/.bashrc
 
-# Start programs independent of session type here.
-nice -n 19 sudo updatedb & &> /dev/null
-
 # Start ssh master session for using jrnl via ctrlc pubnix.
 { while true ; do
     if [ ! -S "$HOME/.ssh/controlmasters/flaafy@ctrl-c.club:22" ]; then
@@ -18,6 +15,15 @@ done } &
 # All WMs are mapped to particular TTYs.
 export TTY=$(tty)
 
+# Load programs not requiring GUI session but to be started only for GUI sessions.
+gui_ttys=( '/dev/tty1' '/dev/tty2' '/dev/tty3' )
+
+# This "element in array" check works only for single-word elements.
+if [[ "${gui_ttys[*]}" =~ "$TTY" ]]; then
+    nice -n 19 sudo updatedb & &> /dev/null
+fi
+
+# Load GUI session mapped to current TTY (if any).
 if [ "$TTY" == '/dev/tty1' ]; then
     exec Hyprland
 elif [ "$TTY" = '/dev/tty2' -o "$TTY" == '/dev/tty3']; then
