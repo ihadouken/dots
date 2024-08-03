@@ -596,8 +596,7 @@ config.bind('O', 'spawn --userscript dmenu-open.sh')
 config.bind('Sk', 'spawn --userscript qute-keys.sh')
 
 # Print current page.
-config.bind('<Ctrl-P>', 'set statusbar.show always;; cmd-set-text :print --pdf ~/Documents/qb-print.pdf')
-config.bind('<Ctrl-Shift-P>', 'set statusbar.show always;; cmd-set-text :screenshot ~/Pictures/screenshot/qb-ss.png')
+config.bind('<Ctrl-P>', 'print')
 
 # Edit stuff in external editor.
 # config.unbind('<Ctrl+e>', 'insert')
