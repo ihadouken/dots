@@ -592,8 +592,8 @@ config.bind('SH', 'open -t;; history')
 config.bind('Ch', 'history-clear')
 
 # custom userscripts
-config.bind('O', 'spawn --userscript dmenu-open')
-config.bind('Sk', 'spawn --userscript qute_keys.sh')
+config.bind('O', 'spawn --userscript dmenu-open.sh')
+config.bind('Sk', 'spawn --userscript qute-keys.sh')
 
 # Print current page.
 config.bind('<Ctrl-P>', 'set statusbar.show always;; cmd-set-text :print --pdf ~/Documents/qb-print.pdf')
