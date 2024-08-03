@@ -585,6 +585,7 @@ config.bind('gs', 'set statusbar.show always;; cmd-set-text -s :open -t goog')
 config.bind('xb', 'config-cycle statusbar.show always never')
 config.bind('xt', 'config-cycle tabs.show always never')
 config.bind('xx', 'config-cycle statusbar.show always in-mode;; config-cycle tabs.show always never')
+config.bind('I', 'config-cycle colors.webpage.darkmode.enabled false true')
 
 # History
 config.bind('SH', 'open -t;; history')
@@ -593,7 +594,6 @@ config.bind('Ch', 'history-clear')
 # custom userscripts
 config.bind('O', 'spawn --userscript dmenu-open')
 config.bind('Sk', 'spawn --userscript qute_keys.sh')
-config.bind('<Ctrl-I>', 'spawn --userscript toggle-dark.sh')
 
 # Print current page.
 config.bind('<Ctrl-P>', 'set statusbar.show always;; cmd-set-text :print --pdf ~/Documents/qb-print.pdf')
