@@ -605,7 +605,7 @@ config.bind('eu', 'edit-url')
 config.bind('ec', 'edit-command')
 
 # Opening stuff.
-config.bind('T', 'set open -t')
+config.bind('T', 'cmd-set-text -s :open -t')
 
 # Yank link from hints.
 config.bind('yl', 'hint links yank')
