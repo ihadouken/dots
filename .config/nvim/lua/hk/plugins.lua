@@ -75,6 +75,8 @@ packer.startup(function(use)
         end
     }
 
+    -- use('dylanaraps/wal.vim')
+
     if packer_bootstrap then
         packer.sync()
     end
