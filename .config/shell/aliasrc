@@ -37,7 +37,7 @@ alias mtp='cd $XDG_RUNTIME_DIR/gvfs && ls'
 # quick anonymity
 alias novpn='doas protonvpn d'
 alias vpn='doas protonvpn -f c'
-alias noproxy='kill -9 "$(lsof -i :7890 -P -n -Fp | tail -c +2)"'
+alias noproxy='kill -9 "$(lsof -t -i :7890)"'
 alias proxy='noproxy; ssh -fND 7890'
 
 # ps
@@ -111,6 +111,7 @@ alias clr='/bin/clear; echo; seq 1 $(tput cols) | sort -R | spark | lolcat; echo
 alias fopen='open "$(find / -type f 2> /dev/null | fzf)"'
 alias hbak='mv $HISTFILE $HOME/Backups/hbak/$(basename $HISTFILE)-$(date +%Y.%m.%d.%H-%M)'
 alias radio-song="printf '{ \"command\": [\"get_property\", \"%s\" ] }\n' \"metadata/by-key/icy-title\" | socat - ~/.cache/mpv-ipc-socket | jq -r .data"
+alias publish='curl -X POST "https://ntfy.vern.cc/$(uname -n)" -d'
 
 ### clipboard ###
 alias cp2cb='xclip -in -sel c'
