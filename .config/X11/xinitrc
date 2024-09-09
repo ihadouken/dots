@@ -23,16 +23,12 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
   [ -x "$f" ] && . "$f"
  done
  unset f
 fi
-
-# Execute sxhkd at the beginning of the X startup script so that it grabs all the keys
-# before these are grabbed by the built-in keybinder of the WM/DE.
-sxhkd &
 
 # Run some configuration commands
 nice -n 19 xset s 120 300 &
@@ -53,27 +49,29 @@ else
     xss-lock /usr/local/bin/slock &
 fi
 
-picom --experimental-backends &
+# picom --experimental-backends &
 nm-applet &
 dunst &
 # emacs --daemon &
 lxsession &
-unclutter --timeout 10 &
+# unclutter --timeout 10 &
 
 # setup environment for X session.
 export MYTERM='st'
+# Setup WM independant keybinds.
+sxhkd &> /dev/null &
 
-# start window manager
-if [ "$TTY" = "/dev/tty2" ]; then
-    export XDG_SESSION_DESKTOP='qtile'
-    qtile start
-elif [ "$TTY" = "/dev/tty1" ]; then
-    export XDG_SESSION_DESKTOP='dwm'
-    while type dwm > /dev/null; do dwm && continue || break; done
-elif [ "$TTY" = "/dev/tty3" ]; then
-    export XDG_SESSION_DESKTOP="xmonad"
-    xmonad
-fi
+# Start window manager (if no display manager is configured).
+# if [ "$TTY" = "/dev/tty1" ]; then
+#     export XDG_SESSION_DESKTOP='qtile'
+#     qtile start
+# elif [ "$TTY" = "/dev/tty2" ]; then
+#     export XDG_SESSION_DESKTOP='dwm'
+#     while type dwm > /dev/null; do dwm && continue || break; done
+# elif [ "$TTY" = "/dev/tty3" ]; then
+#     export XDG_SESSION_DESKTOP="xmonad"
+#     xmonad
+# fi
 
 # instead of WM, start only 1 terminal in fullscreen
 #alacritty
