@@ -19,6 +19,7 @@ application/zip=userapp-ex-NFZLN1.desktop
 text/plain=nvim.desktop;
 text/x-csrc=nvim.desktop
 text/x-python=nvim.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop.desktop
 
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-2409B1.desktop;userapp-Telegram Desktop-N2ACC1.desktop;userapp-Telegram Desktop-DH7IH1.desktop;org.telegram.desktop.desktop;
@@ -33,5 +34,7 @@ image/jpeg=sxiv.desktop;
 text/x-python=nvim.desktop;
 text/plain=nvim.desktop;
 text/x-csrc=nvim.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 
 [Removed Associations]
+image/svg+xml=sxiv-usercreated-1.desktop;
