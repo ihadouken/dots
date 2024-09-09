@@ -47,11 +47,10 @@ export MYSRC="$HOME/.local/src"
 export MYEMACS="emacsclient -c -a 'emacs'"
 export TMPDIR='/tmp'
 # export MENU='dmenu -l 20 -p'
-# export MENU='dmenu -c -l 10 -p'
-export MENU='rofi -dmenu -i -p'
+export MENU='dmenu -c -l 20 -W 680 -p'
+# export MENU='rofi -dmenu -i -p'
 # export MENU='fzf --prompt'
 
-# Standard programs
 export PAGER='/usr/bin/bat'
 export BROWSER='/usr/bin/qutebrowser'
 export EDITOR='nvim'
@@ -61,11 +60,14 @@ export EDITOR='nvim'
 export LESSOPEN='| /usr/bin/source-highlight-esc.sh %s'
 export LESS='-R '
 export SDCV_PAGER='lolcat -f | less --quit-if-one-screen -RX'
+export STARDICT_DATA_DIR="$XDG_DATA_HOME/stardict"
 # export LD_LIBRARY_PATH="$HOME/me/libgourou_utils_0.7.1"
+
 ### SET MANPAGER
 ### Uncomment only one of these!
 
 ### "bat" as manpager
+export MANPAGER='bat -l man --paging=always --decorations=never'
 # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 ### "vim" as manpager
@@ -75,7 +77,4 @@ export SDCV_PAGER='lolcat -f | less --quit-if-one-screen -RX'
 # export MANPAGER="nvim -c 'set ft=man' -"
 
 ### "less" as manpager
-export MANPAGER="less"
-
-# console dictionary
-export STARDICT_DATA_DIR="$XDG_DATA_HOME/stardict"
+# export MANPAGER="less"
