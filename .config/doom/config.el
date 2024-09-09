@@ -28,34 +28,34 @@
 (use-package! calfw)
 (use-package! calfw-org)
 
-(use-package! centaur-tabs
-  :if window-system
-  :defer t
-  :demand
-  :init
-  ;; Set the style to rounded with icons
-  (setq centaur-tabs-style "bar")
-  (setq centaur-tabs-set-icons t)
+;; (use-package! centaur-tabs
+;;   :if window-system
+;;   :defer t
+;;   :demand
+;;   :init
+;;   ;; Set the style to rounded with icons
+;;   (setq centaur-tabs-style "bar")
+;;   (setq centaur-tabs-set-icons t)
 
-  :config
-  ;; Enable centaur-tabs
-  ;; (centaur-tabs-mode t)
+;;   :config
+;;   ;; Enable centaur-tabs
+;;   ;; (centaur-tabs-mode t)
 
-  (setq centaur-tabs-set-bar 'over
-    centaur-tabs-set-icons t
-    centaur-tabs-gray-out-icons 'buffer
-    centaur-tabs-height 24
-    centaur-tabs-set-modified-marker t
-    centaur-tabs-style "bar"
-    centaur-tabs-modified-marker "•")
-  (evil-define-key 'normal centaur-tabs-mode-map (kbd "g <right>") 'centaur-tabs-forward        ; default Doom binding is 'g t'
-                                                 (kbd "g <left>")  'centaur-tabs-backward       ; default Doom binding is 'g T'
-                                                 (kbd "g <down>")  'centaur-tabs-forward-group
-                                                 (kbd "g <up>")    'centaur-tabs-backward-group))
+;;   (setq centaur-tabs-set-bar 'over
+;;     centaur-tabs-set-icons t
+;;     centaur-tabs-gray-out-icons 'buffer
+;;     centaur-tabs-height 24
+;;     centaur-tabs-set-modified-marker t
+;;     centaur-tabs-style "bar"
+;;     centaur-tabs-modified-marker "•")
+;;   (evil-define-key 'normal centaur-tabs-mode-map (kbd "g <right>") 'centaur-tabs-forward        ; default Doom binding is 'g t'
+;;                                                  (kbd "g <left>")  'centaur-tabs-backward       ; default Doom binding is 'g T'
+;;                                                  (kbd "g <down>")  'centaur-tabs-forward-group
+;;                                                  (kbd "g <up>")    'centaur-tabs-backward-group))
 
-(map! :leader
-:desc "Toggle tabs globally" "t c" #'centaur-tabs-mode
-:desc "Toggle tabs local display" "t C" #'centaur-tabs-local-mode)
+;; (map! :leader
+;; :desc "Toggle tabs globally" "t c" #'centaur-tabs-mode
+;; :desc "Toggle tabs local display" "t C" #'centaur-tabs-local-mode)
 
 (use-package! treemacs
   :defer t
