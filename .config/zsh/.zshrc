@@ -1,7 +1,7 @@
 ### Oh My Zsh ###
 export ZSH="$MYSRC/omz"
-# ZSH_THEME="alanpeabody"
-ZSH_THEME="gnzh"
+ZSH_THEME="alanpeabody"
+# ZSH_THEME="gnzh"
 plugins=(taskwarrior git vi-mode)
 source "$ZSH/oh-my-zsh.sh"
 
@@ -45,6 +45,9 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 if [ -f /etc/bash.command-not-found ]; then
     . /etc/bash.command-not-found
 fi
+
+# Completion for sudo
+complete -cf sudo
 
 ### Helping my vocab ###
 cowsay "$(shuf -n 1 "$HOME/Documents/words.txt")"
