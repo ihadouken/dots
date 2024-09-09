@@ -20,9 +20,10 @@ tree_1:
     bugswriter: "https://bugswriter.com/"
     me: "https://hadouken.neocities.org/"
   pubnix:
-    psf: "https://projectsegfau.lt/"
-    ctrlc: "https://ctrl-c.club/"
     ~team: "https://tilde.team/"
+    ctrlc: "https://ctrl-c.club/"
+    vern: "https://vern.cc/"
+    psf: "https://projectsegfau.lt/"
 
 tree_2:
   docs:
