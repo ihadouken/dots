@@ -1,22 +1,22 @@
-# This is an example configuration file for lobster. This configuration includes all of the defaults, which you can change to you likings. The script will behave the exact same if you remove all of the values present here.
-
-lobster_editor="${EDITOR:-vim}"
+lobster_editor="${EDITOR:-nvim}"
 player=mpv
 download_dir="$HOME/Videos/lobster"
 provider="UpCloud"
-history=1
+history=true
 subs_language="english"
 histfile="$XDG_DATA_HOME/lobster/history.txt"
-use_external_menu=1
-image_preview=0
+use_external_menu=true
+image_preview=false
 image_config_path="$HOME/.config/rofi/styles/lobster-selector.rasi"
-debug=0
-quiet_output=0
+debug=false
+quiet_output=false
 preview_window_size=50%
-ueberzug_x=$(($(tput cols) - 70))
-ueberzug_y=$(($(tput lines) / 10))
-ueberzug_max_width=100
-ueberzug_max_height=100
+
+# use_ueberzugpp=true
+# ueberzug_x=$(($(tput cols) - 70))
+# ueberzug_y=$(($(tput lines) / 10))
+# ueberzug_max_width=100
+# ueberzug_max_height=100
 
 try() {
   local response res
