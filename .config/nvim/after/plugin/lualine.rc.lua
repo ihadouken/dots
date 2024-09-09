@@ -1,11 +1,12 @@
 require('lualine').setup {
-  options = {
-      theme = 'base16'
-      -- globalstatus = true
-  },
-  disabled_buftypes = {
-      'packer',
-  }
+    options = {
+        theme = 'base16'
+        -- theme = 'codedark'
+        -- globalstatus = true
+    },
+    disabled_buftypes = {
+        'packer',
+    }
 }
 
 -- Hide lualine when goyo is active
