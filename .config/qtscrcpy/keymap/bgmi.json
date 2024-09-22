@@ -1,0 +1,353 @@
+{
+    "switchKey": "Key_Alt",
+    "mouseMoveMap": {
+        "startPos": {
+            "x": 0.37,
+            "y": 0.21
+        },
+        "speedRatioX": 4,
+        "speedRatioY": 2,
+        "smallEyes": {
+            "comment": "Free Look",
+            "type": "KMT_CLICK",
+            "key": "Key_V",
+            "pos": {
+                "x": 0.76,
+                "y": 0.35
+            },
+            "switchMap": false
+        },
+        "speedRatio": 10
+    },
+    "keyMapNodes": [
+        {
+            "comment": "Movement D-PAD",
+            "type": "KMT_STEER_WHEEL",
+            "centerPos": {
+                "x": 0.19,
+                "y": 0.74
+            },
+            "leftOffset": 0.2,
+            "rightOffset": 0.2,
+            "upOffset": 0.2,
+            "downOffset": 0.2,
+            "leftKey": "Key_A",
+            "rightKey": "Key_D",
+            "upKey": "Key_W",
+            "downKey": "Key_S"
+        },
+        {
+            "comment": "Rescue",
+            "type": "KMT_CLICK",
+            "key": "Key_X",
+            "pos": {
+                "x": 0.26,
+                "y": 0.40
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "First Weapon",
+            "type": "KMT_CLICK",
+            "key": "Key_1",
+            "pos": {
+                "x": 0.44,
+                "y": 0.90
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Second Weapon",
+            "type": "KMT_CLICK",
+            "key": "Key_2",
+            "pos": {
+                "x": 0.55,
+                "y": 0.90
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Change to Push to Talk",
+            "type": "KMT_CLICK",
+            "key": "Key_F1",
+            "pos": {
+                "x": 0.76,
+                "y": 0.35
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Jump",
+            "type": "KMT_CLICK",
+            "key": "Key_Space",
+            "pos": {
+                "x": 0.92,
+                "y": 0.68
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Crouch",
+            "type": "KMT_CLICK",
+            "key": "Key_C",
+            "pos": {
+                "x": 0.87,
+                "y": 0.59
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Crate + Pickup",
+            "type": "KMT_CLICK_MULTI",
+            "key": "Key_Tab",
+            "clickNodes": [
+                {
+                    "delay": 0,
+                    "pos": {
+                        "x": 0.55,
+                        "y": 0.21
+                    },
+                    "switchMap": false
+                },
+                {
+                    "delay": 0,
+                    "pos": {
+                        "x": 0.72,
+                        "y": 0.24
+                    },
+                    "switchMap": false
+                }
+            ]
+        },
+        {
+            "comment": "Canted Sight Toggle",
+            "type": "KMT_CLICK",
+            "key": "Key_Y",
+            "pos": {
+                "x": 0.83,
+                "y": 0.93
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Change View TPP/FPP",
+            "type": "KMT_CLICK",
+            "key": "Key_N",
+            "pos": {
+                "x": 0.26,
+                "y": 0.85
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Reload",
+            "type": "KMT_CLICK",
+            "key": "Key_R",
+            "pos": {
+                "x": 0.76,
+                "y": 0.93
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Toggle Map",
+            "type": "KMT_CLICK",
+            "key": "Key_F",
+            "pos": {
+                "x": 0.93,
+                "y": 0.05
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Throwables",
+            "type": "KMT_CLICK",
+            "key": "MiddleButton",
+            "pos": {
+                "x": 0.65,
+                "y": 0.93
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Toggle Carry Knocked Teammate",
+            "type": "KMT_CLICK",
+            "key": "Key_G",
+            "pos": {
+                "x": 0.47,
+                "y": 0.66
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Inventory",
+            "type": "KMT_CLICK",
+            "key": "Key_E",
+            "pos": {
+                "x": 0.09,
+                "y": 0.90
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Consumables",
+            "type": "KMT_CLICK",
+            "key": "Key_Q",
+            "pos": {
+                "x": 0.34,
+                "y": 0.93
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Prone",
+            "type": "KMT_CLICK",
+            "key": "Key_Control",
+            "pos": {
+                "x": 0.91,
+                "y": 0.93
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Scope Switch",
+            "type": "KMT_CLICK",
+            "key": "Key_F4",
+            "pos": {
+                "x": 0.94,
+                "y": 0.42
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Parachute",
+            "type": "KMT_CLICK",
+            "key": "Key_F3",
+            "pos": {
+                "x": 0.78,
+                "y": 0.52
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Sprint",
+            "type": "KMT_CLICK",
+            "key": "Key_Shift",
+            "pos": {
+                "x": 0.79,
+                "y": 0.21
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Cancel",
+            "type": "KMT_CLICK",
+            "key": "Key_Z",
+            "pos": {
+                "x": 0.26,
+                "y": 0.55
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Key 3",
+            "type": "KMT_CLICK",
+            "key": "Key_3",
+            "pos": {
+                "x": 0.68,
+                "y": 0.34
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Key 4",
+            "type": "KMT_CLICK",
+            "key": "Key_4",
+            "pos": {
+                "x": 0.68,
+                "y": 0.42
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Key 5",
+            "type": "KMT_CLICK",
+            "key": "Key_5",
+            "pos": {
+                "x": 0.68,
+                "y": 0.49
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Key B",
+            "type": "KMT_CLICK",
+            "key": "Key_B",
+            "pos": {
+                "x": 0.68,
+                "y": 0.63
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Scope Adjustment Slider",
+            "type": "KMT_CLICK",
+            "key": "Key_F5",
+            "pos": {
+                "x": 0.31,
+                "y": 0.22
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Toggle Mic",
+            "type": "KMT_CLICK",
+            "key": "Key_T",
+            "pos": {
+                "x": 0.83,
+                "y": 0.20
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Shoot / Swim Down",
+            "type": "KMT_CLICK",
+            "key": "LeftButton",
+            "pos": {
+                "x": 0.83,
+                "y": 0.75
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Toggle Scope / Swim Up",
+            "type": "KMT_CLICK",
+            "key": "RightButton",
+            "pos": {
+                "x": 0.81,
+                "y": 0.60
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Open Settings",
+            "type": "KMT_CLICK",
+            "key": "Key_F2",
+            "pos": {
+                "x": 0.83,
+                "y": 0.05
+            },
+            "switchMap": false
+        },
+        {
+            "comment": "Mark Position",
+            "type": "KMT_CLICK",
+            "key": "Key_QuoteLeft",
+            "pos": {
+                "x": 0.87,
+                "y": 0.36
+            },
+            "switchMap": false
+        }
+    ]
+}
